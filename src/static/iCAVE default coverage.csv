@@ -1,0 +1,63 @@
+﻿base,full_name,period,from,until
+btc,Bitcoin,1,,
+eth,Ethereum,1,,
+usdt,Tether,1,,
+usdc,USD Coin,1,,
+bnb,BNB,1,,
+xrp,XRP,1,,
+busd,Binance USD,1,,
+doge,Dogecoin,1,,
+ada,Cardano,1,,
+matic,Polygon,1,,
+dai,Dai,1,,
+ltc,Litecoin,1,,
+trx,TRON,1,,
+dot,Polkadot,1,,
+shib,Shiba Inu,1,,
+uni,Uniswap,1,,
+sol,Solana,1,,
+avax,Avalanche,1,,
+leo,UNUS SED LEO,1,,
+wbtc,Wrapped Bitcoin,1,,
+link,Chainlink,1,,
+ton,Toncoin,1,,
+xmr,Monero,1,,
+atom,Cosmos,1,,
+etc,Ethereum Classic,1,,
+xlm,Stellar,1,,
+bch,Bitcoin Cash,1,,
+okb,OKB,1,,
+cro,Cronos,1,,
+ape,ApeCoin,1,,2023-06-29
+qnt,Quant,1,,
+algo,Algorand,1,,
+vet,VeChain,1,,
+icp,Internet Computer,1,,
+fil,Filecoin,1,,
+near,NEAR Protocol,1,,
+hbar,Hedera,1,,
+eos,EOS,1,,2023-06-29
+luna,Terra Classic,1,,2023-03-30
+usdp,Pax Dollar,1,,2023-03-30
+tusd,TrueUSD,1,,
+bsv,Bitcoin SV,1,,2023-03-30
+egld,MultiversX,1,,
+ht,Huobi Token,1,,2023-03-30
+theta,Theta Network,1,,2023-06-29
+aave,Aave,1,,
+usdd,USDD,1,,2023-03-30
+bit,BitDAO,1,,2023-06-29
+flow,Flow,1,,2023-03-30
+chz,Chiliz,1,,2023-03-30
+apt,Aptos,1,2023-03-31,
+ldo,Lido DAO,1,2023-03-31,
+ftm,Fantom,1,2023-03-31,
+grt,The Graph,1,2023-03-31,
+stx,Stacks,1,2023-03-31,
+mana,Decentraland,1,2023-03-31,2023-06-29
+arb,Arbitrum,1,2023-06-30,
+op,Optimism,1,2023-06-30,
+mkr,Maker,1,2023-06-30,
+sand,The Sandbox,1,2023-06-30,
+usdp,Pax Dollar,2,2023-06-30,
+bsv,Bitcoin SV,2,2023-06-30,
