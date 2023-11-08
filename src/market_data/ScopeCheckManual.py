@@ -17,8 +17,10 @@ exchanges = pd.read_csv(
     parse_dates=['from', 'until'], dayfirst=True)
 
 fiat_currency_list = pd.read_csv(
-    Path(__file__).parents[1] / 'static' / 'fiat_currency.csv')['Alphabetic Code'].str.lower().to_list()
-fiat_currency_df = pd.DataFrame(fiat_currency_list, columns=['quote']).drop_duplicates()
+    Path(__file__).parents[1] / 'static' / 'fiat_currency.csv')[
+    'Alphabetic Code'].str.lower().to_list()
+fiat_currency_df = pd.DataFrame(fiat_currency_list,
+                                columns=['quote']).drop_duplicates()
 
 crypto_currency_df = pd.DataFrame(
     ['rad', 'pstake'],
@@ -31,7 +33,8 @@ Full coverage for all fiat
 
 for val_date in val_dates:
     print(val_date)
-    output_path = Path(__file__).parents[2] / 'output' / 'MarketDataOfficial' / val_date
+    output_path = Path(__file__).parents[
+                      2] / 'output' / 'MarketDataOfficial' / val_date
     output_scope = output_path / 'iCAVE manual extraction markets.csv'
     output_conversion = output_path / 'iCAVE manual extraction conversion.csv'
     if not output_path.exists():
@@ -42,8 +45,10 @@ for val_date in val_dates:
     val_date_dt = pd.to_datetime(val_date)
     exchange_output = exchanges.loc[
         (
-                (exchanges['from'].isnull() | (exchanges['from'] <= val_date_dt))
-                & (exchanges['until'].isnull() | (exchanges['until'] >= val_date_dt))
+                (exchanges['from'].isnull() | (
+                            exchanges['from'] <= val_date_dt))
+                & (exchanges['until'].isnull() | (
+                    exchanges['until'] >= val_date_dt))
         ),
         'exchange']
     # extract all markets
@@ -61,9 +66,11 @@ for val_date in val_dates:
         )
         markets = markets[markets['_merge'] == 'left_only']
         quote_crypto_df = (
-            markets['quote'].drop_duplicates().to_frame().rename(columns={'quote': 'base'})
+            markets['quote'].drop_duplicates().to_frame().rename(
+                columns={'quote': 'base'})
             .merge(all_markets, how='inner', left_on='base', right_on='base')
-            .merge(fiat_currency_df, how='inner', left_on='quote', right_on='quote')
+            .merge(fiat_currency_df, how='inner', left_on='quote',
+                   right_on='quote')
         )
         markets_full = pd.concat([markets, quote_crypto_df])
         quote_crypto_df.to_csv(output_conversion, index=False)
@@ -73,7 +80,8 @@ for val_date in val_dates:
     else:
         markets = (all_markets
                    .merge(crypto_currency_df, how='inner', on='base')
-                   .merge(fiat_currency_df, how='inner', on='quote', indicator=True)
+                   .merge(fiat_currency_df, how='inner', on='quote',
+                          indicator=True)
                    .drop_duplicates())
         print(f'number of crypto-fiat quotes: {markets.shape[0]}')
         markets.to_csv(output_scope, index=False)

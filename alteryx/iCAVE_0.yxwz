@@ -1,0 +1,1772 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2022.1">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="294" y="294" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv</File>
+          <FormatSpecificOptions>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreErrors>False</IgnoreErrors>
+            <AllowShareWrite>False</AllowShareWrite>
+            <ImportLine>1</ImportLine>
+            <FieldLen>254</FieldLen>
+            <SingleThreadRead>False</SingleThreadRead>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <Delimeter>,</Delimeter>
+            <QuoteRecordBreak>False</QuoteRecordBreak>
+            <CodePage>28591</CodePage>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>CoinMetricsData_20230630_20230808.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="market" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="time" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_open" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_close" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_high" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_low" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="candle_usd_volume" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="candle_trades_count" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="bid_price" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="ask_price" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-10" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-9" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-8" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-7" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-6" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-5" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-4" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-3" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-2" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-1" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-10" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-9" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-8" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-7" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-6" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-5" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-4" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-3" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-2" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-1" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="fullname" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="val_date" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="630" y="294" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="volume" selected="True" type="Double" size="8" />
+            <SelectField field="candle_usd_volume" selected="True" type="Double" size="8" />
+            <SelectField field="candle_trades_count" selected="True" type="Double" size="8" />
+            <SelectField field="volume_1d_T-10" selected="True" type="Double" size="8" />
+            <SelectField field="volume_1d_T-9" selected="True" type="Double" size="8" />
+            <SelectField field="volume_1d_T-8" selected="True" type="Double" size="8" />
+            <SelectField field="volume_1d_T-7" selected="True" type="Double" size="8" />
+            <SelectField field="volume_1d_T-6" selected="True" type="Double" size="8" />
+            <SelectField field="volume_1d_T-5" selected="True" type="Double" size="8" />
+            <SelectField field="volume_1d_T-4" selected="True" type="Double" size="8" />
+            <SelectField field="volume_1d_T-3" selected="True" type="Double" size="8" />
+            <SelectField field="volume_1d_T-2" selected="True" type="Double" size="8" />
+            <SelectField field="volume_1d_T-1" selected="True" type="Double" size="8" />
+            <SelectField field="volume_1d" selected="True" type="Double" size="8" />
+            <SelectField field="tradescount_1d_T-10" selected="True" type="Double" size="8" />
+            <SelectField field="tradescount_1d_T-9" selected="True" type="Double" size="8" />
+            <SelectField field="tradescount_1d_T-8" selected="True" type="Double" size="8" />
+            <SelectField field="tradescount_1d_T-7" selected="True" type="Double" size="8" />
+            <SelectField field="tradescount_1d_T-6" selected="True" type="Double" size="8" />
+            <SelectField field="tradescount_1d_T-5" selected="True" type="Double" size="8" />
+            <SelectField field="tradescount_1d_T-4" selected="True" type="Double" size="8" />
+            <SelectField field="tradescount_1d_T-3" selected="True" type="Double" size="8" />
+            <SelectField field="tradescount_1d_T-2" selected="True" type="Double" size="8" />
+            <SelectField field="tradescount_1d_T-1" selected="True" type="Double" size="8" />
+            <SelectField field="tradescount_1d" selected="True" type="Double" size="8" />
+            <SelectField field="fullname" selected="True" rename="full_name" />
+            <SelectField field="val_date" selected="True" type="Date" size="10" />
+            <SelectField field="1" selected="True" rename="exchange" />
+            <SelectField field="2" selected="True" rename="base" />
+            <SelectField field="3" selected="True" rename="quote" />
+            <SelectField field="4" selected="True" rename="market_type" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="market" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="time" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_open" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_close" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_high" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_low" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="candle_usd_volume" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="candle_trades_count" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="bid_price" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="ask_price" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-10" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-9" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-8" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-7" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-6" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-5" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-4" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-3" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-2" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-1" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-10" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-9" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-8" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-7" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-6" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-5" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-4" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-3" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-2" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-1" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="full_name" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="val_date" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Date" />
+            <Field description="TextToColumns: Parsed from market" name="exchange" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+            <Field description="TextToColumns: Parsed from market" name="base" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+            <Field description="TextToColumns: Parsed from market" name="quote" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+            <Field description="TextToColumns: Parsed from market" name="market_type" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="market" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+        <Position x="1302" y="258" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SortInfo locale="1033">
+            <Field field="RecordID" order="Ascending" />
+            <Field field="Sum_Value" order="Descending" />
+          </SortInfo>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>RecordID - Ascending
+Sum_Value - Descending</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="Summarize: GroupBy - RecordID" type="Int32" />
+            <Field description="TextToColumns: Parsed from market" name="quote" size="254" source="Summarize: GroupBy - quote" type="V_String" />
+            <Field name="Sum_Value" source="Summarize: Sum - Value" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sample.Sample">
+        <Position x="1410" y="258" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>First</Mode>
+          <N>1</N>
+          <GroupFields orderChanged="False">
+            <Field name="RecordID" />
+          </GroupFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>First 1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="Summarize: GroupBy - RecordID" type="Int32" />
+            <Field description="TextToColumns: Parsed from market" name="quote" size="254" source="Summarize: GroupBy - quote" type="V_String" />
+            <Field name="Sum_Value" source="Summarize: Sum - Value" type="Double" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="RecordID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSample" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="294" y="426" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>False</FirstRowData>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Data Requirement Form - Crypto Assets.xlsx
+Query=`Sheet1$A2:R`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="iRADAR Analysis ID" size="255" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R`" type="V_String" />
+            <Field name="List of restricted exchange" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R`" type="Double" />
+            <Field name="Currency with highest volume" size="255" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R`" type="V_String" />
+            <Field name="FX rate to audited entity's local currency" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R`" type="Double" />
+            <Field name="FX rate to audited entity's base currency" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R`" type="Double" />
+            <Field name="Audited entity" size="255" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R`" type="V_String" />
+            <Field name="Portfolio ID" size="255" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R`" type="V_String" />
+            <Field name="Portfolio Name" size="255" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R`" type="V_String" />
+            <Field name="Valuation Date" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R`" type="Date" />
+            <Field name="Snap Time (UTC)" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R`" type="Time" />
+            <Field name="Asset Description" size="255" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R`" type="V_String" />
+            <Field name="Asset Amount" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R`" type="Double" />
+            <Field name="Price type" size="255" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R`" type="V_String" />
+            <Field name="Local Currency" size="255" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R`" type="V_String" />
+            <Field name="Base Currency" size="255" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R`" type="V_String" />
+            <Field name="Audited Entity Market Value (Local Currency)" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R`" type="Double" />
+            <Field name="Audited Entity Market Value (Base Currency)" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R`" type="Double" />
+            <Field name="Audited Entity Principal Market" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R`" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="894" y="378" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="full_name" />
+            <Field field="val_date" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="Asset Description" />
+            <Field field="Valuation Date" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Left_market" selected="True" input="Left_" />
+                <SelectField field="Left_time" selected="True" input="Left_" />
+                <SelectField field="Left_price_open" selected="True" input="Left_" />
+                <SelectField field="Left_price_close" selected="True" input="Left_" />
+                <SelectField field="Left_price_high" selected="True" input="Left_" />
+                <SelectField field="Left_price_low" selected="True" input="Left_" />
+                <SelectField field="Left_volume" selected="True" input="Left_" />
+                <SelectField field="Left_candle_usd_volume" selected="True" input="Left_" />
+                <SelectField field="Left_candle_trades_count" selected="True" input="Left_" />
+                <SelectField field="Left_bid_price" selected="True" input="Left_" />
+                <SelectField field="Left_ask_price" selected="True" input="Left_" />
+                <SelectField field="Left_volume_1d_T-10" selected="True" input="Left_" />
+                <SelectField field="Left_volume_1d_T-9" selected="True" input="Left_" />
+                <SelectField field="Left_volume_1d_T-8" selected="True" input="Left_" />
+                <SelectField field="Left_volume_1d_T-7" selected="True" input="Left_" />
+                <SelectField field="Left_volume_1d_T-6" selected="True" input="Left_" />
+                <SelectField field="Left_volume_1d_T-5" selected="True" input="Left_" />
+                <SelectField field="Left_volume_1d_T-4" selected="True" input="Left_" />
+                <SelectField field="Left_volume_1d_T-3" selected="True" input="Left_" />
+                <SelectField field="Left_volume_1d_T-2" selected="True" input="Left_" />
+                <SelectField field="Left_volume_1d_T-1" selected="True" input="Left_" />
+                <SelectField field="Left_volume_1d" selected="True" input="Left_" />
+                <SelectField field="Left_tradescount_1d_T-10" selected="True" input="Left_" />
+                <SelectField field="Left_tradescount_1d_T-9" selected="True" input="Left_" />
+                <SelectField field="Left_tradescount_1d_T-8" selected="True" input="Left_" />
+                <SelectField field="Left_tradescount_1d_T-7" selected="True" input="Left_" />
+                <SelectField field="Left_tradescount_1d_T-6" selected="True" input="Left_" />
+                <SelectField field="Left_tradescount_1d_T-5" selected="True" input="Left_" />
+                <SelectField field="Left_tradescount_1d_T-4" selected="True" input="Left_" />
+                <SelectField field="Left_tradescount_1d_T-3" selected="True" input="Left_" />
+                <SelectField field="Left_tradescount_1d_T-2" selected="True" input="Left_" />
+                <SelectField field="Left_tradescount_1d_T-1" selected="True" input="Left_" />
+                <SelectField field="Left_tradescount_1d" selected="True" input="Left_" />
+                <SelectField field="Left_full_name" selected="True" rename="Left_full_name" input="Left_" />
+                <SelectField field="Left_exchange" selected="True" input="Left_" />
+                <SelectField field="Left_quote" selected="True" input="Left_" />
+                <SelectField field="Left_base" selected="True" input="Left_" />
+                <SelectField field="Left_market_type" selected="True" input="Left_" />
+                <SelectField field="Right_RecordID" selected="True" input="Right_" />
+                <SelectField field="Right_iRADAR Analysis ID" selected="True" input="Right_" />
+                <SelectField field="Right_Restricted exchanges" selected="True" input="Right_" />
+                <SelectField field="Right_Currency with highest volume" selected="True" input="Right_" />
+                <SelectField field="Right_FX rate to audited entity's local currency" selected="True" input="Right_" />
+                <SelectField field="Right_FX rate to audited entity's base currency" selected="True" input="Right_" />
+                <SelectField field="Right_Client" selected="True" input="Right_" />
+                <SelectField field="Right_Portfolio ID" selected="True" input="Right_" />
+                <SelectField field="Right_Portfolio Name" selected="True" input="Right_" />
+                <SelectField field="Right_Valuation Date" selected="True" input="Right_" />
+                <SelectField field="Right_Snap Time" selected="True" input="Right_" />
+                <SelectField field="Right_Asset Description" selected="True" input="Right_" />
+                <SelectField field="Right_Asset Amount" selected="True" input="Right_" />
+                <SelectField field="Right_Base Currency" selected="True" input="Right_" />
+                <SelectField field="Right_Price type" selected="True" input="Right_" />
+                <SelectField field="Right_Client Market Value (Local Currency)" selected="True" input="Right_" />
+                <SelectField field="Right_Client Market Value (Base Currency)" selected="True" input="Right_" />
+                <SelectField field="Right_Local Currency" selected="True" input="Right_" />
+                <SelectField field="Right_Client's Principal Market" selected="True" input="Right_" />
+                <SelectField field="Right_binance.us" selected="True" input="Right_" />
+                <SelectField field="Left_val_date" selected="True" input="Left_" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Left">
+          <RecordInfo>
+            <Field name="market" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="time" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_open" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_close" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_high" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_low" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="candle_usd_volume" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="candle_trades_count" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="bid_price" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="ask_price" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-10" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-9" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-8" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-7" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-6" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-5" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-4" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-3" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-2" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-1" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-10" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-9" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-8" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-7" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-6" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-5" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-4" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-3" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-2" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-1" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="full_name" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="val_date" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Date" />
+            <Field description="TextToColumns: Parsed from market" name="exchange" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+            <Field description="TextToColumns: Parsed from market" name="base" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+            <Field description="TextToColumns: Parsed from market" name="quote" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+            <Field description="TextToColumns: Parsed from market" name="market_type" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="full_name" />
+            <Field field="val_date" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="Join">
+          <RecordInfo>
+            <Field name="market" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="time" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_open" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_close" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_high" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_low" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="candle_usd_volume" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="candle_trades_count" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="bid_price" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="ask_price" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-10" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-9" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-8" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-7" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-6" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-5" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-4" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-3" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-2" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-1" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-10" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-9" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-8" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-7" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-6" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-5" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-4" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-3" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-2" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-1" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="Left_full_name" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field description="TextToColumns: Parsed from market" name="exchange" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+            <Field description="TextToColumns: Parsed from market" name="quote" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+            <Field description="TextToColumns: Parsed from market" name="base" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+            <Field description="TextToColumns: Parsed from market" name="market_type" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="iRADAR Analysis ID" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Restricted exchanges" size="255" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="String" />
+            <Field name="Currency with highest volume" size="3" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="FX rate to audited entity's local currency" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="FX rate to audited entity's base currency" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Client" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Portfolio ID" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Portfolio Name" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Valuation Date" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Date" />
+            <Field name="Snap Time" size="8" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="V_WString" />
+            <Field name="Asset Description" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Asset Amount" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Base Currency" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Price type" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Client Market Value (Local Currency)" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Client Market Value (Base Currency)" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Local Currency" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Client's Principal Market" size="19" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="V_String" />
+            <Field name="val_date" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Date" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Left_full_name" order="" />
+            <Field field="val_date" order="" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="Right">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="iRADAR Analysis ID" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Restricted exchanges" size="255" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="String" />
+            <Field name="Currency with highest volume" size="3" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="FX rate to audited entity's local currency" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="FX rate to audited entity's base currency" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Client" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Portfolio ID" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Portfolio Name" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Valuation Date" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Date" />
+            <Field name="Snap Time" size="8" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="V_WString" />
+            <Field name="Asset Description" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Asset Amount" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Price type" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Local Currency" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Base Currency" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Client Market Value (Local Currency)" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Client Market Value (Base Currency)" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Client's Principal Market" size="19" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="V_String" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="Asset Description" />
+            <Field field="Valuation Date" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="1050" y="306" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>Contains([exchange], [Restricted exchanges])</Expression>
+          <Mode>Custom</Mode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Contains([exchange], [Restricted exchanges])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="market" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="time" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_open" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_close" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_high" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_low" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="candle_usd_volume" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="candle_trades_count" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="bid_price" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="ask_price" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-10" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-9" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-8" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-7" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-6" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-5" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-4" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-3" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-2" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-1" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-10" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-9" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-8" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-7" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-6" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-5" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-4" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-3" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-2" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-1" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="Left_full_name" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field description="TextToColumns: Parsed from market" name="exchange" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+            <Field description="TextToColumns: Parsed from market" name="quote" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+            <Field description="TextToColumns: Parsed from market" name="base" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+            <Field description="TextToColumns: Parsed from market" name="market_type" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="iRADAR Analysis ID" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Restricted exchanges" size="255" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="String" />
+            <Field name="Currency with highest volume" size="3" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="FX rate to audited entity's local currency" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="FX rate to audited entity's base currency" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Client" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Portfolio ID" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Portfolio Name" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Valuation Date" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Date" />
+            <Field name="Snap Time" size="8" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="V_WString" />
+            <Field name="Asset Description" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Asset Amount" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Base Currency" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Price type" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Client Market Value (Local Currency)" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Client Market Value (Base Currency)" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Local Currency" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Client's Principal Market" size="19" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="V_String" />
+            <Field name="val_date" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Date" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Left_full_name" order="" />
+            <Field field="val_date" order="" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="market" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="time" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_open" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_close" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_high" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_low" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="candle_usd_volume" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="candle_trades_count" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="bid_price" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="ask_price" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-10" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-9" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-8" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-7" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-6" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-5" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-4" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-3" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-2" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d_T-1" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="volume_1d" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-10" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-9" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-8" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-7" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-6" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-5" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-4" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-3" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-2" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d_T-1" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="tradescount_1d" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+            <Field name="Left_full_name" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field description="TextToColumns: Parsed from market" name="exchange" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+            <Field description="TextToColumns: Parsed from market" name="quote" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+            <Field description="TextToColumns: Parsed from market" name="base" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+            <Field description="TextToColumns: Parsed from market" name="market_type" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="iRADAR Analysis ID" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Restricted exchanges" size="255" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="String" />
+            <Field name="Currency with highest volume" size="3" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="FX rate to audited entity's local currency" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="FX rate to audited entity's base currency" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Client" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Portfolio ID" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Portfolio Name" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Valuation Date" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Date" />
+            <Field name="Snap Time" size="8" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="V_WString" />
+            <Field name="Asset Description" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Asset Amount" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Base Currency" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Price type" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Client Market Value (Local Currency)" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Client Market Value (Base Currency)" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Local Currency" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Client's Principal Market" size="19" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="V_String" />
+            <Field name="val_date" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Date" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Left_full_name" order="" />
+            <Field field="val_date" order="" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="522" y="426" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="List of restricted exchange" selected="True" rename="Restricted exchanges" type="String" size="255" />
+            <SelectField field="Currency with highest volume" selected="True" type="String" size="3" />
+            <SelectField field="Audited entity" selected="True" rename="Client" />
+            <SelectField field="Snap Time (UTC)" selected="True" rename="Snap Time" type="V_WString" size="8" />
+            <SelectField field="Audited Entity Market Value (Local Currency)" selected="True" rename="Client Market Value (Local Currency)" />
+            <SelectField field="Audited Entity Market Value (Base Currency)" selected="True" rename="Client Market Value (Base Currency)" />
+            <SelectField field="Audited Entity Principal Market" selected="True" rename="Client's Principal Market" type="V_String" size="19" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="iRADAR Analysis ID" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Restricted exchanges" size="255" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="String" />
+            <Field name="Currency with highest volume" size="3" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="FX rate to audited entity's local currency" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="FX rate to audited entity's base currency" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Client" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Portfolio ID" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Portfolio Name" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Valuation Date" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Date" />
+            <Field name="Snap Time" size="8" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="V_WString" />
+            <Field name="Asset Description" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Asset Amount" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Price type" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Local Currency" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Base Currency" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Client Market Value (Local Currency)" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Client Market Value (Base Currency)" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Client's Principal Market" size="19" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+        <Position x="630" y="426" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldName>RecordID</FieldName>
+          <StartValue>1</StartValue>
+          <FieldType>Int32</FieldType>
+          <FieldSize>6</FieldSize>
+          <Position>0</Position>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="iRADAR Analysis ID" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Restricted exchanges" size="255" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="String" />
+            <Field name="Currency with highest volume" size="3" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="FX rate to audited entity's local currency" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="FX rate to audited entity's base currency" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Client" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Portfolio ID" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Portfolio Name" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Valuation Date" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Date" />
+            <Field name="Snap Time" size="8" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="V_WString" />
+            <Field name="Asset Description" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Asset Amount" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Price type" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Local Currency" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Base Currency" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Client Market Value (Local Currency)" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Client Market Value (Base Currency)" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Client's Principal Market" size="19" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="V_String" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="RecordID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings>
+        <Position x="414" y="426" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Check Box (135)">True</Value>
+          <Value name="Check Box (136)">False</Value>
+          <Value name="List Box (11)">"Currency with highest volume"</Value>
+          <Value name="Check Box (84)">True</Value>
+          <Value name="Check Box (117)">True</Value>
+          <Value name="Check Box (15)">True</Value>
+          <Value name="Check Box (109)">False</Value>
+          <Value name="Check Box (122)">False</Value>
+          <Value name="Check Box (53)">False</Value>
+          <Value name="Check Box (58)">False</Value>
+          <Value name="Check Box (70)">False</Value>
+          <Value name="Check Box (77)">True</Value>
+          <Value name="Drop Down (81)">lower</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output26">
+          <RecordInfo>
+            <Field name="iRADAR Analysis ID" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="List of restricted exchange" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Currency with highest volume" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="FX rate to audited entity's local currency" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="FX rate to audited entity's base currency" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Audited entity" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Portfolio ID" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Portfolio Name" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Valuation Date" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Date" />
+            <Field name="Snap Time (UTC)" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Time" />
+            <Field name="Asset Description" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Asset Amount" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Price type" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Local Currency" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Base Currency" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Audited Entity Market Value (Local Currency)" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Audited Entity Market Value (Base Currency)" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Audited Entity Principal Market" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="Cleanse.yxmc" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1518" y="258" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Uppercase([quote])" field="quote" size="254" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[quote = Uppercase([quote])
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="Summarize: GroupBy - RecordID" type="Int32" />
+            <Field description="TextToColumns: Parsed from market" name="quote" size="254" source="Formula: Uppercase([quote])" type="V_String" />
+            <Field name="Sum_Value" source="Summarize: Sum - Value" type="Double" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="RecordID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="1674" y="414" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="RecordID" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="RecordID" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Left_RecordID" selected="False" input="Left_" />
+                <SelectField field="Right_RecordID" selected="True" input="Right_" />
+                <SelectField field="Right_iRADAR Analysis ID" selected="True" input="Right_" />
+                <SelectField field="Right_Restricted exchanges" selected="False" input="Right_" />
+                <SelectField field="Left_quote" selected="True" rename="Currency with highest volume" input="Left_" />
+                <SelectField field="Right_Currency with highest volume" selected="False" input="Right_" />
+                <SelectField field="Right_FX rate to audited entity's local currency" selected="False" input="Right_" />
+                <SelectField field="Right_FX rate to audited entity's base currency" selected="False" input="Right_" />
+                <SelectField field="Right_FX rate local to base currency" selected="False" input="Right_" />
+                <SelectField field="Right_Client" selected="False" input="Right_" />
+                <SelectField field="Right_Portfolio ID" selected="False" input="Right_" />
+                <SelectField field="Right_Portfolio Name" selected="False" input="Right_" />
+                <SelectField field="Right_Valuation Date" selected="False" input="Right_" />
+                <SelectField field="Right_Snap Time" selected="False" input="Right_" />
+                <SelectField field="Right_Asset Description" selected="False" input="Right_" />
+                <SelectField field="Right_Asset Amount" selected="False" input="Right_" />
+                <SelectField field="Right_Base Currency" selected="False" input="Right_" />
+                <SelectField field="Right_Price type" selected="False" input="Right_" />
+                <SelectField field="Right_Client Market Value (Local Currency)" selected="False" input="Right_" />
+                <SelectField field="Right_Client Market Value (Base Currency)" selected="False" input="Right_" />
+                <SelectField field="Right_Local Currency" selected="False" input="Right_" />
+                <SelectField field="Right_Client's Principal Market" selected="False" input="Right_" />
+                <SelectField field="Left_Sum_Value" selected="True" input="Left_" />
+                <SelectField field="Right_binance.us" selected="True" input="Right_" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Left">
+          <RecordInfo>
+            <Field name="RecordID" source="Summarize: GroupBy - RecordID" type="Int32" />
+            <Field description="TextToColumns: Parsed from market" name="quote" size="254" source="Formula: Uppercase([quote])" type="V_String" />
+            <Field name="Sum_Value" source="Summarize: Sum - Value" type="Double" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="RecordID" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="Join">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="iRADAR Analysis ID" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="TextToColumns: Parsed from market" name="Currency with highest volume" size="254" source="Formula: Uppercase([quote])" type="V_String" />
+            <Field name="Sum_Value" source="Summarize: Sum - Value" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="Right">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="iRADAR Analysis ID" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Restricted exchanges" size="255" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="String" />
+            <Field name="Currency with highest volume" size="3" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="FX rate to audited entity's local currency" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="FX rate to audited entity's base currency" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Client" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Portfolio ID" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Portfolio Name" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Valuation Date" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Date" />
+            <Field name="Snap Time" size="8" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="V_WString" />
+            <Field name="Asset Description" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Asset Amount" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Price type" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Local Currency" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Base Currency" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Client Market Value (Local Currency)" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Client Market Value (Base Currency)" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Client's Principal Market" size="19" source="File: C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||`Sheet1$A2:R` (BatchMacro) (BatchMacro) (BatchMacro) (BatchMacro)" type="V_String" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="RecordID" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="2250" y="414" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="25">C:\Users\anhductran\Downloads\Data Requirement Form - Crypto Assets.xlsx|||Sheet1$C3:C</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <PreserveFormat>True</PreserveFormat>
+            <SkipFieldNames>True</SkipFieldNames>
+            <OutputOption>Overwrite</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Data Requirement Form - Crypto Assets.xlsx
+Query=Sheet1$C3:C</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="2154" y="414" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Currency with highest volume" selected="True" type="String" size="3" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Currency with highest volume" size="3" source="Formula: Uppercase([Currency with highest volume])" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.FileBrowse.FileBrowse">
+        <Position x="198" y="54" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Select client static data</AnnotationText>
+          <DefaultAnnotationText>File Browse (338)</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="210" y="222" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Update Value</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="66" y="222" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Update Value</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="21">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.FileBrowse.FileBrowse">
+        <Position x="54" y="54" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Select market data</AnnotationText>
+          <DefaultAnnotationText>File Browse (340)</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="22">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="2154" y="234" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Update Value</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="25">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.FileBrowse.FileBrowse">
+        <Position x="426" y="54" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Select client static data</AnnotationText>
+          <DefaultAnnotationText>File Browse (338)</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="26">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="474" y="294" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>market</Field>
+          <ErrorHandling>Last</ErrorHandling>
+          <RootName>
+          </RootName>
+          <Delimeters value="-" />
+          <NumFields value="4" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="market" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="time" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_open" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_close" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_high" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_low" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="candle_usd_volume" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="candle_trades_count" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="bid_price" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="ask_price" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-10" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-9" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-8" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-7" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-6" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-5" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-4" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-3" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-2" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-1" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-10" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-9" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-8" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-7" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-6" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-5" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-4" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-3" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-2" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-1" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="fullname" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="val_date" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field description="TextToColumns: Parsed from market" name="1" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+            <Field description="TextToColumns: Parsed from market" name="2" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+            <Field description="TextToColumns: Parsed from market" name="3" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+            <Field description="TextToColumns: Parsed from market" name="4" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="27">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+        <Position x="558" y="294" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UniqueFields>
+            <Field field="market" />
+          </UniqueFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Unique">
+          <RecordInfo>
+            <Field name="market" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="time" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_open" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_close" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_high" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_low" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="candle_usd_volume" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="candle_trades_count" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="bid_price" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="ask_price" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-10" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-9" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-8" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-7" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-6" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-5" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-4" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-3" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-2" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-1" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-10" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-9" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-8" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-7" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-6" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-5" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-4" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-3" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-2" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-1" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="fullname" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="val_date" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field description="TextToColumns: Parsed from market" name="1" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+            <Field description="TextToColumns: Parsed from market" name="2" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+            <Field description="TextToColumns: Parsed from market" name="3" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+            <Field description="TextToColumns: Parsed from market" name="4" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="market" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="Duplicates">
+          <RecordInfo>
+            <Field name="market" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="time" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_open" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_close" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_high" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="price_low" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="candle_usd_volume" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="candle_trades_count" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="bid_price" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="ask_price" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-10" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-9" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-8" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-7" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-6" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-5" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-4" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-3" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-2" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d_T-1" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="volume_1d" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-10" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-9" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-8" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-7" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-6" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-5" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-4" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-3" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-2" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d_T-1" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="tradescount_1d" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="fullname" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field name="val_date" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field description="TextToColumns: Parsed from market" name="1" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+            <Field description="TextToColumns: Parsed from market" name="2" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+            <Field description="TextToColumns: Parsed from market" name="3" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+            <Field description="TextToColumns: Parsed from market" name="4" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="market" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+    </Node>
+    <Node ToolID="29">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+        <Position x="1134" y="258" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ErrorWarn>Warn</ErrorWarn>
+          <KeyFields>
+            <Field field="market" />
+            <Field field="quote" />
+            <Field field="RecordID" />
+          </KeyFields>
+          <DataFields>
+            <Field field="market" selected="False" />
+            <Field field="time" selected="False" />
+            <Field field="price_open" selected="False" />
+            <Field field="price_close" selected="False" />
+            <Field field="price_high" selected="False" />
+            <Field field="price_low" selected="False" />
+            <Field field="volume" selected="False" />
+            <Field field="candle_usd_volume" selected="False" />
+            <Field field="candle_trades_count" selected="False" />
+            <Field field="bid_price" selected="False" />
+            <Field field="ask_price" selected="False" />
+            <Field field="volume_1d_T-10" selected="True" />
+            <Field field="volume_1d_T-9" selected="True" />
+            <Field field="volume_1d_T-8" selected="True" />
+            <Field field="volume_1d_T-7" selected="True" />
+            <Field field="volume_1d_T-6" selected="True" />
+            <Field field="volume_1d_T-5" selected="True" />
+            <Field field="volume_1d_T-4" selected="True" />
+            <Field field="volume_1d_T-3" selected="True" />
+            <Field field="volume_1d_T-2" selected="True" />
+            <Field field="volume_1d_T-1" selected="True" />
+            <Field field="volume_1d" selected="True" />
+            <Field field="tradescount_1d_T-10" selected="False" />
+            <Field field="tradescount_1d_T-9" selected="False" />
+            <Field field="tradescount_1d_T-8" selected="False" />
+            <Field field="tradescount_1d_T-7" selected="False" />
+            <Field field="tradescount_1d_T-6" selected="False" />
+            <Field field="tradescount_1d_T-5" selected="False" />
+            <Field field="tradescount_1d_T-4" selected="False" />
+            <Field field="tradescount_1d_T-3" selected="False" />
+            <Field field="tradescount_1d_T-2" selected="False" />
+            <Field field="tradescount_1d_T-1" selected="False" />
+            <Field field="tradescount_1d" selected="False" />
+            <Field field="Left_full_name" selected="False" />
+            <Field field="exchange" selected="False" />
+            <Field field="quote" selected="False" />
+            <Field field="base" selected="False" />
+            <Field field="market_type" selected="False" />
+            <Field field="RecordID" selected="False" />
+            <Field field="iRADAR Analysis ID" selected="False" />
+            <Field field="Restricted exchanges" selected="False" />
+            <Field field="Currency with highest volume" selected="False" />
+            <Field field="FX rate to audited entity's local currency" selected="False" />
+            <Field field="FX rate to audited entity's base currency" selected="False" />
+            <Field field="FX rate local to base currency" selected="False" />
+            <Field field="Client" selected="False" />
+            <Field field="Portfolio ID" selected="False" />
+            <Field field="Portfolio Name" selected="False" />
+            <Field field="Valuation Date" selected="False" />
+            <Field field="Snap Time" selected="False" />
+            <Field field="Asset Description" selected="False" />
+            <Field field="Asset Amount" selected="False" />
+            <Field field="Base Currency" selected="False" />
+            <Field field="Price type" selected="False" />
+            <Field field="Client Market Value (Local Currency)" selected="False" />
+            <Field field="Client Market Value (Base Currency)" selected="False" />
+            <Field field="Local Currency" selected="False" />
+            <Field field="Client's Principal Market" selected="False" />
+            <Field field="*Unknown" selected="False" />
+          </DataFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="market" size="254" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="V_String" />
+            <Field description="TextToColumns: Parsed from market" name="quote" size="254" source="TextToColumns: Parsed from market" type="V_String" />
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Name" size="14" source="Transpose:" type="String" />
+            <Field name="Value" source="File: C:\Users\anhductran\PycharmProjects\CryptoVal\output\MarketDataOfficial\2023-06-30\CoinMetricsData_20230630_20230808.csv" type="Double" />
+          </RecordInfo>
+          <SortInfo>
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+    </Node>
+    <Node ToolID="30">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="1218" y="258" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="RecordID" action="GroupBy" rename="RecordID" />
+            <SummarizeField field="quote" action="GroupBy" rename="quote" />
+            <SummarizeField field="Value" action="Sum" rename="Sum_Value" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="Summarize: GroupBy - RecordID" type="Int32" />
+            <Field description="TextToColumns: Parsed from market" name="quote" size="254" source="Summarize: GroupBy - quote" type="V_String" />
+            <Field name="Sum_Value" source="Summarize: Sum - Value" type="Double" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="RecordID" order="Asc" />
+            <Field field="quote" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="32">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1770" y="486" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Restricted exchanges" selected="False" />
+            <SelectField field="FX rate to audited entity's local currency" selected="False" />
+            <SelectField field="FX rate to audited entity's base currency" selected="False" />
+            <SelectField field="FX rate local to base currency" selected="False" />
+            <SelectField field="Client" selected="False" />
+            <SelectField field="Portfolio ID" selected="False" />
+            <SelectField field="Portfolio Name" selected="False" />
+            <SelectField field="Valuation Date" selected="False" />
+            <SelectField field="Snap Time" selected="False" />
+            <SelectField field="Asset Description" selected="False" />
+            <SelectField field="Asset Amount" selected="False" />
+            <SelectField field="Base Currency" selected="False" />
+            <SelectField field="Price type" selected="False" />
+            <SelectField field="Client Market Value (Local Currency)" selected="False" />
+            <SelectField field="Client Market Value (Base Currency)" selected="False" />
+            <SelectField field="Local Currency" selected="False" />
+            <SelectField field="Client's Principal Market" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="iRADAR Analysis ID" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Currency with highest volume" size="3" source="Formula: [_CurrentField_]" type="String" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="RecordID" order="" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="33">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="1866" y="414" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="iRADAR Analysis ID" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Currency with highest volume" size="254" source="Formula: (Multiple Sources)" type="V_String" />
+            <Field name="Sum_Value" source="Summarize: Sum - Value" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="34">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+        <Position x="2058" y="414" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SortInfo locale="1033">
+            <Field field="RecordID" order="Ascending" />
+          </SortInfo>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>RecordID - Ascending</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="iRADAR Analysis ID" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Currency with highest volume" size="254" source="Formula: Uppercase([Currency with highest volume])" type="V_String" />
+            <Field name="Sum_Value" source="Summarize: Sum - Value" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+    </Node>
+    <Node ToolID="35">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1962" y="414" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Uppercase([Currency with highest volume])" field="Currency with highest volume" size="254" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[Currency with highest volume = Uppercase([Currency with highest volume])
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="iRADAR Analysis ID" size="255" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Currency with highest volume" size="254" source="Formula: Uppercase([Currency with highest volume])" type="V_String" />
+            <Field name="Sum_Value" source="Summarize: Sum - Value" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="26" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="7" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="7" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="11" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Join" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="False" />
+      <Destination ToolID="29" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="14" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="14" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output26" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Right" />
+      <Destination ToolID="32" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="14" Connection="Join" />
+      <Destination ToolID="33" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="32" Connection="Output" />
+      <Destination ToolID="33" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="22" Connection="Action" />
+      <Destination ToolID="15" Connection="Action" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="18" Connection="Question" />
+      <Destination ToolID="19" Connection="Question" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="19" Connection="Action" />
+      <Destination ToolID="6" Connection="Action" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="20" Connection="Action" />
+      <Destination ToolID="1" Connection="Action" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="21" Connection="Question" />
+      <Destination ToolID="20" Connection="Question" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="25" Connection="Question" />
+      <Destination ToolID="22" Connection="Question" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="26" Connection="Output" />
+      <Destination ToolID="27" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="27" Connection="Unique" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="29" Connection="Output" />
+      <Destination ToolID="30" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="30" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="33" Connection="Output" />
+      <Destination ToolID="35" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="34" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="35" Connection="Output" />
+      <Destination ToolID="34" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>File Browse (21)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>File Browse (18)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>File Browse (25)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>iCAVE_0</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="6f422e07-42dc-4077-9001-2202e6ac7451" />
+      <Telemetry>
+        <PreviousWorkflowId value="d849bd90-605a-4dd0-a62b-e222d28206c7" />
+        <OriginWorkflowId value="7b846850-2a5c-4c69-98f4-3efb7a79f5e3" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions>
+        <NoCondition>
+          <Type>NoCondition</Type>
+          <Description>(Always Run)</Description>
+          <True>
+            <Action>
+              <Type>UpdateValueFormula</Type>
+              <Description />
+              <ToolId value="19" />
+              <Expression>Replace([#1],"Sheet1$","Sheet1$A2:S")</Expression>
+              <Destination>6/File</Destination>
+              <Mode>Expression</Mode>
+            </Action>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="20" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="False" />
+              <Destination>1/File</Destination>
+            </Action>
+            <Action>
+              <Type>UpdateValueFormula</Type>
+              <Description />
+              <ToolId value="22" />
+              <Expression>Replace([#1],"Sheet1","Sheet1$C3:C")</Expression>
+              <Destination>15/File</Destination>
+              <Mode>Expression</Mode>
+            </Action>
+          </True>
+        </NoCondition>
+      </Actions>
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (17)</Name>
+          <ToolId value="17" />
+          <Questions>
+            <Question>
+              <Type>FileBrowse</Type>
+              <Description>Select market data file</Description>
+              <Name>File Browse (21)</Name>
+              <ToolId value="21" />
+              <SaveAs value="False" />
+              <Mode>DW2</Mode>
+              <DW2_SpatialOnly value="False" />
+              <DW2_FieldMap value="False" />
+              <InputToolId value="-1" />
+            </Question>
+            <Question>
+              <Type>FileBrowse</Type>
+              <Description>Select portfolio data file to load</Description>
+              <Name>File Browse (18)</Name>
+              <ToolId value="18" />
+              <SaveAs value="False" />
+              <Mode>DW2</Mode>
+              <DW2_SpatialOnly value="False" />
+              <DW2_FieldMap value="False" />
+              <InputToolId value="-1" />
+            </Question>
+            <Question>
+              <Type>FileBrowse</Type>
+              <Description>Select portfolio data file to update</Description>
+              <Name>File Browse (25)</Name>
+              <ToolId value="25" />
+              <SaveAs value="True" />
+              <Mode>DW2</Mode>
+              <DW2_SpatialOnly value="False" />
+              <DW2_FieldMap value="False" />
+              <InputToolId value="-1" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Wizard</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="0" />
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="11" Selected="True" />
+        <Tool ToolId="15" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
