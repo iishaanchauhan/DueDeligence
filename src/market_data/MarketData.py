@@ -9,7 +9,7 @@ client = CoinMetricsClient('zzHnUvjMgthSKDZuZOUb')
 std_coverage = pd.read_csv(
     Path(__file__).parents[1] / 'static' / 'iCAVE default coverage.csv')
 granul = '1m'
-val_dates = ['2023-06-30']
+val_dates = ['2023-10-30']
 market_type = 'spot'
 
 for val_date in val_dates:

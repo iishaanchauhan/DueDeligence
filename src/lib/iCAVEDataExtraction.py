@@ -30,10 +30,6 @@ def scope_check(
     Find all markets with available minutia data in CoinMetrics with optional
     constraint on exchanges and quote currencies to include.
 
-    TODO: add diagnostic columns for each market (if 10 days vol check passed,
-        first candle snapshot with data on val date)
-    TODO: add diagnostic columns
-
     :param client_key: an instance of CoinMetrics API client class.
     :param val_date: valuation date
     :param exchanges: list of (reliable) exchanges to constraint the scope
@@ -64,16 +60,18 @@ def scope_check(
         market_type="spot").to_dataframe()
     all_assets['min_time'] = pd.to_datetime(all_assets['min_time'])
     all_assets['max_time'] = pd.to_datetime(all_assets['max_time'])
-    all_assets = all_assets[(all_assets.frequency == granul)
-                            & (all_assets.min_time <= pd.to_datetime(
-        val_date).tz_localize('UTC')
-                               - pd.Timedelta(f'{lookback_period} days')
-                               )
-                            & (all_assets.max_time >= pd.to_datetime(
-        val_date).tz_localize('UTC')
-                               + pd.Timedelta('1 day')
-                               )
-                            ]
+    all_assets = all_assets[
+        (all_assets.frequency == granul)
+        & (all_assets.min_time <=
+           pd.to_datetime(val_date).tz_localize('UTC')
+           - pd.Timedelta(f'{lookback_period} days')
+           )
+        & (all_assets.max_time >=
+           pd.to_datetime(val_date).tz_localize('UTC')
+           + pd.Timedelta('1 day')
+           )
+        ]
+
     all_assets[['exchange', 'base', 'quote',
                 'market_type']] = all_assets.market.str.split('-', expand=True)
     asset_names = client_key.catalog_assets().to_dataframe()
@@ -316,7 +314,8 @@ def get_markets_data(markets, val_date: str, client_key, granul='1m',
     return df
 
 
-def vol_stats(client_key, markets, val_date, lookback_volume=10):
+def vol_stats(client_key, markets, val_date, lookback_volume=10,
+              silent=False):
     """
     Return daily trade volume
 
@@ -326,6 +325,7 @@ def vol_stats(client_key, markets, val_date, lookback_volume=10):
     :param client_key: coinmetrics API key
     :param lookback_volume: how many days in the past should the daily trading
         volume be downloaded
+    :param silent: whether to suppres infor message
     :return:
     """
     start_minute_vol = (
@@ -342,14 +342,92 @@ def vol_stats(client_key, markets, val_date, lookback_volume=10):
             end_time=end_minute,
             end_inclusive=False).to_dataframe().sort_values(
             'time')
-        print(
-            'Volume statistics for {0} on {1} day(s) before {2} was downloaded'
-            .format(markets, lookback_volume, val_date))
+        if not silent:
+            print(
+                'Volume statistics for {0} on {1} day(s) before {2} was downloaded'
+                .format(markets, lookback_volume, val_date))
     except (KeyError, ValueError) as e:
         print(e)
-        print(
-            'Volume statistics for {0} on {1} day(s) before {2} was '
-            'not downloaded'
-            .format(markets, lookback_volume, val_date))
-    pass
+        if not silent:
+            print(
+                'Volume statistics for {0} on {1} day(s) before {2} was '
+                'not downloaded'
+                .format(markets, lookback_volume, val_date))
     return df_foo
+
+
+def cont_check(val_date, markets, client, lookback_period=10):
+    """
+    Determine whether there are continuous trading activity in the past,
+    :param val_date: the valuation date
+    :param markets: a Dataframe containing the markets in Coinmetrics format
+        (exchange-base-quote-spot). The column header must be "market"
+    :param client: an instance of the Coinmetrics API client.
+    :param lookback_period: number of days to check for continuous trading
+        activity. Default to be 10.
+    :return: a Dataframe with 2 columns: market name and its trading continuity
+        status
+    """
+    hist_vol = []
+    for chunk in np.array_split(markets.index,
+                                markets.shape[0] // 20 + 1):
+        df = vol_stats(
+            markets=markets.loc[chunk, 'market'].to_list(),
+            val_date=val_date, client_key=client,
+            lookback_volume=lookback_period,
+            silent=True)
+        hist_vol.append(df)
+
+    hist_vol = pd.concat(hist_vol)
+    cont_trade_ind = (
+        hist_vol
+        .groupby('market').min()
+        .loc[:, ['volume']]
+        .reset_index()
+    )
+    cont_trade_ind['volume'] = cont_trade_ind['volume'].astype('bool')
+    cont_trade_ind.rename(
+        columns={'volume': 'Continuous activity in the last 10 days'},
+        inplace=True)
+
+    return cont_trade_ind
+
+
+def first_trade(val_date, markets, client):
+    """
+    Return the first minutia candle snapshot with non-zero trade volume.
+    :param val_date: the valuation date
+    :param markets: a Dataframe containing the markets in Coinmetrics format
+        (exchange-base-quote-spot). The column header must be "market"
+    :param client: an instance of the Coinmetrics API client.
+    :return: a Dataframe with 2 columns: market name and its first snapshot
+        with non-zero trading volume.
+    """
+    first_trade_time = []
+    start_time = pd.to_datetime(val_date)
+    end_time = pd.to_datetime(val_date) + pd.Timedelta('1 day')
+    for chunk in np.array_split(markets.index,
+                                markets.shape[0] // 5 + 1):
+        df = client.get_market_candles(
+            markets=markets.loc[chunk, 'market'].to_list(),
+            frequency='1h',
+            start_time=start_time.strftime('%Y-%m-%dT%H:%M:%S'),
+            end_time=end_time.strftime('%Y-%m-%dT%H:%M:%S'),
+            end_inclusive=False
+        ).to_dataframe()
+        first_trade_time.append(df)
+    first_trade_time = pd.concat(first_trade_time)
+    first_trade_time = (
+        first_trade_time.loc[
+            first_trade_time['volume'] > 0, ['market', 'time']]
+        .groupby('market')
+        .min()
+        .reset_index()
+        .rename(columns={'time': 'First snapshot with volume'}))
+    first_trade_time['First snapshot with volume'] = (
+        (first_trade_time['First snapshot with volume']
+         + pd.Timedelta('1 hour')
+         )
+        .dt.strftime('%H:%M:%S')
+    )
+    return first_trade_time
