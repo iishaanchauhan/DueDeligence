@@ -1,4 +1,4 @@
-from src.lib.iCAVEDataExtraction import scope_check
+from src.lib.iCAVEDataExtraction import scope_check, cont_check, first_trade
 from coinmetrics.api_client import CoinMetricsClient
 from pathlib import Path
 import pandas as pd
@@ -7,7 +7,7 @@ print(Path.cwd())
 
 client = CoinMetricsClient('zzHnUvjMgthSKDZuZOUb')
 granul = '1d'
-val_dates = ['2022-12-31']
+val_dates = ['2023-12-31']
 market_type = 'spot'
 
 assets_df = client.catalog_assets().to_dataframe()
@@ -23,7 +23,10 @@ fiat_currency_df = pd.DataFrame(fiat_currency_list,
                                 columns=['quote']).drop_duplicates()
 
 crypto_currency_df = pd.DataFrame(
-    ['rad', 'pstake'],
+    {
+        'iris', 'pcx', 'cusd', 'orc', 'mtrg', 'xprt', 'lat', 'cspr', 'steth',
+        'xpla', 'ssv'
+    },
     columns=['base'])
 lookback_period = 10
 crypto_only = True
@@ -46,9 +49,9 @@ for val_date in val_dates:
     exchange_output = exchanges.loc[
         (
                 (exchanges['from'].isnull() | (
-                            exchanges['from'] <= val_date_dt))
+                        exchanges['from'] <= val_date_dt))
                 & (exchanges['until'].isnull() | (
-                    exchanges['until'] >= val_date_dt))
+                exchanges['until'] >= val_date_dt))
         ),
         'exchange']
     # extract all markets
@@ -56,7 +59,6 @@ for val_date in val_dates:
                               val_date=val_date,
                               exchanges=exchange_output.str.lower().to_list(),
                               lookback_period=lookback_period)
-
     if crypto_only:
         # Left join to take everything which are NOT fiat quotes
         markets = (
@@ -83,6 +85,21 @@ for val_date in val_dates:
                    .merge(fiat_currency_df, how='inner', on='quote',
                           indicator=True)
                    .drop_duplicates())
+        cont_check_df = cont_check(
+            val_date=val_date,
+            markets=markets,
+            client=client,
+            lookback_period=lookback_period
+        )
+        # only check first snapshot with volume for fiat markets
+        first_trade_df = first_trade(
+            val_date=val_date,
+            client=client,
+            markets=markets[markets['_merge'] == 'both']
+        )
+        markets = (markets
+                   .merge(cont_check_df, on='market')
+                   .merge(first_trade_df, on='market', how='left'))
         print(f'number of crypto-fiat quotes: {markets.shape[0]}')
         markets.to_csv(output_scope, index=False)
     print(f'scope definition  done for {val_date}')
