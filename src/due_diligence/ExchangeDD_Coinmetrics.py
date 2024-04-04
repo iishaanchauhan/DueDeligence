@@ -1,5 +1,5 @@
 ## Imports
-from src.lib.iCAVEDataExtraction import get_markets_data
+from src.lib.iCAVEDataExtraction import get_market_data
 from coinmetrics.api_client import CoinMetricsClient
 from pathlib import Path
 import pandas as pd
