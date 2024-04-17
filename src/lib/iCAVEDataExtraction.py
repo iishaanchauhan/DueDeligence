@@ -6,7 +6,6 @@ import requests.exceptions
 
 def scope_check(
         client_key, val_date='2022-09-30', exchanges=None, quote_ccys=None,
-        export=True, values=False,
         lookback_period=10, granul='1m'):
     """
     Find all markets with available minutia data in CoinMetrics with optional
@@ -181,8 +180,7 @@ def request_data(market, val_date, client_key, granul='1m', lookback_price=0,
         markets=market,
         start_time=start_minute_price,
         end_time=end_minute_price,
-        granularity='1h',
-        page_size=10).to_dataframe()
+        granularity='1h').to_dataframe()
     pivot_cols = ['volume', 'candle_trades_count']
     pivot_col_names = (['volume_1d_T' + str(lag) for lag in
                         range(-lookback_volume, 1)] +
