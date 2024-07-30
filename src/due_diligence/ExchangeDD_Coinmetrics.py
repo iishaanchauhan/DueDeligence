@@ -9,7 +9,6 @@ import numpy as np
 ## Functions
 def scope_check(
         client_key, val_date='2022-09-30', exchanges=None, quote_ccys=None,
-        export=True, values=False,
         lookback_period=10, granul='1m'):
     """
     Find all markets with available minutia data in CoinMetrics with optional constraint on exchanges and
@@ -33,16 +32,15 @@ def scope_check(
         market_type: type of market (spot, future, option),
         full_name: full name of the crypto,
     """
-    all_assets = client_key.catalog_market_candles(quote=None,
-                                                   market_type="spot").to_dataframe()
+    all_assets = client_key.catalog_market_candles(
+        quote=None, market_type="spot").to_dataframe()
     all_assets['min_time'] = pd.to_datetime(all_assets['min_time'])
     all_assets['max_time'] = pd.to_datetime(all_assets['max_time'])
-    all_assets = all_assets[(all_assets.frequency == granul)
-                            & (all_assets.min_time <= pd.to_datetime(
-        val_date).tz_localize('UTC')
-                               - pd.Timedelta(f'{lookback_period} days')
-                               )
-                            ]
+    all_assets = all_assets[
+        (all_assets.frequency == granul)
+        & (all_assets.min_time <=
+           pd.to_datetime(val_date).tz_localize('UTC')
+           - pd.Timedelta(f'{lookback_period} days'))]
     all_assets[['exchange', 'base', 'quote',
                 'market_type']] = all_assets.market.str.split('-', expand=True)
     asset_names = client_key.catalog_assets().to_dataframe()
@@ -66,14 +64,10 @@ def scope_check(
                                      columns=['quote']).drop_duplicates()
         all_assets = pd.merge(all_assets, quote_ccys_df, on='quote',
                               how='inner')
-    #
-    # except ValueError as e:
-    #     print(e)
     return all_assets
 
 
 ## Constants
-
 client = CoinMetricsClient('zzHnUvjMgthSKDZuZOUb')
 assets = ['ada', 'avax', 'btc', 'eth', 'xrp', 'usdt', 'usdc', 'bnb', 'busd',
           'sol', 'doge', 'crv', '1inch', 'mona',
@@ -82,28 +76,27 @@ assets_df = client.catalog_assets(assets=assets).to_dataframe()[
     ['asset', 'full_name']]
 exchanges_df = client.catalog_exchanges().to_dataframe()
 exchanges_df = exchanges_df[
-    ~exchanges_df['exchange'].isin(['bitmex', 'deribit'])]
+    ~exchanges_df['exchange'].isin(['bitmex'])]
 
-# exchanges = exchanges_df['exchange'].to_list()
-exchanges = ['itbit']
+exchanges = exchanges_df['exchange'].to_list()
 granul = '1h'
-val_date = '2023-08-08'
-ref_date = '2023-07-31'
+extract_date = '2023-08-08'
+val_date = '2023-07-31'
 quote_ccys = ['usd', 'eur', 'jpy', 'usdt', 'krw']
 market_type = 'spot'
 
 ## Execution
 
-#  intermedate variables
+#  intermediate variables
 markets_all = scope_check(client_key=client, exchanges=exchanges,
-                          val_date=val_date,
+                          val_date=extract_date,
                           quote_ccys=quote_ccys, granul='1h')
 markets = pd.merge(left=markets_all, right=assets_df['asset'], left_on='base',
                    right_on='asset', how='inner')
 
-output_path = Path(__file__).parents[2] / 'output' / 'ExchangeDD' / ref_date
+output_path = Path(__file__).parents[2] / 'output' / 'ExchangeDD' / val_date
 output_file = (output_path
-               / f'CoinMetricsData_{val_date.replace("-", "")}'
+               / f'CoinMetricsData_{extract_date.replace("-", "")}'
                  f'_{pd.Timestamp.today().strftime("%Y%m%d")}.csv')
 
 # data extraction
@@ -121,15 +114,16 @@ for chunk in np.array_split(markets.index, markets.shape[0] // 3 + 1):
     try:
         df_foo = client.get_market_candles(
             markets=markets.loc[chunk, 'market'].to_list(),
-            start_time=pd.to_datetime(val_date).isoformat(timespec='seconds'),
+            start_time=pd.to_datetime(extract_date).isoformat(
+                timespec='seconds'),
             end_time=pd.Timestamp.now().isoformat(timespec='seconds'),
             frequency=granul).to_dataframe()
         df_list.append(df_foo)
         print('Market data of {0} on {1} was downloaded'
-              .format(markets.loc[chunk, 'market'].to_list(), val_date))
+              .format(markets.loc[chunk, 'market'].to_list(), extract_date))
     except (KeyError, ValueError) as e:
         print('Market data of {0} on {1} was NOT downloaded'
-              .format(markets.loc[chunk, 'market'].to_list(), val_date))
+              .format(markets.loc[chunk, 'market'].to_list(), extract_date))
         print('Reason: ' + e)
 
 df = pd.concat(df_list)

@@ -1,5 +1,4 @@
 import pandas as pd
-import itertools
 import numpy as np
 import requests.exceptions
 
@@ -157,13 +156,15 @@ def request_data(market, val_date, client_key, granul='1m', lookback_price=0,
     start_minute_price = (
         (pd.to_datetime(val_date)
          - pd.offsets.DateOffset(lookback_price)
-         - pd.offsets.DateOffset(hours=12))
+         #- pd.offsets.DateOffset(hours=12)
+         )
         .strftime('%Y-%m-%dT%H:%M:%S'))
     end_minute_volume = val_date + 'T24:00:00'
     end_minute_price = (
         (pd.to_datetime(val_date)
          + pd.offsets.DateOffset(days=1)
-         + pd.offsets.DateOffset(hours=12))
+         #+ pd.offsets.DateOffset(hours=12)
+         )
         .strftime('%Y-%m-%dT%H:%M:%S'))
     price_df = client_key.get_market_candles(
         markets=market,
@@ -833,7 +834,8 @@ def get_market_data_manual(
         granul,
         fiat_crypto_markets,
         output_path,
-        crypto_only=False):
+        crypto_only=False,
+        skip_conv=False):
     """
     Extract all pricing data for the selected cryptocurrencies on the
     specified date and type of trading pair (crypto-fiat / crypto-crypto)
@@ -845,36 +847,57 @@ def get_market_data_manual(
     :param granul: the granularity of the market data
     :param output_path: the folder path to export data
     :param crypto_only: boolean, whether the trading pairs are crypto-fiat or
-        crypto_currency_df
+        crypto-crypto
+    :param skip_conv: boolean, whether to skip conversion market data
+        extraction in case market data is requested for crypto-crypto trading
+        pairs
     :return: Dataframe with all data
     """
-
     if crypto_only:
-        # crypto-fiat market data for price conversion
-        print('crypto-crypto market data requested. getting crypto-fiat data '
-              'for price conversion ...')
-        output_conversion = (
+        output_pricing = (
                 output_path /
-                'CoinMetricsData_manualconv'
+                'CoinMetricsData_manualpricing'
                 f'_{val_date.replace("-", "")}'
                 f'_{pd.Timestamp.today().strftime("%Y%m%d")}'
-                f'.csv'
+                '.csv'
         )
         pricing_markets = (
-            fiat_crypto_markets[fiat_crypto_markets['quote type'] == 'pricing'])
-        conv_markets = fiat_crypto_markets[
-            fiat_crypto_markets['quote type'] == 'conv']
-        df = get_market_data(
-            markets=conv_markets,
-            val_date=val_date,
-            client_key=client_key,
-            granul=granul,
-            lookback_price=0,
-            lookback_volume=10,
-            vol_hist=True)
-        df.to_csv(output_conversion, index=False)
-
+            fiat_crypto_markets[
+                fiat_crypto_markets['quote type'] == 'pricing'])
+        if skip_conv:
+            print("crypto-crypto market requested but conversion market data"
+                  " request skipped")
+        else:
+            # crypto-fiat market data for price conversion
+            print(
+                'crypto-crypto market data requested. getting crypto-fiat data '
+                'for price conversion ...')
+            output_conversion = (
+                    output_path /
+                    'CoinMetricsData_manualconv'
+                    f'_{val_date.replace("-", "")}'
+                    f'_{pd.Timestamp.today().strftime("%Y%m%d")}'
+                    f'.csv'
+            )
+            conv_markets = fiat_crypto_markets[
+                fiat_crypto_markets['quote type'] == 'conv']
+            df = get_market_data(
+                markets=conv_markets,
+                val_date=val_date,
+                client_key=client_key,
+                granul=granul,
+                lookback_price=0,
+                lookback_volume=10,
+                vol_hist=True)
+            df.to_csv(output_conversion, index=False)
     else:
+        output_pricing = (
+                output_path /
+                'CoinMetricsData_iCAVEpricing'
+                f'_{val_date.replace("-", "")}'
+                f'_{pd.Timestamp.today().strftime("%Y%m%d")}'
+                '.csv'
+        )
         pricing_markets = fiat_crypto_markets
         print(
             'if the data extraction is intended for manual assessment, '
@@ -887,11 +910,4 @@ def get_market_data_manual(
         lookback_price=0,
         lookback_volume=10,
         vol_hist=True)
-    output_pricing = (
-            output_path /
-            'CoinMetricsData_manualpricing'
-            f'_{val_date.replace("-", "")}'
-            f'_{pd.Timestamp.today().strftime("%Y%m%d")}'
-            '.csv'
-    )
     df.to_csv(output_pricing, index=False)

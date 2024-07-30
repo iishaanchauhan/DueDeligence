@@ -465,13 +465,14 @@ def pull_data_gateio(ccy_pair, granul=1, pull_date='2022-06-30'):
                                                       interval=gateio_granul)
         gateio_df = pd.DataFrame(api_response,
                                  columns=['time', 'quotevolume', 'close',
-                                          'high', 'low', 'open', 'volume'])
+                                          'high', 'low', 'open', 'volume',
+                                          'status'])
         gateio_df.drop('quotevolume', axis=1, inplace=True)
         gateio_df['dtime'] = pd.to_datetime(
             gateio_df['time'].astype('int64'), unit='s').dt.tz_localize(None)
         gateio_df.set_index('dtime', inplace=True)
         gateio_df.sort_index(inplace=True, ascending=True)
-    except (GateApiException, ApiException) as e:
+    except (GateApiException, ApiException, ValueError) as e:
         print("Exception, label: %s, message: %s\n" % (e.label, e.message))
         gateio_df = pd.DataFrame(
             columns=['time', 'open', 'high', 'low', 'close', 'volume'])
@@ -1253,7 +1254,7 @@ def pull_data(currencypairs, granul, exchanges, pull_date, to_csv=True,
     """
     Function to pull data fromm various exchanges
     :param currencypairs: list of currency pairs to retrieve data.
-    Each currency pair is in FOR:DOM format (e.g. BTC;USD).
+    Each currency pair is in FOR:DOM format (e.g. BTC:USD).
     :param granul:
     :param exchanges:
     :param to_csv
@@ -1266,8 +1267,8 @@ def pull_data(currencypairs, granul, exchanges, pull_date, to_csv=True,
 
     # Pulling data very every ccypair and exchange and concatenating
     # into DF by exchange
-    for currencypair in currencypairs:
-        for exchange in exchanges:
+    for exchange in exchanges:
+        for currencypair in currencypairs:
             tries = 0
             while tries <= 2:
                 try:
@@ -1309,10 +1310,10 @@ def pull_data(currencypairs, granul, exchanges, pull_date, to_csv=True,
 Constants
 """
 granularity = 1  # duration between 2 samples in hours.
-pull_date_global = '2023-07-31'
+val_date = '2024-06-30'
 exchanges = [
     'binance', 'binance.us', 'bitbank', 'bitfinex', 'bitflyer',
-    'bitstamp', 'bittrex', 'cex.io', 'coinbase',
+    'bitstamp', 'cex.io', 'coinbase',
     'ftx', 'gate.io', 'gemini', 'itbit', 'kraken', 'poloniex',
     'ftx.us', 'bibox', 'bitmex', 'bybit',
     'crypto.com', 'hitbtc', 'huobi', 'kucoin', 'lbank', 'liquid',
@@ -1320,7 +1321,7 @@ exchanges = [
     'bithumb', 'upbit', 'mexc', 'bullish']
 exchanges_func_input = [
     'binance', 'binanceus', 'bitbank', 'bitfinex',
-    'bitstamp', 'bittrex', 'cexio', 'coinbase',
+    'bitstamp', 'cexio', 'coinbase',
     'ftx', 'gateio', 'gemini', 'kraken', 'poloniex',
     'ftxus', 'bibox', 'bitmex', 'bybit',
     'cryptocom', 'hitbtc', 'huobi', 'kucoin', 'lbank',
@@ -1340,6 +1341,6 @@ print(Path.cwd())
 """
 Execution
 """
-df = pull_data(ccy_pairs, granularity, exchanges_func_input, pull_date_global,
+df = pull_data(ccy_pairs, granularity, exchanges_func_input, val_date,
                to_csv=True,
                name_csv='ExchangeData')

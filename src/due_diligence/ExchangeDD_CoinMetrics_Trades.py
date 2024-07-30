@@ -9,8 +9,7 @@ import numpy as np
 
 
 def scope_check_trades(
-        client_key, val_date='2022-09-30', exchanges=None, quote_ccys=None,
-        lookback_period=10, granul='1m'):
+        client_key, exchanges=None, quote_ccys=None, granul='1m'):
     """
     Find all markets with available minutia data in CoinMetrics with optional constraint on exchanges and
     quote currencies to include.
@@ -95,9 +94,7 @@ val_date = val_time_start[:10]
 print(val_date)
 markets_all = scope_check_trades(
     client_key=client, exchanges=exchanges,
-    val_date=val_date,
-    quote_ccys=quote_ccys, granul='1h',
-    lookback_period=1000)
+    quote_ccys=quote_ccys, granul='1h')
 markets = pd.merge(
     left=markets_all, right=assets_df['asset'], left_on='base',
     right_on='asset', how='inner')
@@ -108,13 +105,15 @@ output_path = (
 
 output_data = (
         output_path
-        / f'CoinMetricsTrades_bittrex'
-          f'_{val_time_end.replace("-", "").replace(":", "")}'
+        / f'CoinMetricsTrades'
+          f'_{exchanges[0] if len(exchanges)==1 else "exchanges"}'
+          f'_{val_time_end[:10].replace("-", "").replace(":", "")}'
           f'_{pd.Timestamp.today().strftime("%Y%m%d")}.csv')
 output_scope = (
         output_path
-        / f'CoinMetricsTrades_bittrex_markets'
-          f'_{val_time_end.replace("-", "").replace(":", "")}'
+        / f'CoinMetricsTrades'
+          f'_{exchanges[0] if len(exchanges)==1 else "exchanges"}_markets'
+          f'_{val_time_end[:10].replace("-", "").replace(":", "")}'
           f'_{pd.Timestamp.today().strftime("%Y%m%d")}.csv')
 # data extraction
 if not output_path.exists():
