@@ -8,7 +8,7 @@ import time
 import pandas as pd
 import requests
 import krakenex
-import pykraken as KrakenAPI
+from pykrakenapi import KrakenAPI
 import json
 from binance.client import Client as BneClient
 from binance.exceptions import BinanceAPIException
@@ -83,11 +83,10 @@ def pull_data_coinbase(ccy_pair, granul, pull_date):
         data_coinbase = pd.DataFrame(
             data, columns=['time', 'low', 'high', 'open', 'close', 'volume'])
         data_coinbase['dtime'] = pd.to_datetime(
-            data_coinbase['time'].astype('int64'), unit='ms')
+            data_coinbase['time'].astype('int64'), unit='s')
         data_coinbase.set_index('dtime', inplace=True)
         # merge to updated and sorted dataframe
         data_coinbase = data_coinbase.sort_index(ascending=True)
-        data_coinbase.insert(0, 'Currencypair', ccy_pair)
     except (
             KeyError, ValueError, requests.exceptions, json.JSONDecodeError
     ) as e:
@@ -1308,7 +1307,7 @@ def pull_data(currencypairs, granul, exchanges, pull_date, to_csv=True,
         output_file = (
                 output_path
                 / f'{name_csv}_{pull_date.replace("-", "")}'
-                  f'{"_" + exchanges[0] if len(exchanges) == 1 else None}'
+                  f'{"_" + exchanges[0] if len(exchanges) == 1 else ""}'
                   f'_{pd.Timestamp.today().strftime("%Y%m%d")}.csv')
     exchange_df.to_csv(output_file)
     print(f'csv output saved as {output_file}')
@@ -1346,6 +1345,8 @@ ccy_pairs = [
     'MONA:JPY', '1INCH:EUR', 'ADA:EUR', 'ENJ:JPY', 'UNI:USDT', 'BCH:JPY',
     'LTC:USDT', 'BNB:USD'
 ]
+exchanges = ['coinbase']
+exchanges_func_input = ['coinbase']
 print(Path.cwd())
 
 """
