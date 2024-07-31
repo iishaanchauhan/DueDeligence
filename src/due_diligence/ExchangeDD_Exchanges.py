@@ -707,9 +707,9 @@ def pull_data_bybit(ccy_pair, granul, pull_date='2022-08-01'):
     :return:
     """
     if granul == 1:
-        bybit_granul = '1h'
+        bybit_granul = 60
     elif granul == 24:
-        bybit_granul = '1d'
+        bybit_granul = 'D'
     else:
         raise KeyError('invalid granul value, must be either 1 or 24')
     bybit_ccy_pair = ccy_pair.replace(':', '')
@@ -718,15 +718,13 @@ def pull_data_bybit(ccy_pair, granul, pull_date='2022-08-01'):
         '1 day')).value // 10 ** 6
 
     try:
-        client = bbAPI.HTTP(endpoint="https://api.bybit.com")
-        r = client.query_kline(symbol=bybit_ccy_pair, interval=bybit_granul,
-                               endTime=bybit_pull_date_end,
-                               startTime=bybit_pull_date_start)
-        bybit_df = pd.DataFrame(r['result'],
+        client = bbAPI.HTTP()
+        r = client.get_kline(symbol=bybit_ccy_pair, interval=bybit_granul,
+                             endTime=bybit_pull_date_end,
+                             startTime=bybit_pull_date_start)
+        bybit_df = pd.DataFrame(r['result']['list'],
                                 columns=['time', 'open', 'high', 'low', 'close',
-                                         'volume', 'endTime',
-                                         'quoteAssetVolume', 'trades',
-                                         'takerBaseVolume', 'takerQuoteVolume'])
+                                         'volume', 'turnover'])
         bybit_df = bybit_df[['time', 'open', 'high', 'low', 'close', 'volume']]
         bybit_df['dtime'] = pd.to_datetime(bybit_df['time'].astype('int64'),
                                            unit='ms')
@@ -1310,7 +1308,7 @@ def pull_data(currencypairs, granul, exchanges, pull_date, to_csv=True,
         output_file = (
                 output_path
                 / f'{name_csv}_{pull_date.replace("-", "")}'
-                  f'{exchanges[0] if len(exchanges) == 1 else "exchanges"}'
+                  f'{"_" + exchanges[0] if len(exchanges) == 1 else None}'
                   f'_{pd.Timestamp.today().strftime("%Y%m%d")}.csv')
     exchange_df.to_csv(output_file)
     print(f'csv output saved as {output_file}')
@@ -1322,7 +1320,7 @@ def pull_data(currencypairs, granul, exchanges, pull_date, to_csv=True,
 Constants
 """
 granularity = 1  # duration between 2 samples in hours.
-val_date = '2024-06-30'
+val_date = '2024-07-30'
 exchanges = [
     'binance', 'binance.us', 'bitbank', 'bitfinex', 'bitflyer',
     'bitstamp', 'cex.io', 'coinbase',
@@ -1331,7 +1329,6 @@ exchanges = [
     'crypto.com', 'hitbtc', 'huobi', 'kucoin', 'lbank', 'liquid',
     'okex', 'therocktrading', 'zb.com',
     'bithumb', 'upbit', 'mexc', 'bullish']
-exchanges = ['bybit']
 exchanges_func_input = [
     'binance', 'binanceus', 'bitbank', 'bitfinex',
     'bitstamp', 'cexio', 'coinbase',
@@ -1340,7 +1337,6 @@ exchanges_func_input = [
     'cryptocom', 'hitbtc', 'huobi', 'kucoin', 'lbank',
     'liquid', 'okex', 'therocktrading', 'zbcom',
     'bithumb', 'upbit', 'mexc', 'bullish']
-exchanges_func_input = ['bybit']
 ccy_pairs = [
     'ADA:USD', 'AVAX:USD', 'BTC:USD', 'ETH:USD', 'XRP:USD', 'USDT:USD',
     'USDC:USD', 'BNB:USD', 'BUSD:USD', 'SOL:USD', 'DOGE:USD',
