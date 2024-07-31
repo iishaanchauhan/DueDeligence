@@ -80,23 +80,22 @@ exchanges_df = exchanges_df[
 
 exchanges = exchanges_df['exchange'].to_list()
 granul = '1h'
-extract_date = '2023-08-08'
-val_date = '2023-07-31'
-quote_ccys = ['usd', 'eur', 'jpy', 'usdt', 'krw']
+val_date = '2024-07-30'
+quote_ccys = ['usd', 'eur', 'jpy', 'usdt']
 market_type = 'spot'
 
 ## Execution
 
 #  intermediate variables
 markets_all = scope_check(client_key=client, exchanges=exchanges,
-                          val_date=extract_date,
+                          val_date=val_date,
                           quote_ccys=quote_ccys, granul='1h')
 markets = pd.merge(left=markets_all, right=assets_df['asset'], left_on='base',
                    right_on='asset', how='inner')
 
 output_path = Path(__file__).parents[2] / 'output' / 'ExchangeDD' / val_date
 output_file = (output_path
-               / f'CoinMetricsData_{extract_date.replace("-", "")}'
+               / f'CoinMetricsData_{val_date.replace("-", "")}'
                  f'_{pd.Timestamp.today().strftime("%Y%m%d")}.csv')
 
 # data extraction
@@ -114,16 +113,16 @@ for chunk in np.array_split(markets.index, markets.shape[0] // 3 + 1):
     try:
         df_foo = client.get_market_candles(
             markets=markets.loc[chunk, 'market'].to_list(),
-            start_time=pd.to_datetime(extract_date).isoformat(
+            start_time=pd.to_datetime(val_date).isoformat(
                 timespec='seconds'),
             end_time=pd.Timestamp.now().isoformat(timespec='seconds'),
             frequency=granul).to_dataframe()
         df_list.append(df_foo)
         print('Market data of {0} on {1} was downloaded'
-              .format(markets.loc[chunk, 'market'].to_list(), extract_date))
+              .format(markets.loc[chunk, 'market'].to_list(), val_date))
     except (KeyError, ValueError) as e:
         print('Market data of {0} on {1} was NOT downloaded'
-              .format(markets.loc[chunk, 'market'].to_list(), extract_date))
+              .format(markets.loc[chunk, 'market'].to_list(), val_date))
         print('Reason: ' + e)
 
 df = pd.concat(df_list)
