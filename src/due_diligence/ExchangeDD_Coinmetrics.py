@@ -69,9 +69,10 @@ def scope_check(
 
 ## Constants
 client = CoinMetricsClient('zzHnUvjMgthSKDZuZOUb')
-assets = ['ada', 'avax', 'btc', 'eth', 'xrp', 'usdt', 'usdc', 'bnb', 'busd',
-          'sol', 'doge', 'crv', '1inch', 'mona',
-          'enj', 'bch', 'uni', 'ltc']
+assets = ['btc', 'eth', 'usdt', 'sol', 'bnb', 'usdc', 'xrp', 'doge', 'ton',
+          'ada', 'bonk', 'ar', 'imx', 'atom', 'dai', 'inj', 'bch', 'xmr', 'dot',
+          'render'
+          ]
 assets_df = client.catalog_assets(assets=assets).to_dataframe()[
     ['asset', 'full_name']]
 exchanges_df = client.catalog_exchanges().to_dataframe()
@@ -81,7 +82,7 @@ exchanges_df = exchanges_df[
 exchanges = exchanges_df['exchange'].to_list()
 granul = '1h'
 val_date = '2024-07-30'
-quote_ccys = ['usd', 'eur', 'jpy', 'usdt']
+quote_ccys = ['usd', 'jpy', 'eur', 'usdt']
 market_type = 'spot'
 
 ## Execution
@@ -109,13 +110,15 @@ print('market availability done')
 #                      lookback_price=0, lookback_volume=0, vol_hist=False)
 
 df_list = []
-for chunk in np.array_split(markets.index, markets.shape[0] // 3 + 1):
+for chunk in np.array_split(markets.index, markets.shape[0] // 5 + 1):
     try:
         df_foo = client.get_market_candles(
             markets=markets.loc[chunk, 'market'].to_list(),
             start_time=pd.to_datetime(val_date).isoformat(
                 timespec='seconds'),
-            end_time=pd.Timestamp.now().isoformat(timespec='seconds'),
+            end_time=(
+                    pd.to_datetime(val_date)
+                    + pd.Timedelta('1 day')).isoformat(timespec='seconds'),
             frequency=granul).to_dataframe()
         df_list.append(df_foo)
         print('Market data of {0} on {1} was downloaded'

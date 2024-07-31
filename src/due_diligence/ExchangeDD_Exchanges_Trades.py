@@ -371,7 +371,8 @@ def pull_trades(currencypairs, exchanges, pull_date='2022-08-01T00:00:00',
                     exchange_df.append(exchange_ccy_df)
                     print(exchange_ccy_df.head())
                     print(
-                        f'Data request for exchange {exchange}, ticker {currencypair} done')
+                        f'Data request for exchange '
+                        f'{exchange}, ticker {currencypair} done')
                 except (requests.RequestException, Exception) as e:
                     print(e)
                 finally:
@@ -402,13 +403,16 @@ Constants
 """
 exchanges = ['bitflyer', 'itbit']
 exchanges_func_input = ['bitflyer', 'itbit']
-ccy_pairs = ['ADA:USD', 'AVAX:USD', 'BTC:USD', 'ETH:USD', 'XRP:USD', 'USDT:USD',
-             'USDC:USD', 'BNB:USD', 'BUSD:USD', 'SOL:USD', 'DOGE:USD',
-             'CRV:USD', 'BTC:JPY', 'ETH:JPY', 'CRV:JPY', 'DOGE:JPY', 'XRP:JPY',
-             'USDT:JPY', 'SOL:JPY', 'BTC:EUR', 'ETH:EUR', 'SOL:EUR',
-             '1INCH:USD', 'UNI:USD', 'BCH:USD', 'BTC:USDT', '1INCH:USDT',
-             'MONA:JPY', '1INCH:EUR', 'ADA:EUR', 'ENJ:JPY', 'UNI:USDT',
-             'BCH:JPY', 'LTC:USDT', 'BNB:USD']
+ccy_pairs = [
+    'ADA:USD', 'ADA:USDT', 'ADA:EUR', 'AR:USDT', 'ATOM:USD', 'ATOM:USDT',
+    'ATOM:EUR', 'BCH:USD', 'BCH:USDT', 'BCH:EUR', 'BNB:USDT', 'BONK:USD',
+    'BONK:USDT', 'BTC:JPY', 'BTC:USD', 'BTC:USDT', 'BTC:EUR', 'DAI:USD',
+    'DAI:USDT', 'DOGE:USD', 'DOGE:USDT', 'DOGE:EUR', 'DOT:USD', 'DOT:USDT',
+    'DOT:EUR', 'ETH:JPY', 'ETH:USD', 'ETH:USDT', 'ETH:EUR', 'IMX:USD',
+    'IMX:USDT', 'INJ:USD', 'INJ:USDT', 'SOL:USD', 'SOL:USDT', 'SOL:EUR',
+    'TON:USDT', 'USDC:USD', 'USDC:USDT', 'USDC:EUR', 'USDT:USD', 'USDT:EUR',
+    'XMR:USDT', 'XRP:USD', 'XRP:USDT'
+]
 pull_date = '2024-07-30'
 csv_timestamp = (
     pd.Timestamp.utcnow().tz_localize(None)
