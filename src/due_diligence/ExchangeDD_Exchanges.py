@@ -7,9 +7,9 @@ from pathlib import Path
 import time
 import pandas as pd
 import requests
+import json
 import krakenex
 from pykrakenapi import KrakenAPI
-import json
 from binance.client import Client as BneClient
 from binance.exceptions import BinanceAPIException
 from gate_api.api_client import ApiClient as GateClient
@@ -1247,12 +1247,51 @@ def pull_data_bullish(ccy_pair, granul, pull_date='2023-03-31'):
         data_bullish.sort_index(ascending=True, inplace=True)
     except (json.JSONDecodeError, ValueError) as e:
         print(e)
-        data_bullish = pd.DataFrame(
-            columns=['time', 'open', 'high', 'low', 'close', 'volume'])
+        data_bullish = pd.DataFrame(0,
+                                    columns=['time', 'open', 'high', 'low',
+                                             'close', 'volume'])
     finally:
         data_bullish.insert(0, 'Currencypair', ccy_pair)
     return data_bullish
 
+
+def pull_data_deribit(ccy_pair, granul, pull_date='2023-03-31'):
+    request_end_time = pd.to_datetime(pull_date) + pd.Timedelta('1 day')
+    request_start_time = (request_end_time
+                          - pd.Timedelta(199, unit='hours')
+                          ).value // 10 ** 6
+    request_end_time = request_end_time.value // 10 ** 6
+    request_ccy_pair = ccy_pair.replace(":", "_")
+    if granul == 1:
+        request_granul = 60
+    elif granul == 24:
+        request_granul = "1D"
+    else:
+        raise KeyError("only 1 and 24 are acceptable value for granul")
+    url = (f'https://www.deribit.com/api/v2/public/get_tradingview_chart_data'
+           f'?instrument_name={request_ccy_pair}'
+           f'&resolution={request_granul}'
+           f'&start_timestamp={request_start_time}'
+           f'&end_timestamp={request_end_time}'
+           )
+    try:
+        print(url)
+        r = requests.get(url, timeout=5)
+        data = r.json()['result']
+        candle_df = pd.DataFrame(data)
+        candle_df.rename(columns={'ticks': 'time'}, inplace=True)
+        candle_df.drop(columns='status', inplace=True)
+        candle_df['dtime'] = pd.to_datetime(
+            candle_df['time'].astype('int64'), unit='ms')
+        candle_df.set_index('dtime', inplace=True)
+        candle_df.sort_index(ascending=True, inplace=True)
+    except (ValueError, KeyError, requests.exceptions.RequestException) as e:
+        print(e)
+        candle_df = pd.DataFrame(
+            columns=['time', 'open', 'high', 'low', 'close', 'volume'])
+    finally:
+        candle_df.insert(0, 'Currencypair', ccy_pair)
+    return candle_df
 
 def pull_data(currencypairs, granul, exchanges, pull_date, to_csv=True,
               name_csv='ExchangesData'):
@@ -1282,21 +1321,20 @@ def pull_data(currencypairs, granul, exchanges, pull_date, to_csv=True,
                     print(func)
                     exchange_ccy_df = eval(func)
                     exchange_ccy_df['exchange'] = exchange
-                    exchange_df.append(exchange_ccy_df)
                     print(exchange_ccy_df.head())
                     print(
                         f'Data request for exchange {exchange}, '
                         f'ticker {currencypair} on {pull_date} done')
-                except (
-                        requests.RequestException, Exception, UnboundLocalError
-                ) as e:
+                except (requests.RequestException, Exception) as e:
                     print(e)
                 finally:
                     time.sleep(1.5)
                 tries += 1
                 print(f'code executed for {tries} try/tries.')
-                if exchange_ccy_df.shape[0] > 0:
-                    break
+                if exchange_ccy_df is not None:
+                    if exchange_ccy_df.shape[0] > 0:
+                        exchange_df.append(exchange_ccy_df)
+                        break
 
     exchange_df = pd.concat(exchange_df)
     if to_csv:
@@ -1327,7 +1365,7 @@ exchanges = [
     'bibox', 'bitmex', 'bybit',
     'crypto.com', 'hitbtc', 'huobi', 'kucoin', 'lbank', 'liquid',
     'okex', 'therocktrading', 'zb.com',
-    'bithumb', 'upbit', 'mexc', 'bullish']
+    'bithumb', 'upbit', 'mexc', 'bullish', 'deribit']
 exchanges_func_input = [
     'binance', 'binanceus', 'bitbank', 'bitfinex',
     'bitstamp', 'cexio', 'coinbase',
@@ -1335,7 +1373,7 @@ exchanges_func_input = [
     'bibox', 'bitmex', 'bybit',
     'cryptocom', 'hitbtc', 'huobi', 'kucoin', 'lbank',
     'liquid', 'okex', 'therocktrading', 'zbcom',
-    'bithumb', 'upbit', 'mexc', 'bullish']
+    'bithumb', 'upbit', 'mexc', 'bullish', 'deribit']
 ccy_pairs = [
     'ADA:USD', 'AVAX:USD', 'BTC:USD', 'ETH:USD', 'XRP:USD', 'USDT:USD',
     'USDC:USD', 'BNB:USD', 'BUSD:USD', 'SOL:USD', 'DOGE:USD',
@@ -1345,8 +1383,8 @@ ccy_pairs = [
     'MONA:JPY', '1INCH:EUR', 'ADA:EUR', 'ENJ:JPY', 'UNI:USDT', 'BCH:JPY',
     'LTC:USDT', 'BNB:USD'
 ]
-exchanges = ['coinbase']
-exchanges_func_input = ['coinbase']
+exchanges = ['deribit']
+exchanges_func_input = ['deribit']
 print(Path.cwd())
 
 """
