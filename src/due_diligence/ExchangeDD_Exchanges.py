@@ -7,9 +7,8 @@ from pathlib import Path
 import time
 import pandas as pd
 import requests
-from pykrakenapi import KrakenAPI
 import krakenex
-import cbpro
+import pykraken as KrakenAPI
 import json
 from binance.client import Client as BneClient
 from binance.exceptions import BinanceAPIException
@@ -17,8 +16,8 @@ from gate_api.api_client import ApiClient as GateClient
 from gate_api.exceptions import ApiException, GateApiException
 from gate_api import Configuration as GateConf
 from gate_api import SpotApi as GateAPI
-from pybit import spot as BbAPI
-from pybit import FailedRequestError, InvalidRequestError
+from pybit import unified_trading as bbAPI
+from pybit import exceptions as bbException
 from kucoin.client import Market as KcAPI
 
 
@@ -68,25 +67,35 @@ def pull_data_coinbase(ccy_pair, granul, pull_date):
     :param pull_date:
     :return:
     """
+
     coinbase_pull_date_end = pd.to_datetime(pull_date) + pd.Timedelta('1 day')
     coinbase_pull_date_start = coinbase_pull_date_end - pd.to_timedelta(
         199 * granul, 'h')
-    public_client = cbpro.PublicClient()
     coinbase_ccy_pair = ccy_pair.replace(':', '-')
-    data = public_client.get_product_historic_rates(
-        product_id=coinbase_ccy_pair,
-        granularity=3600 * granul,
-        start=coinbase_pull_date_start,
-        end=coinbase_pull_date_end)
-    data_coinbase = pd.DataFrame(data, columns=['time', 'open', 'high', 'low',
-                                                'close', 'volume'])
-    data_coinbase['dtime'] = pd.to_datetime(
-        data_coinbase['time'].astype('int64'), unit='s')
-    data_coinbase.set_index('dtime', inplace=True)
-    # merge to updated and sorted dataframe
-    data_coinbase = data_coinbase.sort_index(ascending=True)
-    data_coinbase.insert(0, 'Currencypair', ccy_pair)
-
+    url = (
+        f'https://api.exchange.coinbase.com/products/{coinbase_ccy_pair}'
+        f'/candles?granularity={granul * 3600}&'
+        f'start={coinbase_pull_date_start.strftime("%Y-%m-%dT%H:%M:%SZ")}&'
+        f'end={coinbase_pull_date_end.strftime("%Y-%m-%dT%H:%M:%SZ")}')
+    try:
+        r = requests.get(url, timeout=5)
+        data = r.json()
+        data_coinbase = pd.DataFrame(
+            data, columns=['time', 'low', 'high', 'open', 'close', 'volume'])
+        data_coinbase['dtime'] = pd.to_datetime(
+            data_coinbase['time'].astype('int64'), unit='ms')
+        data_coinbase.set_index('dtime', inplace=True)
+        # merge to updated and sorted dataframe
+        data_coinbase = data_coinbase.sort_index(ascending=True)
+        data_coinbase.insert(0, 'Currencypair', ccy_pair)
+    except (
+            KeyError, ValueError, requests.exceptions, json.JSONDecodeError
+    ) as e:
+        print(e)
+        data_coinbase = pd.DataFrame(
+            columns=['time', 'open', 'high', 'low', 'close', 'volume'])
+    finally:
+        data_coinbase.insert(0, 'Currencypair', ccy_pair)
     return data_coinbase
 
 
@@ -709,7 +718,7 @@ def pull_data_bybit(ccy_pair, granul, pull_date='2022-08-01'):
         '1 day')).value // 10 ** 6
 
     try:
-        client = BbAPI.HTTP(endpoint="https://api.bybit.com")
+        client = bbAPI.HTTP(endpoint="https://api.bybit.com")
         r = client.query_kline(symbol=bybit_ccy_pair, interval=bybit_granul,
                                endTime=bybit_pull_date_end,
                                startTime=bybit_pull_date_start)
@@ -723,8 +732,7 @@ def pull_data_bybit(ccy_pair, granul, pull_date='2022-08-01'):
                                            unit='ms')
         bybit_df.set_index('dtime', inplace=True)
         bybit_df.sort_index(ascending=True)
-    except (json.JSONDecodeError, ValueError, KeyError, FailedRequestError,
-            InvalidRequestError) as e:
+    except (json.JSONDecodeError, ValueError, KeyError, bbException) as e:
         print(e)
         bybit_df = pd.DataFrame(
             columns=['time', 'open', 'high', 'low', 'close', 'volume'])
@@ -1282,7 +1290,9 @@ def pull_data(currencypairs, granul, exchanges, pull_date, to_csv=True,
                     print(
                         f'Data request for exchange {exchange}, '
                         f'ticker {currencypair} on {pull_date} done')
-                except (requests.RequestException, Exception) as e:
+                except (
+                        requests.RequestException, Exception, UnboundLocalError
+                ) as e:
                     print(e)
                 finally:
                     time.sleep(1.5)
@@ -1297,9 +1307,11 @@ def pull_data(currencypairs, granul, exchanges, pull_date, to_csv=True,
                           2] / 'output' / 'ExchangeDD' / pull_date
         if not output_path.exists():
             output_path.mkdir()
-        output_file = (output_path
-                       / f'{name_csv}_{pull_date.replace("-", "")}'
-                         f'_{pd.Timestamp.today().strftime("%Y%m%d")}.csv')
+        output_file = (
+                output_path
+                / f'{name_csv}_{pull_date.replace("-", "")}'
+                  f'{exchanges[0] if len(exchanges) == 1 else "exchanges"}'
+                  f'_{pd.Timestamp.today().strftime("%Y%m%d")}.csv')
     exchange_df.to_csv(output_file)
     print(f'csv output saved as {output_file}')
 
@@ -1314,19 +1326,21 @@ val_date = '2024-06-30'
 exchanges = [
     'binance', 'binance.us', 'bitbank', 'bitfinex', 'bitflyer',
     'bitstamp', 'cex.io', 'coinbase',
-    'ftx', 'gate.io', 'gemini', 'itbit', 'kraken', 'poloniex',
-    'ftx.us', 'bibox', 'bitmex', 'bybit',
+    'gate.io', 'gemini', 'itbit', 'kraken', 'poloniex',
+    'bibox', 'bitmex', 'bybit',
     'crypto.com', 'hitbtc', 'huobi', 'kucoin', 'lbank', 'liquid',
     'okex', 'therocktrading', 'zb.com',
     'bithumb', 'upbit', 'mexc', 'bullish']
+exchanges = ['bybit']
 exchanges_func_input = [
     'binance', 'binanceus', 'bitbank', 'bitfinex',
     'bitstamp', 'cexio', 'coinbase',
-    'ftx', 'gateio', 'gemini', 'kraken', 'poloniex',
-    'ftxus', 'bibox', 'bitmex', 'bybit',
+    'gateio', 'gemini', 'kraken', 'poloniex',
+    'bibox', 'bitmex', 'bybit',
     'cryptocom', 'hitbtc', 'huobi', 'kucoin', 'lbank',
     'liquid', 'okex', 'therocktrading', 'zbcom',
     'bithumb', 'upbit', 'mexc', 'bullish']
+exchanges_func_input = ['bybit']
 ccy_pairs = [
     'ADA:USD', 'AVAX:USD', 'BTC:USD', 'ETH:USD', 'XRP:USD', 'USDT:USD',
     'USDC:USD', 'BNB:USD', 'BUSD:USD', 'SOL:USD', 'DOGE:USD',
