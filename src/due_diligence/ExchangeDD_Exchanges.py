@@ -1357,7 +1357,7 @@ def pull_data(currencypairs, granul, exchanges, pull_date, to_csv=True,
 Constants
 """
 granularity = 1  # duration between 2 samples in hours.
-val_date = '2024-07-30'
+val_date = '2024-07-31'
 exchanges = [
     'binance', 'binance.us', 'bitbank', 'bitfinex', 'bitflyer',
     'bitstamp', 'cex.io', 'coinbase',

@@ -81,7 +81,7 @@ exchanges_df = exchanges_df[
 
 exchanges = exchanges_df['exchange'].to_list()
 granul = '1h'
-val_date = '2024-07-30'
+val_date = '2024-07-31'
 quote_ccys = ['usd', 'jpy', 'eur', 'usdt']
 market_type = 'spot'
 

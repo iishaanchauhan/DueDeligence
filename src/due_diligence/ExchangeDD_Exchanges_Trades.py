@@ -413,7 +413,7 @@ ccy_pairs = [
     'TON:USDT', 'USDC:USD', 'USDC:USDT', 'USDC:EUR', 'USDT:USD', 'USDT:EUR',
     'XMR:USDT', 'XRP:USD', 'XRP:USDT'
 ]
-pull_date = '2024-07-30'
+pull_date = '2024-07-31'
 csv_timestamp = (
     pd.Timestamp.utcnow().tz_localize(None)
     .isoformat(timespec="hours")
