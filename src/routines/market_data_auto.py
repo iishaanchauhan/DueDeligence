@@ -69,6 +69,10 @@ for val_date in val_dates:
             fiat_markets_default=default_markets,
             output_path=output_path
         )
+    else:
+        default_markets = pd.read_csv(output_file_fiat)
+    x = input("Is this run intended to extract market data? (y/n)")
+    if x == 'y':
         get_market_data_auto(
             val_date=val_date,
             client_key=client,
@@ -76,3 +80,5 @@ for val_date in val_dates:
             fiat_crypto_markets=default_markets,
             granul=granul
         )
+    else:
+        print('skipping market data extraction ...')
