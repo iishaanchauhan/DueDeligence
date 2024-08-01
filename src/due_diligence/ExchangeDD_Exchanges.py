@@ -1293,6 +1293,7 @@ def pull_data_deribit(ccy_pair, granul, pull_date='2023-03-31'):
         candle_df.insert(0, 'Currencypair', ccy_pair)
     return candle_df
 
+
 def pull_data(currencypairs, granul, exchanges, pull_date, to_csv=True,
               name_csv='ExchangesData'):
     """
@@ -1382,8 +1383,8 @@ ccy_pairs = [
     'DOT:EUR', 'ETH:JPY', 'ETH:USD', 'ETH:USDT', 'ETH:EUR', 'IMX:USD',
     'IMX:USDT', 'INJ:USD', 'INJ:USDT', 'SOL:USD', 'SOL:USDT', 'SOL:EUR',
     'TON:USDT', 'USDC:USD', 'USDC:USDT', 'USDC:EUR', 'USDT:USD', 'USDT:EUR',
-    'XMR:USDT', 'XRP:USD', 'XRP:USDT'
-
+    'XMR:USDT', 'XRP:USD', 'XRP:USDT', 'XRP:JPY', 'BCH:JPY', ' LTC:JPY',
+    'XLM:JPY'
 ]
 print(Path.cwd())
 
