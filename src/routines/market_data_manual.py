@@ -34,10 +34,10 @@ crypto_currency_df = pd.DataFrame(
     columns=['base'])
 
 lookback_period = 10
-crypto_only = False
+crypto_only = True
 # set to True if conv market data already extracted and there is no need for
 # further data
-skip_conv = True
+skip_conv = False
 """
 Full coverage for all fiat
 """

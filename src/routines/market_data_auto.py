@@ -39,6 +39,7 @@ for val_date in val_dates:
     if not output_path.exists():
         output_path.mkdir(parents=True, exist_ok=True)
     output_file_fiat = output_path / 'iCAVE fiat markets.csv'
+    output_file_default = output_path / 'iCAVE default markets.csv'
     if output_file_fiat.exists():
         print(f'iCAVE coverage as of {val_date} is already determined!')
         while True:
@@ -70,10 +71,10 @@ for val_date in val_dates:
             output_path=output_path
         )
     else:
-        default_markets = pd.read_csv(output_file_fiat)
-        print(f'{default_markets.shape[0]} markets to extract')
+        default_markets = pd.read_csv(output_file_default)
     x = input("Is this run intended to extract market data? (y/n)")
     if x == 'y':
+        print(f'{default_markets.shape[0]} markets to extract')
         get_market_data_auto(
             val_date=val_date,
             client_key=client,
