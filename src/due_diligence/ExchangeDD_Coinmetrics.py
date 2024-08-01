@@ -11,16 +11,21 @@ def scope_check(
         client_key, val_date='2022-09-30', exchanges=None, quote_ccys=None,
         lookback_period=10, granul='1m'):
     """
-    Find all markets with available minutia data in CoinMetrics with optional constraint on exchanges and
+    Find all markets with available minutia data in CoinMetrics with optional
+    constraint on exchanges and
     quote currencies to include.
 
     :param client_key: an instance of CoinMetrics API client class.
     :param val_date: valuation date
     :param exchanges: list of (reliable) exchanges to constraint the scope
-    :param quote_ccys: list of (fiat) currencies to include as eligible quote currency
-    :param lookback_period: how many days into the past should the daily volume be extracted
-    :param granul: the candle frequency. Possible values are: '1m', '1h', '1d'. Default to be '1m'
-    :return: a table of all markets with available minutia data in CoinMetrics with optional constraint on exchanges and
+    :param quote_ccys: list of (fiat) currencies to include as eligible quote
+        currency
+    :param lookback_period: how many days into the past should the daily volume
+        be extracted
+    :param granul: the candle frequency. Possible values are: '1m', '1h', '1d'.
+        Default to be '1m'
+    :return: a table of all markets with available minutia data in CoinMetrics
+        with optional constraint on exchanges and
         quote currencies to include. Table columns:
         market: market name in CoinMetrics format (e.g. coinbase-btc-usd-spot,
         frequency: frequency of market data (e.g. 1m, 1h, etc.),
@@ -105,9 +110,7 @@ if not output_path.exists():
     print('folder path created new')
 else:
     print('folder path already exists')
-print('market availability done')
-# df = get_markets_data(markets, val_date=val_date, client_key=client, granul=granul,
-#                      lookback_price=0, lookback_volume=0, vol_hist=False)
+print(f'market availability done, {markets.shape[0]} markets to extract')
 
 df_list = []
 for chunk in np.array_split(markets.index, markets.shape[0] // 5 + 1):

@@ -71,6 +71,7 @@ for val_date in val_dates:
         )
     else:
         default_markets = pd.read_csv(output_file_fiat)
+        print(f'{default_markets.shape[0]} markets to extract')
     x = input("Is this run intended to extract market data? (y/n)")
     if x == 'y':
         get_market_data_auto(

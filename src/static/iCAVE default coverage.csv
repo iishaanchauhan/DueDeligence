@@ -1,0 +1,86 @@
+﻿base,full_name,period,from,until
+btc,Bitcoin,1,,
+eth,Ethereum,1,,
+usdt,Tether,1,,
+usdc,USD Coin,1,,
+bnb,BNB,1,,
+xrp,XRP,1,,
+busd,Binance USD,1,,30/12/2023
+doge,Dogecoin,1,,
+ada,Cardano,1,,
+matic,Polygon,1,,
+dai,Dai,1,,
+ltc,Litecoin,1,,
+trx,TRON,1,,
+dot,Polkadot,1,,
+shib,Shiba Inu,1,,
+uni,Uniswap,1,,
+sol,Solana,1,,
+avax,Avalanche,1,,
+leo,UNUS SED LEO,1,,
+wbtc,Wrapped Bitcoin,1,,30/12/2023
+link,Chainlink,1,,
+ton,Toncoin,1,,
+xmr,Monero,1,,30/03/2024
+atom,Cosmos,1,,
+etc,Ethereum Classic,1,,
+xlm,Stellar,1,,
+bch,Bitcoin Cash,1,,
+okb,OKB,1,,
+cro,Cronos,1,,
+ape,ApeCoin,1,,29/06/2023
+qnt,Quant,1,,30/12/2023
+algo,Algorand,1,,30/03/2024
+vet,VeChain,1,,
+icp,Internet Computer,1,,
+fil,Filecoin,1,,
+near,NEAR Protocol,1,,
+hbar,Hedera,1,,
+eos,EOS,1,,29/06/2023
+luna,Terra Classic,1,,30/03/2023
+usdp,Pax Dollar,1,,30/03/2023
+tusd,TrueUSD,1,,30/03/2024
+bsv,Bitcoin SV,1,,30/03/2023
+egld,MultiversX,1,,29/09/2023
+ht,Huobi Token,1,,30/03/2023
+theta,Theta Network,1,,29/06/2023
+aave,Aave,1,,30/12/2023
+usdd,USDD,1,,30/03/2023
+bit,BitDAO,1,,29/06/2023
+flow,Flow,1,,30/03/2023
+chz,Chiliz,1,,30/03/2023
+apt,Aptos,1,31/03/2023,
+ldo,Lido DAO,1,31/03/2023,
+ftm,Fantom,1,31/03/2023,29/09/2023
+grt,The Graph,1,31/03/2023,
+stx,Stacks,1,31/03/2023,
+mana,Decentraland,1,31/03/2023,29/06/2023
+arb,Arbitrum,1,30/06/2023,
+op,Optimism,1,30/06/2023,
+mkr,Maker,1,30/06/2023,30/12/2023
+sand,The Sandbox,1,30/06/2023,29/09/2023
+usdp,Pax Dollar,2,30/06/2023,29/09/2023
+bsv,Bitcoin SV,2,30/06/2023,29/09/2023
+mnt,Mantle,1,30/09/2023,
+usdd,USDD,2,30/09/2023,30/12/2023
+imx,Immutable,1,30/09/2023,
+xdc,XDC Network,1,30/09/2023,30/12/2023
+rune,THORChain,1,30/09/2023,
+inj,Injective,1,31/12/2023,
+kas,Kaspa,1,31/12/2023,
+bsv,Bitcoin SV,3,31/12/2023,30/03/2024
+tia,Celestia,1,31/12/2023,30/03/2024
+egld,MultiversX,2,31/12/2023,30/03/2024
+fdusd,First Digital USD,1,31/12/2023,
+ordi,ORDI,1,31/12/2023,30/03/2024
+wif,dogwifhat,1,,
+rndr,Render Token,1,,
+pepe,Pepe,1,,
+mkr,Maker,2,31/03/2024,
+theta,Theta Network,2,31/03/2024,
+ftm,Fantom,2,31/03/2024,
+fet,Fetch.ai,1,,
+xmr,Monero,2,30/06/2024,
+sui,Sui,1,30/06/2024,
+tao_bittensor,Bittensor,1,30/06/2024,
+ar,Arweave,1,30/06/2024,

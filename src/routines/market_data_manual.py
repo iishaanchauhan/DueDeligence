@@ -10,7 +10,7 @@ print(Path.cwd())
 client = CoinMetricsClient('zzHnUvjMgthSKDZuZOUb')
 granul = '1m'
 
-val_dates = ['2023-12-31']
+val_dates = ['2024-06-30']
 market_type = 'spot'
 
 assets_df = client.catalog_assets().to_dataframe()
@@ -29,12 +29,12 @@ fiat_currency_df = pd.DataFrame(fiat_currency_list,
 
 crypto_currency_df = pd.DataFrame(
     {
-        'pool', 'xprt'
+        'btc', 'eth'
     },
     columns=['base'])
 
 lookback_period = 10
-crypto_only = True
+crypto_only = False
 # set to True if conv market data already extracted and there is no need for
 # further data
 skip_conv = True
