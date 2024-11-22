@@ -10,10 +10,10 @@ print(Path.cwd())
 client = CoinMetricsClient('zzHnUvjMgthSKDZuZOUb')
 granul = '1m'
 
-val_dates = ['2024-06-30']
+val_dates = ['2024-09-30']
 market_type = 'spot'
 
-assets_df = client.catalog_assets().to_dataframe()
+assets_df = client.reference_data_assets().to_dataframe()
 
 exchanges = pd.read_csv(
     Path(__file__).parents[1] / 'static' /
@@ -29,15 +29,15 @@ fiat_currency_df = pd.DataFrame(fiat_currency_list,
 
 crypto_currency_df = pd.DataFrame(
     {
-        'btc', 'eth'
+        'ltc', 'sol', 'doge'
     },
     columns=['base'])
 
 lookback_period = 10
-crypto_only = True
+crypto_only = False
 # set to True if conv market data already extracted and there is no need for
 # further data
-skip_conv = False
+skip_conv = True
 """
 Full coverage for all fiat
 """
@@ -67,3 +67,4 @@ for val_date in val_dates:
         val_date=val_date,
         skip_conv=skip_conv
     )
+    print(f'Pricing data downloaded to: {output_path}')

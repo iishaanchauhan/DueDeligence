@@ -36,7 +36,7 @@ def scope_check(
         - market_type: type of market (spot, future, option),
         - full_name: full name of the crypto,
     """
-    all_assets = client_key.catalog_market_candles(
+    all_assets = client_key.catalog_market_candles_v2(
         quote=None,
         market_type="spot").to_dataframe()
     all_assets['min_time'] = pd.to_datetime(all_assets['min_time'])
@@ -55,7 +55,7 @@ def scope_check(
 
     all_assets[['exchange', 'base', 'quote',
                 'market_type']] = all_assets.market.str.split('-', expand=True)
-    asset_names = client_key.catalog_assets().to_dataframe()
+    asset_names = client_key.reference_data_assets().to_dataframe()
     all_assets = (
         all_assets.merge(asset_names[['full_name', 'asset']], left_on='base',
                          right_on='asset', how='left'))
@@ -80,61 +80,6 @@ def scope_check(
     # except ValueError as e:
     #     print(e)
     return all_assets
-
-
-# def get_avail_markets(exchanges_to_process, assets_to_process,
-#                       client_key, valuation_date, lookback_period=10,
-#                       asset_ccy=None, market_type='spot', quoted=None,
-#                       granul='1m'):
-#     """
-#     Request for all submitted exchanges and assets whether minutia market
-#         data candles are available.
-#
-#     :param exchanges_to_process: list of exchanges as strings
-#     :param assets_to_process: Dataframe of assets as strings (Coinmetrics
-#         tickers) and fullname of the assets
-#     :param asset_ccy: dataframe of asset and their major trading currency across
-#         all reliable exchanges (if there are market restriction, calculate
-#         the table in Excel before feeding it into this function)
-#     :param client_key: an instance of CoinMetrics API client class.
-#     :param valuation_date: the valuation date to check market availability
-#     :param lookback_period: how many days into the past should the trading
-#         availability be checked
-#     :param market_type: spot or future market. Default spot
-#     :param quoted: denominating currency. Default usd
-#     :param granul: sampling frequency. Default 1m, can be 1h or 1d
-#
-#     :return: Dataframe of all available markets, and dataframe with strings of
-#         not available markets
-#     """
-#     if quoted is None:
-#         quoted = ['usd']
-#     all_markets = client_key.catalog_full_market_candles(
-#         market_type='spot').to_dataframe()
-#
-#     query_markets = pd.DataFrame(
-#         [list(i) + [('-'.join(i))] for i in
-#          itertools.product(exchanges_to_process,
-#                            assets_to_process['asset'].to_list(),
-#                            quoted,
-#                            ['spot'])],
-#         columns=['exchange', 'asset', 'ccy', 'market type', 'market'])
-#     query_markets = (query_markets
-#                      .merge(all_markets[all_markets['frequency'] == granul],
-#                             how='inner', on='market')
-#                      .merge(assets_to_process, how='inner', on='asset'))
-#     query_markets = query_markets[
-#         (
-#                 query_markets['min_time'].dt.tz_localize(
-#                     None) <= pd.to_datetime(valuation_date)
-#                 - pd.Timedelta(lookback_period, unit='day'))
-#         & (
-#                 query_markets['max_time'].dt.tz_localize(
-#                     None) >= pd.to_datetime(valuation_date)
-#                 + pd.Timedelta(1, unit='day'))]
-#     query_markets.drop('market type', axis=1, inplace=True)
-#     return query_markets
-
 
 def request_data(market, val_date, client_key, granul='1m', lookback_price=0,
                  lookback_volume=10,
@@ -319,7 +264,7 @@ def vol_stats(client_key, markets, val_date, lookback_volume=10,
     :param client_key: an instance of the CoinMetrics API client class.
     :param lookback_volume: how many days in the past should the daily trading
         volume be downloaded
-    :param silent: whether to suppres infor message
+    :param silent: whether to suppress infor message
     :return:
     """
     start_minute_vol = (
@@ -529,6 +474,8 @@ def scope_check_icave(
         crypto_default_output, how='left', on=['base', 'full_name'],
         indicator=True
     )
+    fiat_markets_default = fiat_markets_default.loc[
+        fiat_markets_default["_merge"] == "both"]
     print(crypto_default_output.shape[0])
     print(
         'number of markets in default coverage: '
@@ -668,19 +615,16 @@ def export_scope_icave(
         fiat_markets_default[['min_time', 'max_time']].apply(
             lambda x: x.dt.tz_localize(None))
     )
-    print(f'market availability check done for {val_date}')
-    print(f'number of fiat markets: {fiat_markets.shape[0]}')
-    market_count = (
-        fiat_markets_default.loc[
-            fiat_markets_default["_merge"] == "both"].shape[0])
-    print(
-        f'default coverage of fiat markets: '
-        f'{market_count}')
+    #manual assessment scoping
     crypto_markets[['min_time', 'max_time']] = (
         crypto_markets[['min_time', 'max_time']].apply(
             lambda x: x.dt.tz_localize(None))
     )
-    print(f'number of crypto markets: {crypto_markets.shape[0]}')
+    print(f'market availability check done for {val_date}')
+    print(f'total count of fiat markets:{fiat_markets.shape[0]}')
+    print(f'total count of default fiat markets:'
+          f'{fiat_markets_default.shape[0]}')
+    print(f'total count of crypto markets: {crypto_markets.shape[0]}')
     crypto_market_coverage = crypto_markets.drop_duplicates(
         subset='full_name')
     # export data to csv and xlsx format
@@ -688,7 +632,6 @@ def export_scope_icave(
     crypto_markets.to_csv(output_file_crypto, index=False)
     (
         fiat_markets_default
-        .loc[fiat_markets_default['_merge'] == 'both']
         .drop('_merge', axis=1)
         .to_csv(output_file_default, index=False)
     )
@@ -721,7 +664,6 @@ def export_scope_icave(
         )
         (
             fiat_markets_default
-            .loc[fiat_markets_default['_merge'] == 'both']
             .drop('_merge', axis=1)
             .to_excel(excel_writer=writer,
                       sheet_name='iCAVE All Markets',

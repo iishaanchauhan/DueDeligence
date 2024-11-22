@@ -8,7 +8,7 @@ import pandas as pd
 ## Constants
 print(Path.cwd())
 client = CoinMetricsClient('zzHnUvjMgthSKDZuZOUb')
-assets_df = client.catalog_assets().to_dataframe()
+assets_df = client.reference_data_assets().to_dataframe()
 granul = '1m'
 val_dates = ['2024-06-30']
 market_type = 'spot'
@@ -17,7 +17,6 @@ exchanges_df = pd.read_csv(
     'static' / 'iCAVE reliable exchanges.csv',
     parse_dates=['from', 'until'], dayfirst=True
 )
-
 fiat_currency_list = pd.read_csv(
     Path(__file__).parents[1] /
     'static' / 'fiat_currency.csv')['Alphabetic Code'].str.lower().to_list()
