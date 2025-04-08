@@ -8,7 +8,7 @@ xrp,XRP,1,,
 busd,Binance USD,1,,30/12/2023
 doge,Dogecoin,1,,
 ada,Cardano,1,,
-matic,Polygon,1,,
+matic,Polygon,1,,30/12/2024
 dai,Dai,1,,
 ltc,Litecoin,1,,
 trx,TRON,1,,
@@ -50,37 +50,53 @@ bit,BitDAO,1,,29/06/2023
 flow,Flow,1,,30/03/2023
 chz,Chiliz,1,,30/03/2023
 apt,Aptos,1,31/03/2023,
-ldo,Lido DAO,1,31/03/2023,
+ldo,Lido DAO,1,31/03/2023,30/12/2024
 ftm,Fantom,1,31/03/2023,29/09/2023
-grt,The Graph,1,31/03/2023,
-stx,Stacks,1,31/03/2023,
+grt,The Graph,1,31/03/2023,30/12/2024
+stx,Stacks,1,31/03/2023,30/12/2024
 mana,Decentraland,1,31/03/2023,29/06/2023
-arb,Arbitrum,1,30/06/2023,
-op,Optimism,1,30/06/2023,
+arb,Arbitrum,1,30/06/2023,30/03/2025
+op,Optimism,1,30/06/2023,30/03/2025
 mkr,Maker,1,30/06/2023,30/12/2023
 sand,The Sandbox,1,30/06/2023,29/09/2023
 usdp,Pax Dollar,2,30/06/2023,29/09/2023
 bsv,Bitcoin SV,2,30/06/2023,29/09/2023
 mnt,Mantle,1,30/09/2023,
 usdd,USDD,2,30/09/2023,30/12/2023
-imx,Immutable,1,30/09/2023,
+imx,Immutable,1,30/09/2023,30/12/2024
 xdc,XDC Network,1,30/09/2023,30/12/2023
-rune,THORChain,1,30/09/2023,
-inj,Injective,1,31/12/2023,
-kas,Kaspa,1,31/12/2023,
+rune,THORChain,1,30/09/2023,30/12/2024
+inj,Injective,1,31/12/2023,30/12/2024
+kas,Kaspa,1,31/12/2023,30/03/2025
 bsv,Bitcoin SV,3,31/12/2023,30/03/2024
 tia,Celestia,1,31/12/2023,30/03/2024
 egld,MultiversX,2,31/12/2023,30/03/2024
-fdusd,First Digital USD,1,31/12/2023,
+fdusd,First Digital USD,1,31/12/2023,30/12/2024
 ordi,ORDI,1,31/12/2023,30/03/2024
-wif,dogwifhat,1,,
-rndr,Render Token,1,,
+wif,dogwifhat,1,,30/12/2024
+rndr,Render Token,1,,30/12/2024
 pepe,Pepe,1,,
-mkr,Maker,2,31/03/2024,
-theta,Theta Network,2,31/03/2024,
-ftm,Fantom,2,31/03/2024,
-fet,Fetch.ai,1,,
+mkr,Maker,2,31/03/2024,30/12/2024
+theta,Theta Network,2,31/03/2024,30/12/2024
+ftm,Fantom,2,31/03/2024,30/12/2024
+fet,Fetch.ai,1,,30/03/2025
 xmr,Monero,2,30/06/2024,
 sui,Sui,1,30/06/2024,
 tao_bittensor,Bittensor,1,30/06/2024,
-ar,Arweave,1,30/06/2024,
+ar,Arweave,1,30/06/2024,30/12/2024
+hype,Hyperliquid,1,31/12/2024,
+bgb,Bitget Token,1,31/12/2024,
+usde,Ethena USDe,1,31/12/2024,
+pol,POL (ex-MATIC),1,31/12/2024,
+virtual,Virtuals Protocol,1,31/12/2024,30/03/2025
+render,Render,1,31/12/2024,
+om,MANTRA,1,31/12/2024,
+ena,Ethena,1,31/12/2024,
+aave,Aave,2,31/12/2024,
+algo,Algorand,2,31/12/2024,30/03/2025
+fdusd,First Digital USD,2,31/03/2025,
+tia,Celestia,2,31/03/2025,
+pi,Pi,1,31/03/2025,
+ondo,Ondo,1,31/03/2025,
+trump,OFFICIAL TRUMP,1,31/03/2025,
+gt,GateToken,1,31/03/2025,

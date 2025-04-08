@@ -32,14 +32,14 @@ def scope_check_trades(
         market_type: type of market (spot, future, option),
         full_name: full name of the crypto,
     """
-    all_assets = client_key.catalog_market_candles(quote=None,
+    all_assets = client_key.catalog_market_candles_v2(quote=None,
                                                    market_type="spot").to_dataframe()
     all_assets['min_time'] = pd.to_datetime(all_assets['min_time'])
     all_assets['max_time'] = pd.to_datetime(all_assets['max_time'])
     all_assets = all_assets[(all_assets.frequency == granul)]
     all_assets[['exchange', 'base', 'quote',
                 'market_type']] = all_assets.market.str.split('-', expand=True)
-    asset_names = client_key.catalog_assets().to_dataframe()
+    asset_names = client_key.reference_data_assets().to_dataframe()
     all_assets = (
         all_assets.merge(asset_names[['full_name', 'asset']], left_on='base',
                          right_on='asset', how='left'))
@@ -72,9 +72,9 @@ client = CoinMetricsClient('zzHnUvjMgthSKDZuZOUb')
 assets = ['ada', 'avax', 'btc', 'eth', 'xrp', 'usdt', 'usdc', 'bnb', 'busd',
           'sol', 'doge', 'crv', '1inch', 'mona',
           'enj', 'bch', 'uni', 'ltc']
-assets_df = client.catalog_assets(assets=assets).to_dataframe()[
+assets_df = client.reference_data_assets(assets=assets).to_dataframe()[
     ['asset', 'full_name']]
-exchanges_df = client.catalog_exchanges().to_dataframe()
+exchanges_df = client.reference_data_exchanges().to_dataframe()
 exchanges_df = exchanges_df[
     ~exchanges_df['exchange'].isin(['bitmex', 'deribit'])]
 # exchanges = exchanges_df['exchange'].to_list()

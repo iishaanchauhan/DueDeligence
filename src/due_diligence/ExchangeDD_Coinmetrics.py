@@ -37,7 +37,7 @@ def scope_check(
         market_type: type of market (spot, future, option),
         full_name: full name of the crypto,
     """
-    all_assets = client_key.catalog_market_candles(
+    all_assets = client_key.catalog_market_candles_v2(
         quote=None, market_type="spot").to_dataframe()
     all_assets['min_time'] = pd.to_datetime(all_assets['min_time'])
     all_assets['max_time'] = pd.to_datetime(all_assets['max_time'])
@@ -48,7 +48,7 @@ def scope_check(
            - pd.Timedelta(f'{lookback_period} days'))]
     all_assets[['exchange', 'base', 'quote',
                 'market_type']] = all_assets.market.str.split('-', expand=True)
-    asset_names = client_key.catalog_assets().to_dataframe()
+    asset_names = client_key.reference_data_assets().to_dataframe()
     all_assets = (
         all_assets.merge(asset_names[['full_name', 'asset']], left_on='base',
                          right_on='asset', how='left'))
@@ -78,9 +78,9 @@ assets = ['btc', 'eth', 'usdt', 'sol', 'bnb', 'usdc', 'xrp', 'doge', 'ton',
           'ada', 'bonk', 'ar', 'imx', 'atom', 'dai', 'inj', 'bch', 'xmr', 'dot',
           'render'
           ]
-assets_df = client.catalog_assets(assets=assets).to_dataframe()[
+assets_df = client.reference_data_assets().to_dataframe()[
     ['asset', 'full_name']]
-exchanges_df = client.catalog_exchanges().to_dataframe()
+exchanges_df = client.reference_data_exchanges().to_dataframe()
 exchanges_df = exchanges_df[
     ~exchanges_df['exchange'].isin(['bitmex'])]
 
@@ -113,7 +113,7 @@ else:
 print(f'market availability done, {markets.shape[0]} markets to extract')
 
 df_list = []
-for chunk in np.array_split(markets.index, markets.shape[0] // 5 + 1):
+for chunk in np.array_split(markets.index, markets.shape[0] // 10 + 1):
     try:
         df_foo = client.get_market_candles(
             markets=markets.loc[chunk, 'market'].to_list(),
