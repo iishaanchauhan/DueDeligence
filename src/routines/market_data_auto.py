@@ -10,7 +10,7 @@ print(Path.cwd())
 client = CoinMetricsClient('zzHnUvjMgthSKDZuZOUb')
 assets_df = client.reference_data_assets().to_dataframe()
 granul = '1m'
-val_dates = ['2024-06-30']
+val_dates = ['2025-03-31']
 market_type = 'spot'
 exchanges_df = pd.read_csv(
     Path(__file__).parents[1] /
@@ -51,11 +51,12 @@ for val_date in val_dates:
                 ow_bool = False
                 break
             else:
-                print('invalid value, please enter only "y" or "n"!')
+                print('invalid value, please enter only "y" or "n" without '
+                      'surrounding double quotes!')
     else:
         ow_bool = True
     if ow_bool:
-        markets, default_markets = scope_check_icave(
+        fiat_markets, crypto_markets, default_markets = scope_check_icave(
             val_date=val_date,
             exchange_df=exchanges_df,
             fiat_currency_df=fiat_currency_df,
@@ -65,8 +66,9 @@ for val_date in val_dates:
             lookback_period=10)
         export_scope_icave(
             val_date=val_date,
-            fiat_crypto_markets=markets,
-            fiat_markets_default=default_markets,
+            crypto_markets=crypto_markets,
+            fiat_markets=fiat_markets,
+            default_markets=default_markets,
             output_path=output_path
         )
     else:

@@ -81,6 +81,7 @@ def scope_check(
     #     print(e)
     return all_assets
 
+
 def request_data(market, val_date, client_key, granul='1m', lookback_price=0,
                  lookback_volume=10,
                  vol_hist=False):
@@ -347,7 +348,7 @@ def first_trade(val_date, markets, client):
     start_time = pd.to_datetime(val_date)
     end_time = pd.to_datetime(val_date) + pd.Timedelta('1 day')
     for chunk in np.array_split(markets.index,
-                                markets.shape[0] // 10 + 1):
+                                markets.shape[0] // 20 + 1):
         df = client.get_market_candles(
             markets=markets.loc[chunk, 'market'].to_list(),
             frequency='1h',
@@ -396,9 +397,11 @@ def scope_check_icave(
     :param client: the instance of CoinMetrics API Python client
     :param lookback_period: the period to check for available trading activities
     :param output_path: the folder path to export data
-    :return: a Dataframe of all crypto-fiat markets with available minutia
-        data in CoinMetrics with optional constraints on exchanges,
-        currencies and crypto assets.
+    :return: 3 DataFrames. The first one lists all available crypto-fiat
+    markets. The second one lists all available crypto-crypto markets,
+    while the 3rd one is a subset of the 1st one, limited to top 50 cryptos
+    with the largest market cap. All Dataframes are limited to quotes among
+    reliable exchanges.
 
     Table columns:
         - market: market name in CoinMetrics format (e.g. coinbase-btc-usd-spot,
@@ -426,37 +429,6 @@ def scope_check_icave(
                         exchange_df['until'].isnull() | (
                         exchange_df['until'] >= val_date_dt)))
         , 'exchange']
-
-    all_markets = scope_check(
-        client_key=client,
-        val_date=val_date,
-        exchanges=exchange_output.str.lower().to_list(),
-        lookback_period=lookback_period)
-    fiat_crypto_markets = all_markets.merge(
-        fiat_currency_df, how='outer', on='quote', indicator=True
-    )
-    fiat_crypto_markets = fiat_crypto_markets[
-        fiat_crypto_markets['_merge'].isin(['both', 'left_only'])]
-    print('checking trade continuity ...')
-    cont_check_df = cont_check(
-        val_date=val_date,
-        markets=fiat_crypto_markets,
-        client=client,
-        lookback_period=lookback_period
-    )
-    # only check first snapshot with volume for fiat markets
-    print('checking first snapshot with trades ...')
-    first_trade_df = first_trade(
-        val_date=val_date,
-        client=client,
-        markets=fiat_crypto_markets[fiat_crypto_markets['_merge'] == 'both']
-    )
-    fiat_crypto_markets = (
-        fiat_crypto_markets
-        .merge(cont_check_df, on='market')
-        .merge(first_trade_df, on='market', how='left'))
-    # export static data as of val date
-    exchange_output.to_csv(output_file_exchanges, index=False)
     crypto_default_output = crypto_currency_df.loc[
         (
                 (
@@ -467,19 +439,53 @@ def scope_check_icave(
                         crypto_currency_df['until'] >= val_date_dt))),
         ['base', 'full_name']
     ]
+    # export static data as of val date
+    exchange_output.to_csv(output_file_exchanges, index=False)
+    # market scoping
+    all_markets = scope_check(
+        client_key=client,
+        val_date=val_date,
+        exchanges=exchange_output.str.lower().to_list(),
+        lookback_period=lookback_period)
+    fiat_crypto_markets = all_markets.merge(
+        fiat_currency_df, how='outer', on='quote', indicator=True
+    )
+    fiat_crypto_markets = fiat_crypto_markets[
+        fiat_crypto_markets['_merge'].isin(['both', 'left_only'])]
     fiat_markets = (
         fiat_crypto_markets[fiat_crypto_markets['_merge'] == 'both']
         .drop('_merge', axis=1))
-    fiat_markets_default = fiat_markets.merge(
-        crypto_default_output, how='left', on=['base', 'full_name'],
+    crypto_markets = (
+        fiat_crypto_markets[fiat_crypto_markets['_merge'] == 'left_only']
+        .drop('_merge', axis=1))
+    default_markets = fiat_markets.merge(
+        crypto_default_output, how='inner', on=['base', 'full_name'],
         indicator=True
     )
+    # only check first snapshot and trade cont with volume for default markets
+    print('checking trade continuity ...')
+    cont_check_df = cont_check(
+        val_date=val_date,
+        markets=default_markets,
+        client=client,
+        lookback_period=lookback_period
+    )
+    print('checking first snapshot with trades ...')
+    first_trade_df = first_trade(
+        val_date=val_date,
+        client=client,
+        markets=default_markets
+    )
+    default_markets = (
+        default_markets
+        .merge(cont_check_df, on='market')
+        .merge(first_trade_df, on='market', how='left'))
     print(crypto_default_output.shape[0])
     print(
         'number of markets in default coverage: '
-        f'{fiat_markets_default
-        .loc[fiat_markets_default["_merge"] == "both"].shape[0]}')
-    return [fiat_crypto_markets, fiat_markets_default]
+        f'{default_markets
+        .loc[default_markets["_merge"] == "both"].shape[0]}')
+    return [fiat_markets, crypto_markets, default_markets]
 
 
 def scope_check_manual(
@@ -581,15 +587,17 @@ def scope_check_manual(
 
 
 def export_scope_icave(
-        val_date, fiat_crypto_markets, fiat_markets_default, output_path):
+        val_date, crypto_markets, fiat_markets, default_markets,
+        output_path):
     """
     Export all market coverage files to csv and xlsx files.
     :param val_date: the valuation date
-    :param fiat_crypto_markets: a Dataframe contains the full set of all
+    :param crypto_markets: a Dataframe containing the full set of all
         markets among reliable exchange as of the valuation date
-    :param fiat_markets_default: a Dataframe contains all fiat-crypto markets
-        among reliable exchanges, with flag indicating the top 50 largest
-        cryptos by market cap as of the valuation date
+    :param fiat_markets: a subset of fiat_crypto_markets containing 
+        all fiat-crypto markets among reliable exchanges
+    :param default_markets: a subset of fiat_markets containing top 50 
+        largest cryptos by market cap as of the valuation date
     :param output_path: the folder path to export data
     :return: None
     """
@@ -599,19 +607,9 @@ def export_scope_icave(
     output_file_overview = (
             output_path / f'iCAVE coverage_{val_date.replace("-", "")}.xlsx')
 
-    # fiat-crypto markets scoping
-    fiat_markets = (
-        fiat_crypto_markets[fiat_crypto_markets['_merge'] == 'both']
-        .drop(columns=['_merge'])
-    )
-    # crypto-crypto markets scoping
-    crypto_markets = (
-        fiat_crypto_markets[fiat_crypto_markets['_merge'] == 'left_only']
-        .drop(columns=['_merge'])
-    )
     # default iCAVE coverage scoping
-    fiat_markets_default[['min_time', 'max_time']] = (
-        fiat_markets_default[['min_time', 'max_time']].apply(
+    default_markets[['min_time', 'max_time']] = (
+        default_markets[['min_time', 'max_time']].apply(
             lambda x: x.dt.tz_localize(None))
     )
     # manual assessment scoping
@@ -620,24 +618,27 @@ def export_scope_icave(
             lambda x: x.dt.tz_localize(None))
     )
     print(f'market availability check done for {val_date}')
-    print(f'total count of fiat markets:{fiat_markets.shape[0]}')
-    print(f'total count of default fiat markets:'
-          f'{fiat_markets_default.loc[fiat_markets_default["_merge"] == "both"]
+    print(f'number of fiat markets:{fiat_markets.shape[0]}')
+    print(f'number of default fiat markets:'
+          f'{default_markets.loc[default_markets["_merge"] == "both"]
           .shape[0]}')
-    print(f'total count of crypto markets: {crypto_markets.shape[0]}')
+    print(f'number of crypto markets: {crypto_markets.shape[0]}')
     crypto_market_coverage = crypto_markets.drop_duplicates(
         subset='full_name')
     # export data to csv and xlsx format
     fiat_markets.to_csv(output_file_fiat, index=False)
     crypto_markets.to_csv(output_file_crypto, index=False)
     (
-        fiat_markets_default.drop('_merge', axis=1)
+        default_markets.drop('_merge', axis=1)
         .to_csv(output_file_default, index=False)
     )
     with pd.ExcelWriter(output_file_overview, mode='w',
                         engine="xlsxwriter") as writer:
-        fiat_market_coverage = fiat_markets_default.drop_duplicates(
-            subset='full_name')
+        fiat_market_coverage = (
+            fiat_markets.drop_duplicates(
+                subset='full_name')
+            .merge(default_markets['market'],on='market',indicator=True,
+                   how='left'))
         fiat_market_coverage['status'] = np.where(
             fiat_market_coverage['_merge'] == 'both',
             'Yes',
@@ -662,7 +663,7 @@ def export_scope_icave(
                 index=False)
         )
         (
-            fiat_markets_default
+            default_markets
             .drop('_merge', axis=1)
             .to_excel(excel_writer=writer,
                       sheet_name='iCAVE All Markets',
