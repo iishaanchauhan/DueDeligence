@@ -188,7 +188,7 @@ def request_data(market, val_date, client_key, granul='1m', lookback_price=0,
 def get_market_data(
         markets, val_date, client_key, granul='1m',
         lookback_price=0, lookback_volume=10,
-        vol_hist=False):
+        vol_hist=False, chunk_size=3):
     """
     Function to request minutely market candle data for all submitted markets
         as of valuation date
@@ -203,6 +203,8 @@ def get_market_data(
         downloaded
     :param lookback_volume: how many days in the past should the daily trading
         volume be downloaded
+    :param chunk_size: how many markets should pricing data be requested from
+        CoinMetrics for each data retrieval attempt. Default is 3.
     :param vol_hist: whether should the historical daily trading volume be
         pivoted. If False, return long table format with only 1 column for
         daily trading volume. If True, return a wide table format with
@@ -216,7 +218,8 @@ def get_market_data(
     if (vol_hist is True) and (lookback_price > 0):
         raise KeyError('can not download past prices if table format is wide')
     else:
-        for chunk in np.array_split(markets.index, markets.shape[0] // 3 + 1):
+        for chunk in np.array_split(
+                markets.index, markets.shape[0] // chunk_size + 1):
             try:
                 tries = 0
                 while True:
@@ -637,7 +640,7 @@ def export_scope_icave(
         fiat_market_coverage = (
             fiat_markets.drop_duplicates(
                 subset='full_name')
-            .merge(default_markets['market'],on='market',indicator=True,
+            .merge(default_markets['market'], on='market', indicator=True,
                    how='left'))
         fiat_market_coverage['status'] = np.where(
             fiat_market_coverage['_merge'] == 'both',
