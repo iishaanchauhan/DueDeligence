@@ -1,6 +1,8 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="ExchangeDD_Exchanges_Trades" type="PythonConfigurationType" factoryName="Python">
+    <output_file path="C:\Users\anhductran\PycharmProjects\CryptoVal\output\ExchangeDD\ExchangeTradeDataLog.txt" is_save="true" />
     <module name="CryptoVal" />
+    <option name="ENV_FILES" value="" />
     <option name="INTERPRETER_OPTIONS" value="" />
     <option name="PARENT_ENVS" value="true" />
     <envs>

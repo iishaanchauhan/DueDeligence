@@ -281,6 +281,7 @@ def pull_trades_itbit(ccy_pair, end_time='2023-08-01T00:00:00',
     input_ccy_pair = ccy_pair.replace(':', '')
     url = f'https://api.paxos.com/v2/markets/{input_ccy_pair}/recent-executions'
     try:
+        print(url)
         r = requests.get(url)
         output_df = pd.DataFrame(r.json()['items'])
         output_df.rename(columns={'match_number': 'UID', 'executed_at': 'time'},
@@ -404,16 +405,21 @@ Constants
 exchanges = ['bitflyer', 'itbit']
 exchanges_func_input = ['bitflyer', 'itbit']
 ccy_pairs = [
-    'ADA:USD', 'ADA:USDT', 'ADA:EUR', 'AR:USDT', 'ATOM:USD', 'ATOM:USDT',
-    'ATOM:EUR', 'BCH:USD', 'BCH:USDT', 'BCH:EUR', 'BNB:USDT', 'BONK:USD',
-    'BONK:USDT', 'BTC:JPY', 'BTC:USD', 'BTC:USDT', 'BTC:EUR', 'DAI:USD',
-    'DAI:USDT', 'DOGE:USD', 'DOGE:USDT', 'DOGE:EUR', 'DOT:USD', 'DOT:USDT',
-    'DOT:EUR', 'ETH:JPY', 'ETH:USD', 'ETH:USDT', 'ETH:EUR', 'IMX:USD',
-    'IMX:USDT', 'INJ:USD', 'INJ:USDT', 'SOL:USD', 'SOL:USDT', 'SOL:EUR',
-    'TON:USDT', 'USDC:USD', 'USDC:USDT', 'USDC:EUR', 'USDT:USD', 'USDT:EUR',
-    'XMR:USDT', 'XRP:USD', 'XRP:USDT'
+    'AAVE:USD', 'ADA:EUR', 'ADA:JPY', 'ADA:USDT', 'AVAX:EUR', 'AVAX:USD',
+    'AVAX:USDT', 'BAT:JPY', 'BAT:USD', 'BAT:USDT', 'BCH:BTC', 'BCH:EUR',
+    'BCH:JPY', 'BCH:USD', 'BCH:USDT', 'BNB:JPY', 'BTC:EUR', 'BTC:JPY',
+    'BTC:USD', 'BTC:USDT', 'DAI:JPY', 'DASH:USD', 'DOGE:EUR', 'DOGE:JPY',
+    'DOGE:USD', 'DOGE:USDT', 'DOT:JPY', 'DOT:USD', 'DOT:USDT', 'ETH:EUR',
+    'ETH:JPY', 'ETH:USD', 'ETH:USDT', 'GUSD:GBP', 'LINK:EUR', 'LINK:JPY',
+    'LINK:USD', 'LINK:USDC', 'LINK:USDT', 'LTC:EUR', 'LTC:JPY', 'LTC:USD',
+    'MONA:JPY', 'NEAR:USDT', 'PEPE:EUR', 'PEPE:USD', 'POL:JPY', 'SHIB:EUR',
+    'SHIB:USD', 'SHIB:USDT', 'SOL:EUR', 'SOL:JPY', 'SOL:USD', 'SOL:USDC',
+    'SOL:USDT', 'TRX:JPY', 'UNI:USD', 'USDC:EUR', 'USDT:EUR', 'USDT:USD',
+    'XLM:JPY', 'XLM:USDT', 'XRP:EUR', 'XRP:JPY', 'XRP:USD', 'XRP:USDC',
+    'XRP:USDT'
+
 ]
-pull_date = '2024-07-31'
+pull_date = '2025-06-30'
 csv_timestamp = (
     pd.Timestamp.utcnow().tz_localize(None)
     .isoformat(timespec="hours")

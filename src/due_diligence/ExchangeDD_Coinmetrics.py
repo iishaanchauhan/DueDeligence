@@ -1,5 +1,4 @@
 ## Imports
-from src.lib.iCAVEDataExtraction import get_market_data
 from coinmetrics.api_client import CoinMetricsClient
 from pathlib import Path
 import pandas as pd
@@ -74,10 +73,6 @@ def scope_check(
 
 ## Constants
 client = CoinMetricsClient('zzHnUvjMgthSKDZuZOUb')
-assets = ['btc', 'eth', 'usdt', 'sol', 'bnb', 'usdc', 'xrp', 'doge', 'ton',
-          'ada', 'bonk', 'ar', 'imx', 'atom', 'dai', 'inj', 'bch', 'xmr', 'dot',
-          'render'
-          ]
 assets_df = client.reference_data_assets().to_dataframe()[
     ['asset', 'full_name']]
 exchanges_df = client.reference_data_exchanges().to_dataframe()
@@ -86,7 +81,7 @@ exchanges_df = exchanges_df[
 
 exchanges = exchanges_df['exchange'].to_list()
 granul = '1h'
-val_date = '2024-07-31'
+val_date = '2025-06-30'
 quote_ccys = ['usd', 'jpy', 'eur', 'usdt']
 market_type = 'spot'
 
@@ -113,7 +108,7 @@ else:
 print(f'market availability done, {markets.shape[0]} markets to extract')
 
 df_list = []
-for chunk in np.array_split(markets.index, markets.shape[0] // 10 + 1):
+for chunk in np.array_split(markets.index, markets.shape[0] // 20 + 1):
     try:
         df_foo = client.get_market_candles(
             markets=markets.loc[chunk, 'market'].to_list(),
