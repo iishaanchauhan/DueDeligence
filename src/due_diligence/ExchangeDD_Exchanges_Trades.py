@@ -23,7 +23,7 @@ def pull_trades_cexio(ccy_pair, end_time='2023-08-01T00:00:00',
     :return:
     """
     input_ccy_pair = ccy_pair.replace(':', '/')
-    cm_markets = 'coinbase-' + ccy_pair.replace(':', '-').lower() + '-spot'
+    cm_markets = 'cex.io-' + ccy_pair.replace(':', '-').lower() + '-spot'
     last_trade_cm = client.get_market_trades(
         cm_markets,
         start_time=(pd.to_datetime(end_time) - pd.Timedelta(
@@ -90,13 +90,12 @@ def pull_trades_coinbase(ccy_pair, end_time='2023-08-01T00:00:00',
                 output_sub_df['time']).dt.tz_localize(None)
             output_list.append(output_sub_df)
             last_trade_id = output_sub_df.iloc[-1, 0]
-            last_trade_timestamp = output_sub_df
-        except (
-                json.JSONDecodeError, ValueError,
-                requests.exceptions.HTTPError) as e:
-            print(e)
-        if last_trade_timestamp <= input_start_time:
-            break
+            last_trade_timestamp = output_sub_df.iloc[-1, -1]
+            if last_trade_timestamp <= input_start_time:
+                break
+        except Exception as e:
+            print(e.with_traceback())
+
     output_df = pd.concat(output_list)
     output_df.insert(0, 'Currencypair', ccy_pair)
 
@@ -243,7 +242,8 @@ def pull_trades_bullish(ccy_pair, end_time='2023-08-01T00:00:00',
     :return:
     """
     input_ccy_pair = ccy_pair.replace(":", "")
-    url = f'https://api.exchange.bullish.com/trading-api/v1/history/markets/{input_ccy_pair}/trades'
+    url = (f'https://api.exchange.bullish.com/trading-api/'
+           f'v1/history/markets/{input_ccy_pair}/trades')
     print(url)
     try:
         r = requests.get(url)
@@ -336,6 +336,40 @@ def pull_trades_lbank(ccy_pair, end_time='2023-08-01T00:00:00',
     output_df.insert(0, 'Currencypair', ccy_pair)
     return output_df
 
+def pull_trades_mexc(ccy_pair, end_time='2023-08-01T00:00:00',
+                      timeframe='1 hour', client=client):
+    """
+
+    :param ccy_pair:
+    :param end_time:
+    :param timeframe:
+    :param client:
+    :return:
+    """
+    input_ccy_pair = ccy_pair.replace(':', '')
+    mexc_pull_date_end = pd.to_datetime(end_time).value // 10 ** 6
+    mexc_pull_date_start = (pd.to_datetime(end_time) - pd.Timedelta(
+        timeframe)).value // 10 ** 6
+    url = (f'https://api.mexc.com/api/v3/aggTrades?symbol={input_ccy_pair}&'
+           f'startTime={mexc_pull_date_start}&endTime='
+           f'{mexc_pull_date_end}&limit=1000')
+    try:
+        print(url)
+        r = requests.get(url)
+        print(r.reason + ", " + str(r.status_code))
+        output_df = pd.DataFrame(r.json())
+        output_df.rename(columns={'match_number': 'UID', 'executed_at': 'time'},
+                         inplace=True)
+        output_df['dtime'] = pd.to_datetime(output_df['time'],
+                                            format='mixed').dt.tz_localize(None)
+    except (
+            json.JSONDecodeError, ValueError,
+            requests.exceptions.HTTPError) as e:
+        print(e)
+    finally:
+        output_df.insert(0, 'Currencypair', ccy_pair)
+    return output_df
+
 
 def pull_trades(currencypairs, exchanges, pull_date='2022-08-01T00:00:00',
                 timeframe='1 hour', to_csv=True,
@@ -402,8 +436,7 @@ def pull_trades(currencypairs, exchanges, pull_date='2022-08-01T00:00:00',
 """
 Constants
 """
-exchanges = ['bitflyer', 'itbit']
-exchanges_func_input = ['bitflyer', 'itbit']
+exchanges_func_input = ['mexc']
 ccy_pairs = [
     'AAVE:USD', 'ADA:EUR', 'ADA:JPY', 'ADA:USDT', 'AVAX:EUR', 'AVAX:USD',
     'AVAX:USDT', 'BAT:JPY', 'BAT:USD', 'BAT:USDT', 'BCH:BTC', 'BCH:EUR',
@@ -417,8 +450,8 @@ ccy_pairs = [
     'SOL:USDT', 'TRX:JPY', 'UNI:USD', 'USDC:EUR', 'USDT:EUR', 'USDT:USD',
     'XLM:JPY', 'XLM:USDT', 'XRP:EUR', 'XRP:JPY', 'XRP:USD', 'XRP:USDC',
     'XRP:USDT'
-
 ]
+ccy_pairs = ['DOGE:EUR', 'ETH:EUR']
 pull_date = '2025-06-30'
 csv_timestamp = (
     pd.Timestamp.utcnow().tz_localize(None)
@@ -432,5 +465,5 @@ df = pull_trades(
     ccy_pairs, exchanges_func_input, pull_date=pull_date,
     timeframe='1 hour', to_csv=True,
     name_csv=f'ExchangeData_Trades_'
-             f'{exchanges[0] if len(exchanges) == 1 else "exchanges"}'
+             f'{exchanges_func_input[0] if len(exchanges_func_input) == 1 else "exchanges"}'
              f'_{csv_timestamp}')

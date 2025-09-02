@@ -17,7 +17,6 @@ from gate_api.exceptions import ApiException, GateApiException
 from gate_api import Configuration as GateConf
 from gate_api import SpotApi as GateAPI
 from pybit import unified_trading as bbAPI
-from pybit import exceptions as bbException
 from kucoin.client import Market as KcAPI
 
 
@@ -106,7 +105,7 @@ def pull_data_bitfinex(ccy_pair, granul, pull_date):
     :param pull_date:
     :return:
     """
-    stablecoin_dict = {'USDT': 'UST', 'USDC': 'UDC'}
+    longnames_dict = {'USDT': 'UST', 'USDC': 'UDC', 'DASH': 'DSH'}
     bitfinex_pull_date_end = (pd.to_datetime(pull_date) + pd.Timedelta(
         '1 day')).value // 10 ** 6
     if granul == 1:
@@ -118,8 +117,8 @@ def pull_data_bitfinex(ccy_pair, granul, pull_date):
 
     ccy_pair_list = ccy_pair.split(':')
     for ind in [0, 1]:
-        if ccy_pair_list[ind] in stablecoin_dict.keys():
-            ccy_pair_list[ind] = stablecoin_dict[ccy_pair_list[ind]]
+        if ccy_pair_list[ind] in longnames_dict.keys():
+            ccy_pair_list[ind] = longnames_dict[ccy_pair_list[ind]]
     if len(ccy_pair_list[0]) > 3:
         bitfinex_ccy_pair = ':'.join(ccy_pair_list)
     else:
@@ -145,7 +144,7 @@ def pull_data_bitfinex(ccy_pair, granul, pull_date):
         data_bitfinex = data_bitfinex[
             ['time', 'open', 'high', 'low', 'close', 'volume']]
         data_bitfinex = data_bitfinex.sort_index(ascending=True)
-    except (json.decoder.JSONDecodeError, ValueError) as e:
+    except Exception as e:
         print(e)
         data_bitfinex = pd.DataFrame(
             columns=['time', 'open', 'high', 'low', 'close', 'volume'])
@@ -467,10 +466,8 @@ def pull_data_gateio(ccy_pair, granul=1, pull_date='2022-06-30'):
         '1 day')).value // 10 ** 9
     try:
         # Market candlesticks
-        api_response = api_instance.list_candlesticks(gateio_ccy_pair,
-                                                      limit=200,
-                                                      to=gateio_pull_date_end,
-                                                      interval=gateio_granul)
+        api_response = api_instance.list_candlesticks(
+            gateio_ccy_pair, limit=200, to=gateio_pull_date_end,interval=gateio_granul)
         gateio_df = pd.DataFrame(api_response,
                                  columns=['time', 'quotevolume', 'close',
                                           'high', 'low', 'open', 'volume',
@@ -719,8 +716,8 @@ def pull_data_bybit(ccy_pair, granul, pull_date='2022-08-01'):
     try:
         client = bbAPI.HTTP()
         r = client.get_kline(symbol=bybit_ccy_pair, interval=bybit_granul,
-                             endTime=bybit_pull_date_end,
-                             startTime=bybit_pull_date_start)
+                             end=bybit_pull_date_end, category='spot',
+                             start=bybit_pull_date_start)
         bybit_df = pd.DataFrame(r['result']['list'],
                                 columns=['time', 'open', 'high', 'low', 'close',
                                          'volume', 'turnover'])
@@ -729,7 +726,7 @@ def pull_data_bybit(ccy_pair, granul, pull_date='2022-08-01'):
                                            unit='ms')
         bybit_df.set_index('dtime', inplace=True)
         bybit_df.sort_index(ascending=True)
-    except (json.JSONDecodeError, ValueError, KeyError, bbException) as e:
+    except Exception as e:
         print(e)
         bybit_df = pd.DataFrame(
             columns=['time', 'open', 'high', 'low', 'close', 'volume'])
@@ -753,8 +750,8 @@ def pull_data_cryptocom(ccy_pair, granul, pull_date='2022-08-01'):
     else:
         raise KeyError('invalid granul value, must be either 1 or 24')
     cryptocom_ccy_pair = ccy_pair.replace(':', '_')
-    input_end_time = pd.to_datetime(pull_date).value // 10 ** 6
-    input_start_time = (pd.to_datetime(pull_date) - pd.Timedelta(
+    input_start_time = pd.to_datetime(pull_date).value // 10 ** 6
+    input_end_time = (pd.to_datetime(pull_date) + pd.Timedelta(
         '1 day')).value // 10 ** 6
     url = (f'https://api.crypto.com/exchange/v1/public/get-candlestick?'
            f'timeframe={cryptocom_granul}&instrument_name={cryptocom_ccy_pair}'
@@ -1196,9 +1193,10 @@ def pull_data_mexc(ccy_pair, granul, pull_date='2023-03-31'):
                                  'interval': mexc_granul,
                                  'endTime': mexc_pull_date_end,
                                  'startTime': mexc_pull_date_start})
+        print(mrkt_url)
         r_json = r.json()
         data_mexc = pd.DataFrame(r_json)
-        data_mexc.columns = ['time', 'open', 'close', 'high', 'low', 'volume',
+        data_mexc.columns = ['time', 'open', 'high', 'low', 'close', 'volume',
                              'close time', 'quote volume']
         # actual order: open high low close
         data_mexc = data_mexc[
@@ -1337,7 +1335,7 @@ def pull_data(currencypairs, granul, exchanges, pull_date, to_csv=True,
                         exchange_df.append(exchange_ccy_df)
                         break
 
-    exchange_df = pd.concat(exchange_df)
+    exchange_df = pd.concat(exchange_df).drop_duplicates()
     if to_csv:
         output_path = Path(__file__).parents[
                           2] / 'output' / 'ExchangeDD' / pull_date
@@ -1367,27 +1365,27 @@ exchanges = [
     'crypto.com', 'hitbtc', 'huobi', 'kucoin', 'lbank', 'liquid',
     'okex', 'therocktrading', 'zb.com',
     'bithumb', 'upbit', 'mexc', 'bullish', 'deribit']
-exchanges_func_input = [
-    'binance', 'binanceus', 'bitbank', 'bitfinex',
-    'bitstamp', 'cexio', 'coinbase',
-    'gateio', 'gemini', 'kraken', 'poloniex',
-    'bibox', 'bitmex', 'bybit',
-    'cryptocom', 'hitbtc', 'huobi', 'kucoin', 'lbank',
-    'liquid', 'okex', 'therocktrading', 'zbcom',
-    'bithumb', 'upbit', 'mexc', 'bullish', 'deribit']
+# exchanges_func_input = [
+#     'binance', 'binanceus', 'bitbank', 'bitfinex', 'bitstamp', 'cexio',
+#     'coinbase', 'gateio', 'gemini', 'kraken', 'poloniex', 'bibox', 'bitmex',
+#     'bybit', 'cryptocom', 'hitbtc', 'huobi', 'kucoin', 'lbank', 'liquid',
+#     'okex', 'therocktrading', 'zbcom', 'bithumb', 'upbit', 'mexc', 'bullish',
+#     'deribit']
+exchanges_func_input = ['gateio']
 ccy_pairs = [
-    'AAVE:USD', 'ADA:EUR', 'ADA:JPY', 'ADA:USDT', 'AVAX:EUR', 'AVAX:USD',
-    'AVAX:USDT', 'BAT:JPY', 'BAT:USD', 'BAT:USDT', 'BCH:BTC', 'BCH:EUR',
-    'BCH:JPY', 'BCH:USD', 'BCH:USDT', 'BNB:JPY', 'BTC:EUR', 'BTC:JPY',
-    'BTC:USD', 'BTC:USDT', 'DAI:JPY', 'DASH:USD', 'DOGE:EUR', 'DOGE:JPY',
-    'DOGE:USD', 'DOGE:USDT', 'DOT:JPY', 'DOT:USD', 'DOT:USDT', 'ETH:EUR',
-    'ETH:JPY', 'ETH:USD', 'ETH:USDT', 'GUSD:GBP', 'LINK:EUR', 'LINK:JPY',
-    'LINK:USD', 'LINK:USDC', 'LINK:USDT', 'LTC:EUR', 'LTC:JPY', 'LTC:USD',
-    'MONA:JPY', 'NEAR:USDT', 'PEPE:EUR', 'PEPE:USD', 'POL:JPY', 'SHIB:EUR',
-    'SHIB:USD', 'SHIB:USDT', 'SOL:EUR', 'SOL:JPY', 'SOL:USD', 'SOL:USDC',
-    'SOL:USDT', 'TRX:JPY', 'UNI:USD', 'USDC:EUR', 'USDT:EUR', 'USDT:USD',
-    'XLM:JPY', 'XLM:USDT', 'XRP:EUR', 'XRP:JPY', 'XRP:USD', 'XRP:USDC',
-    'XRP:USDT']
+    'AAVE:USD', 'ADA:EUR', 'ADA:JPY', 'ADA:USDT', 'AVAX:EUR',
+    'AVAX:USD', 'AVAX:USDT', 'BAT:JPY', 'BAT:USD', 'BAT:USDT',
+    'BCH:BTC', 'BCH:EUR', 'BCH:JPY', 'BCH:USD', 'BCH:USDT', 'BNB:JPY',
+    'BTC:EUR', 'BTC:JPY', 'BTC:USD', 'BTC:USDT', 'DAI:JPY', 'DASH:USD',
+    'DOGE:EUR', 'DOGE:JPY', 'DOGE:USD', 'DOGE:USDT', 'DOT:JPY',
+    'DOT:USD', 'DOT:USDT', 'ETH:EUR', 'ETH:JPY', 'ETH:USD', 'ETH:USDT',
+    'GUSD:GBP', 'LINK:EUR', 'LINK:JPY', 'LINK:USD', 'LINK:USDC',
+    'LINK:USDT', 'LTC:EUR', 'LTC:JPY', 'LTC:USD', 'MONA:JPY',
+    'NEAR:USDT', 'PEPE:EUR', 'PEPE:USD', 'POL:JPY', 'SHIB:EUR',
+    'SHIB:USD', 'SHIB:USDT', 'SOL:EUR', 'SOL:JPY', 'SOL:USD',
+    'SOL:USDC', 'SOL:USDT', 'TRX:JPY', 'UNI:USD', 'USDC:EUR',
+    'USDT:EUR', 'USDT:USD', 'XLM:JPY', 'XLM:USDT', 'XRP:EUR',
+    'XRP:JPY', 'XRP:USD', 'XRP:USDC', 'XRP:USDT']
 print(Path.cwd())
 
 """
