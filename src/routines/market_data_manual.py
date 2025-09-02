@@ -10,7 +10,7 @@ print(Path.cwd())
 client = CoinMetricsClient('zzHnUvjMgthSKDZuZOUb')
 granul = '1m'
 
-val_dates = ['2024-09-30']
+val_dates = ['2025-03-31']
 market_type = 'spot'
 
 assets_df = client.reference_data_assets().to_dataframe()
@@ -29,15 +29,15 @@ fiat_currency_df = pd.DataFrame(fiat_currency_list,
 
 crypto_currency_df = pd.DataFrame(
     {
-        'ltc', 'sol', 'doge'
+        'crv','ldo','mkr','pendle','prime','rpl'
     },
     columns=['base'])
 
 lookback_period = 10
-crypto_only = False
+crypto_only = True
 # set to True if conv market data already extracted and there is no need for
 # further data
-skip_conv = True
+skip_conv = False
 """
 Full coverage for all fiat
 """
@@ -53,11 +53,6 @@ for val_date in val_dates:
         crypto_only=crypto_only,
         client=client,
         lookback_period=lookback_period)
-    export_scope_manual(
-        fiat_crypto_markets=markets,
-        output_path=output_path,
-        crypto_only=crypto_only
-    )
     get_market_data_manual(
         client_key=client,
         output_path=output_path,
