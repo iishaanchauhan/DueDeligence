@@ -39,12 +39,14 @@ crypto_only = True
 # further data
 skip_conv = False
 """
-Full coverage for all fiat
+Data extraction
 """
 for val_date in val_dates:
     output_path = (
             Path(__file__).parents[2] /
             'output' / 'iCAVEMarketData' / val_date)
+    if not output_path.exists():
+        output_path.mkdir(parents=True, exist_ok=True)
     markets = scope_check_manual(
         val_date=val_date,
         exchange_df=exchanges,
@@ -53,6 +55,7 @@ for val_date in val_dates:
         crypto_only=crypto_only,
         client=client,
         lookback_period=lookback_period)
+    print(f'{markets.shape[0]} markets to extract data')
     get_market_data_manual(
         client_key=client,
         output_path=output_path,

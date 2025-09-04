@@ -486,8 +486,7 @@ def scope_check_icave(
     print(crypto_default_output.shape[0])
     print(
         'number of markets in default coverage: '
-        f'{default_markets
-        .loc[default_markets["_merge"] == "both"].shape[0]}')
+        f'{default_markets.loc[default_markets["_merge"] == "both"].shape[0]}')
     return [fiat_markets, crypto_markets, default_markets]
 
 
@@ -623,8 +622,7 @@ def export_scope_icave(
     print(f'market availability check done for {val_date}')
     print(f'number of fiat markets:{fiat_markets.shape[0]}')
     print(f'number of default fiat markets:'
-          f'{default_markets.loc[default_markets["_merge"] == "both"]
-          .shape[0]}')
+          f'{default_markets.loc[default_markets["_merge"] == "both"].shape[0]}')
     print(f'number of crypto markets: {crypto_markets.shape[0]}')
     crypto_market_coverage = crypto_markets.drop_duplicates(
         subset='full_name')

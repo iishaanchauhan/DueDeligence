@@ -69,24 +69,22 @@ def scope_check_trades(
 ## Constants
 
 client = CoinMetricsClient('zzHnUvjMgthSKDZuZOUb')
-assets = ['ada', 'avax', 'btc', 'eth', 'xrp', 'usdt', 'usdc', 'bnb', 'busd',
-          'sol', 'doge', 'crv', '1inch', 'mona',
-          'enj', 'bch', 'uni', 'ltc']
+assets = ['bch']
+ref_date = '2025-06-30'
+quote_ccys = ['usd']
+market_type = 'spot'
 assets_df = client.reference_data_assets(assets=assets).to_dataframe()[
     ['asset', 'full_name']]
 exchanges_df = client.reference_data_exchanges().to_dataframe()
 exchanges_df = exchanges_df[
-    ~exchanges_df['exchange'].isin(['bitmex', 'deribit'])]
+    exchanges_df['exchange'].isin(['bitmex', 'deribit'])]
 # exchanges = exchanges_df['exchange'].to_list()
-exchanges = ['bittrex']
-val_time_start = '2023-07-31T23:00:00'
-val_time_end = '2023-08-01T00:00:00'
+exchanges = ['gemini']
+val_time_start = '2025-06-30T23:00:00'
+val_time_end = '2025-07-01T00:00:00'
 # val_time_start = (pd.Timestamp.now() - pd.Timedelta('3 hour')).isoformat(timespec='seconds')
 # val_time_end = (pd.Timestamp.now() - pd.Timedelta('2 hour')).isoformat(timespec='seconds')
-ref_date = '2023-07-31'
-quote_ccys = ['usd', 'eur', 'jpy', 'usdt', 'krw']
-market_type = 'spot'
-trade_cnt_limit = 1
+
 ## Execution
 
 #  intermediate variables
@@ -129,10 +127,9 @@ for chunk in np.array_split(markets.index, markets.shape[0] // 3 + 1):
         trades_df = client.get_market_trades(
             markets=markets.loc[chunk, 'market'].to_list(),
             end_time=val_time_end,
-            # start_time=val_time_start,
+            start_time=val_time_start,
             start_inclusive=True,
             end_inclusive=True,
-            limit_per_market=trade_cnt_limit,
             paging_from='end').to_dataframe()
         print(trades_df.loc[trades_df.index[:5], 'time'])
         trades_data.append(trades_df)
