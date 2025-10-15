@@ -10,7 +10,7 @@ print(Path.cwd())
 client = CoinMetricsClient('zzHnUvjMgthSKDZuZOUb')
 assets_df = client.reference_data_assets().to_dataframe()
 granul = '1m'
-val_dates = ['2025-03-31']
+val_dates = ['2025-09-30']
 market_type = 'spot'
 exchanges_df = pd.read_csv(
     Path(__file__).parents[1] /

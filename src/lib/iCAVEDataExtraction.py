@@ -97,12 +97,14 @@ def request_data(market, val_date, client_key, granul='1m', lookback_price=0,
     """
     start_minute_vol = (
         (pd.to_datetime(val_date)
-         - pd.offsets.DateOffset(lookback_volume))
+         - pd.offsets.DateOffset(lookback_volume)
+         + pd.offsets.Minute(1))
         .strftime('%Y-%m-%dT%H:%M:%S'))
     start_minute_price = (
         (pd.to_datetime(val_date)
          - pd.offsets.DateOffset(lookback_price)
          - pd.offsets.DateOffset(hours=0)
+         + pd.offsets.Minute(1)
          )
         .strftime('%Y-%m-%dT%H:%M:%S'))
     end_minute_volume = val_date + 'T24:00:00'

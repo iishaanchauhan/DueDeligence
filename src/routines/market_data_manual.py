@@ -1,5 +1,4 @@
 from src.lib.iCAVEDataExtraction import (scope_check_manual,
-                                         export_scope_manual,
                                          get_market_data_manual)
 from coinmetrics.api_client import CoinMetricsClient
 from pathlib import Path
@@ -10,7 +9,7 @@ print(Path.cwd())
 client = CoinMetricsClient('zzHnUvjMgthSKDZuZOUb')
 granul = '1m'
 
-val_dates = ['2025-03-31']
+val_dates = ['2025-07-01']
 market_type = 'spot'
 
 assets_df = client.reference_data_assets().to_dataframe()
@@ -29,12 +28,12 @@ fiat_currency_df = pd.DataFrame(fiat_currency_list,
 
 crypto_currency_df = pd.DataFrame(
     {
-        'crv','ldo','mkr','pendle','prime','rpl'
+        'icp'
     },
     columns=['base'])
 
 lookback_period = 10
-crypto_only = True
+crypto_only = False
 # set to True if conv market data already extracted and there is no need for
 # further data
 skip_conv = False

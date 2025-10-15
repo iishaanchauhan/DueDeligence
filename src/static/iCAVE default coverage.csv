@@ -31,7 +31,7 @@ cro,Cronos,1,,
 ape,ApeCoin,1,,29/06/2023
 qnt,Quant,1,,30/12/2023
 algo,Algorand,1,,30/03/2024
-vet,VeChain,1,,
+vet,VeChain,1,,29/09/2025
 icp,Internet Computer,1,,
 fil,Filecoin,1,,29/06/2025
 near,NEAR Protocol,1,,
@@ -89,19 +89,28 @@ bgb,Bitget Token,1,31/12/2024,
 usde,Ethena USDe,1,31/12/2024,
 pol,POL (ex-MATIC),1,31/12/2024,
 virtual,Virtuals Protocol,1,31/12/2024,30/03/2025
-render,Render,1,31/12/2024,
+render,Render,1,31/12/2024,29/09/2025
 om,MANTRA,1,31/12/2024,29/06/2025
 ena,Ethena,1,31/12/2024,
 aave,Aave,2,31/12/2024,
 algo,Algorand,2,31/12/2024,30/03/2025
 fdusd,First Digital USD,2,31/03/2025,29/06/2025
 tia,Celestia,2,31/03/2025,29/06/2025
-pi,Pi,1,31/03/2025,
+pi,Pi,1,31/03/2025,29/09/2025
 ondo,Ondo,1,31/03/2025,
-trump,OFFICIAL TRUMP,1,31/03/2025,
-gt,GateToken,1,31/03/2025,
-sky,Skycoin,1,30/06/2025,
-kas,Kaspa,2,30/06/2025,
-fet,Fetch.ai,2,30/06/2025,
-sei,Sei,1,30/06/2025,
+trump,OFFICIAL TRUMP,1,31/03/2025,29/09/2025
+gt,GateToken,1,31/03/2025,29/09/2025
+sky,Skycoin,1,30/06/2025,29/09/2025
+kas,Kaspa,2,30/06/2025,29/09/2025
+fet,Fetch.ai,2,30/06/2025,29/09/2025
+sei,Sei,1,30/06/2025,29/09/2025
 arb,Arbitrum,2,30/06/2025,
+usd1,USD1,1,30/09/2025,
+myx,MYX Finance,1,30/09/2025,
+aster,Aster,1,30/09/2025,
+wld,Worldcoin,1,30/09/2025,
+xpl,Plasma,1,30/09/2025,
+m,MemeCore,1,30/09/2025,
+pyusd,PayPal USD,1,30/09/2025,
+ip,Story,1,30/09/2025,
+wlfi,World Liberty Financial,1,30/09/2025,
