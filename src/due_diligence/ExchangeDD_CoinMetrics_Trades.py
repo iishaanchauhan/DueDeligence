@@ -69,19 +69,20 @@ def scope_check_trades(
 ## Constants
 
 client = CoinMetricsClient('zzHnUvjMgthSKDZuZOUb')
-assets = ['bch']
-ref_date = '2025-06-30'
-quote_ccys = ['usd']
+assets = ['SOL','ETH','BNB','BTC','USDC'
+]
+ref_date = '2026-08-19'
+quote_ccys = ['usdt']
 market_type = 'spot'
 assets_df = client.reference_data_assets(assets=assets).to_dataframe()[
     ['asset', 'full_name']]
 exchanges_df = client.reference_data_exchanges().to_dataframe()
 exchanges_df = exchanges_df[
-    exchanges_df['exchange'].isin(['bitmex', 'deribit'])]
+    exchanges_df['exchange'].isin(['mexc'])]
 # exchanges = exchanges_df['exchange'].to_list()
-exchanges = ['gemini']
-val_time_start = '2025-06-30T23:00:00'
-val_time_end = '2025-07-01T00:00:00'
+exchanges = ['mexc']
+val_time_start = '2026-08-19T06:04:00'
+val_time_end = '2026-08-19T06:10:00'
 # val_time_start = (pd.Timestamp.now() - pd.Timedelta('3 hour')).isoformat(timespec='seconds')
 # val_time_end = (pd.Timestamp.now() - pd.Timedelta('2 hour')).isoformat(timespec='seconds')
 

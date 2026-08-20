@@ -13,7 +13,7 @@ from coinmetrics.api_client import CoinMetricsClient
 client = CoinMetricsClient('zzHnUvjMgthSKDZuZOUb')
 
 
-def pull_trades_cexio(ccy_pair, end_time='2023-08-01T00:00:00',
+def pull_trades_cexio(ccy_pair, end_time='2026-06-30T00:00:00',
                       timeframe='1 hour'):
     """
 
@@ -52,7 +52,7 @@ def pull_trades_cexio(ccy_pair, end_time='2023-08-01T00:00:00',
     return cexio_df
 
 
-def pull_trades_coinbase(ccy_pair, end_time='2023-08-01T00:00:00',
+def pull_trades_coinbase(ccy_pair, end_time='2026-07-01T00:00:00',
                          timeframe='1 hour', client=client):
     """
     function to pull trade history from coimbase
@@ -72,7 +72,7 @@ def pull_trades_coinbase(ccy_pair, end_time='2023-08-01T00:00:00',
         limit_per_market=1,
         end_inclusive=False
     ).to_dataframe()
-    last_trade_id = cm_trades.loc[0, 'coin_metrics_id'] + 1
+    last_trade_id = int(cm_trades.loc[0, 'coin_metrics_id']) + 1
     output_list = []
     while True:
         try:
@@ -98,6 +98,105 @@ def pull_trades_coinbase(ccy_pair, end_time='2023-08-01T00:00:00',
 
     output_df = pd.concat(output_list)
     output_df.insert(0, 'Currencypair', ccy_pair)
+
+    return output_df
+
+def pull_trades_hitbtc(
+        ccy_pair,
+        end_time='2026-07-01T00:00:00',
+        timeframe='1 hour'):
+    """
+    Pull trade history from HitBTC.
+    """
+
+    input_ccy_pair = ccy_pair.replace(':', '')
+
+    input_start_time = (
+        pd.to_datetime(end_time)
+        - pd.Timedelta(timeframe)
+    )
+
+    output_df_list = []
+
+    offset = 0
+
+    while True:
+
+        try:
+
+            url = (
+                f'https://api.hitbtc.com/api/3/public/trades/'
+                f'{input_ccy_pair}'
+                f'?limit=1000'
+                f'&offset={offset}'
+            )
+
+            print(url)
+
+            r = requests.get(
+                url,
+                timeout=10
+            )
+
+            r.raise_for_status()
+
+            trades_json = r.json()
+
+            if len(trades_json) == 0:
+                break
+
+            output_sub_df = pd.DataFrame(
+                trades_json
+            )
+
+            output_sub_df.rename(
+                columns={
+                    'id': 'UID',
+                    'quantity': 'amount',
+                    'timestamp': 'time'
+                },
+                inplace=True
+            )
+
+            output_sub_df['dtime'] = pd.to_datetime(
+                output_sub_df['time']
+            ).dt.tz_localize(None)
+
+            output_df_list.append(
+                output_sub_df
+            )
+
+            oldest_trade_time = (
+                output_sub_df['dtime'].min()
+            )
+
+            if oldest_trade_time <= input_start_time:
+                break
+
+            offset += 1000
+
+            time.sleep(1)
+
+        except Exception as e:
+
+            print(e)
+
+            break
+
+    if len(output_df_list) == 0:
+
+        return pd.DataFrame()
+
+    output_df = pd.concat(
+        output_df_list,
+        ignore_index=True
+    )
+
+    output_df.insert(
+        0,
+        'Currencypair',
+        ccy_pair
+    )
 
     return output_df
 
@@ -177,7 +276,7 @@ def pull_trades_cryptocom(ccy_pair, end_time='2023-08-01T00:00:00',
     return output_df
 
 
-def pull_trades_bitflyer(ccy_pair, end_time='2023-08-01T00:00:00',
+def pull_trades_bitflyer(ccy_pair, end_time='2026-06-30T00:00:00',
                          timeframe='1 hour', client=client):
     """
 
@@ -197,8 +296,9 @@ def pull_trades_bitflyer(ccy_pair, end_time='2023-08-01T00:00:00',
         limit_per_market=1,
         end_inclusive=False
     ).to_dataframe()
-    last_trade_id = last_trade_cm.loc[0, 'coin_metrics_id'] + 1
+    last_trade_id = int(last_trade_cm.loc[0, 'coin_metrics_id']) + 1
     output_df_list = []
+
     while True:
         try:
             url = f'https://api.bitflyer.com/v1/getexecutions?' \
@@ -268,7 +368,7 @@ def pull_trades_bullish(ccy_pair, end_time='2023-08-01T00:00:00',
     return output_df
 
 
-def pull_trades_itbit(ccy_pair, end_time='2023-08-01T00:00:00',
+def pull_trades_itbit(ccy_pair, end_time='2026-06-30T00:00:00',
                       timeframe='1 hour', client=client):
     """
 
@@ -297,7 +397,7 @@ def pull_trades_itbit(ccy_pair, end_time='2023-08-01T00:00:00',
     return output_df
 
 
-def pull_trades_lbank(ccy_pair, end_time='2023-08-01T00:00:00',
+def pull_trades_lbank(ccy_pair, end_time='2026-06-30T00:00:00',
                       timeframe='1 hour', client=client):
     """
 
@@ -350,7 +450,7 @@ def pull_trades_mexc(ccy_pair, end_time='2023-08-01T00:00:00',
     mexc_pull_date_end = pd.to_datetime(end_time).value // 10 ** 6
     mexc_pull_date_start = (pd.to_datetime(end_time) - pd.Timedelta(
         timeframe)).value // 10 ** 6
-    url = (f'https://api.mexc.com/api/v3/aggTrades?symbol={input_ccy_pair}&'
+    url = (f'https://api.mexc.com/api/v3/trades?symbol={input_ccy_pair}&'
            f'startTime={mexc_pull_date_start}&endTime='
            f'{mexc_pull_date_end}&limit=1000')
     try:
@@ -358,10 +458,10 @@ def pull_trades_mexc(ccy_pair, end_time='2023-08-01T00:00:00',
         r = requests.get(url)
         print(r.reason + ", " + str(r.status_code))
         output_df = pd.DataFrame(r.json())
-        output_df.rename(columns={'match_number': 'UID', 'executed_at': 'time'},
-                         inplace=True)
-        output_df['dtime'] = pd.to_datetime(output_df['time'],
-                                            format='mixed').dt.tz_localize(None)
+        # # output_df.rename(columns={'a':  'T': 'time'},
+        #                  inplace=True)
+        output_df['dtime'] = pd.to_datetime(
+            output_df['time'],unit='ms').dt.tz_localize(None)
     except (
             json.JSONDecodeError, ValueError,
             requests.exceptions.HTTPError) as e:
@@ -371,7 +471,7 @@ def pull_trades_mexc(ccy_pair, end_time='2023-08-01T00:00:00',
     return output_df
 
 
-def pull_trades(currencypairs, exchanges, pull_date='2022-08-01T00:00:00',
+def pull_trades(currencypairs, exchanges, pull_date='2026-06-30T00:00:00',
                 timeframe='1 hour', to_csv=True,
                 name_csv='ExchangesData'):
     """
@@ -427,7 +527,7 @@ def pull_trades(currencypairs, exchanges, pull_date='2022-08-01T00:00:00',
             output_path.mkdir()
         output_file = (output_path
                        / f'{name_csv}_{pd.Timestamp.today().strftime("%Y%m%d")}.csv')
-    exchange_df.to_csv(output_file, index=False)
+    exchange_df.to_csv(output_file, index=False,date_format='%Y-%m-%d %H:%M:%S.%f')
     print(f'csv output saved as {output_file}')
 
     return exchange_df
@@ -436,23 +536,19 @@ def pull_trades(currencypairs, exchanges, pull_date='2022-08-01T00:00:00',
 """
 Constants
 """
-exchanges_func_input = ['mexc']
-ccy_pairs = [
-    'AAVE:USD', 'ADA:EUR', 'ADA:JPY', 'ADA:USDT', 'AVAX:EUR', 'AVAX:USD',
-    'AVAX:USDT', 'BAT:JPY', 'BAT:USD', 'BAT:USDT', 'BCH:BTC', 'BCH:EUR',
-    'BCH:JPY', 'BCH:USD', 'BCH:USDT', 'BNB:JPY', 'BTC:EUR', 'BTC:JPY',
-    'BTC:USD', 'BTC:USDT', 'DAI:JPY', 'DASH:USD', 'DOGE:EUR', 'DOGE:JPY',
-    'DOGE:USD', 'DOGE:USDT', 'DOT:JPY', 'DOT:USD', 'DOT:USDT', 'ETH:EUR',
-    'ETH:JPY', 'ETH:USD', 'ETH:USDT', 'GUSD:GBP', 'LINK:EUR', 'LINK:JPY',
-    'LINK:USD', 'LINK:USDC', 'LINK:USDT', 'LTC:EUR', 'LTC:JPY', 'LTC:USD',
-    'MONA:JPY', 'NEAR:USDT', 'PEPE:EUR', 'PEPE:USD', 'POL:JPY', 'SHIB:EUR',
-    'SHIB:USD', 'SHIB:USDT', 'SOL:EUR', 'SOL:JPY', 'SOL:USD', 'SOL:USDC',
-    'SOL:USDT', 'TRX:JPY', 'UNI:USD', 'USDC:EUR', 'USDT:EUR', 'USDT:USD',
-    'XLM:JPY', 'XLM:USDT', 'XRP:EUR', 'XRP:JPY', 'XRP:USD', 'XRP:USDC',
-    'XRP:USDT'
+exchanges_func_input = ['coinbase']
+
+#ccy_pairs = ['BTC:EUR','BTC:JPY','BTC:USD','ETH:EUR','ETH:JPY','ETH:USD','MONA:JPY','XLM:JPY','XRP:JPY','AAVE:USD',
+#             'BCH:USD','LINK:USD','LTC:USD','PAXG:USD','SOL:USD','UNI:USD'
+
+#]
+ccy_pairs = ['AAVE:GBP','AAVE:USD','ADA:EUR','ADA:USDT','ATOM:USD','ATOM:USDT','AVAX:EUR','AVAX:USD',
+             'AVAX:USDT','BCH:EUR','BCH:GBP','BTC:EUR','BTC:GBP','BTC:USDT','CRO:EUR','DOGE:GBP','DOGE:USD',
+             'DOGE:USDT','DOT:USD','ETC:EUR','ETH:EUR','ETH:GBP','ETH:USDT','LINK:EUR','LTC:EUR','LTC:GBP',
+             'MNT:USD','NEAR:USDT','SHIB:EUR','SOL:EUR','SOL:GBP','USDC:GBP','VVV:USD','XLM:EUR'
+
 ]
-ccy_pairs = ['DOGE:EUR', 'ETH:EUR']
-pull_date = '2025-06-30'
+pull_date = '2026-06-30'
 csv_timestamp = (
     pd.Timestamp.utcnow().tz_localize(None)
     .isoformat(timespec="hours")

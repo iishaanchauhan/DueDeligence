@@ -7,7 +7,7 @@ import numpy as np
 
 ## Functions
 def scope_check(
-        client_key, val_date='2022-09-30', exchanges=None, quote_ccys=None,
+        client_key, val_date='2026-06-30', exchanges=None, quote_ccys=None,
         lookback_period=10, granul='1m'):
     """
     Find all markets with available minutia data in CoinMetrics with optional
@@ -73,16 +73,21 @@ def scope_check(
 
 ## Constants
 client = CoinMetricsClient('zzHnUvjMgthSKDZuZOUb')
-assets_df = client.reference_data_assets().to_dataframe()[
+assets_df = client.reference_data_assets(
+    assets=['xrp'
+
+
+            ]).to_dataframe()[
     ['asset', 'full_name']]
 exchanges_df = client.reference_data_exchanges().to_dataframe()
-exchanges_df = exchanges_df[
-    ~exchanges_df['exchange'].isin(['bitmex'])]
+# exchanges_df = exchanges_df[
+#     exchanges_df['exchange'].isin(['gate.io'])]
 
-exchanges = exchanges_df['exchange'].to_list()
-granul = '1h'
-val_date = '2025-06-30'
-quote_ccys = ['usd', 'jpy', 'eur', 'usdt']
+#exchanges = exchanges_df['exchange'].to_list()     # remove  when data required from all exchanges and put # in below line
+exchanges = ['mexc']
+granul = '1m'
+val_date = '2026-08-19'
+quote_ccys = ['usdt']
 market_type = 'spot'
 
 ## Execution

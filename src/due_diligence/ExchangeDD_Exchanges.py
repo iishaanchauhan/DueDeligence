@@ -17,10 +17,10 @@ from gate_api.exceptions import ApiException, GateApiException
 from gate_api import Configuration as GateConf
 from gate_api import SpotApi as GateAPI
 from pybit import unified_trading as bbAPI
-from kucoin.client import Market as KcAPI
+#from kucoin.client import Market as KcAPI
 
 
-def pull_data_kraken(ccy_pair, granul, pull_date='2022-08-01'):
+def pull_data_kraken(ccy_pair, granul, pull_date='2026-06-30'):
     """
     function to pull data from kraken
     :param ccy_pair:
@@ -276,13 +276,13 @@ def pull_data_binanceus(ccy_pair, granul, pull_date):
     return data_binance
 
 
-def pull_data_bittrex(ccy_pair, granul, pull_date='2022-07-01'):
+def pull_data_bittrex(ccy_pair, granul, pull_date='2026-06-30'):
     """
     Request candles from bittrex
     :param ccy_pair: 
     :param granul: 
     :param pull_date: which date should the candles be pulled. 
-        Default to be 2022-08-01. Must be the previous month at the latest. 
+        Default to be 2026-06-30. Must be the previous month at the latest. 
         The API accepts only year or month internally depending on granul.
     :return: 
     """  #
@@ -326,7 +326,7 @@ def pull_data_bittrex(ccy_pair, granul, pull_date='2022-07-01'):
     return bittrex_df
 
 
-def pull_data_bitbank(ccy_pair, granul, pull_date='2022-08-01'):
+def pull_data_bitbank(ccy_pair, granul, pull_date='2026-06-30'):
     """
 
     :param ccy_pair:
@@ -369,7 +369,7 @@ def pull_data_bitbank(ccy_pair, granul, pull_date='2022-08-01'):
     return bitbank_df
 
 
-def pull_data_cexio(ccy_pair, granul, pull_date='2022-08-01'):
+def pull_data_cexio(ccy_pair, granul, pull_date='2026-06-30'):
     """
     Pull data from cex.io using standard REST API.
     :param ccy_pair:
@@ -405,7 +405,7 @@ def pull_data_cexio(ccy_pair, granul, pull_date='2022-08-01'):
     return cexio_df
 
 
-def pull_data_ftx(ccy_pair, granul, pull_date='2022-08-01'):
+def pull_data_ftx(ccy_pair, granul, pull_date='2026-06-30'):
     """
     :param ccy_pair:
     :param granul:
@@ -486,7 +486,7 @@ def pull_data_gateio(ccy_pair, granul=1, pull_date='2022-06-30'):
     return gateio_df
 
 
-def pull_data_gemini(ccy_pair, granul=1, pull_date='2022-08-01'):
+def pull_data_gemini(ccy_pair, granul=1, pull_date='2026-06-30'):
     """
 
     :param ccy_pair:
@@ -525,7 +525,7 @@ def pull_data_gemini(ccy_pair, granul=1, pull_date='2022-08-01'):
     return gemini_df
 
 
-def pull_data_poloniex(ccy_pair, granul=1, pull_date='2022-08-01'):
+def pull_data_poloniex(ccy_pair, granul=1, pull_date='2026-07-31'):
     """
 
     :param ccy_pair:
@@ -578,7 +578,7 @@ def pull_data_poloniex(ccy_pair, granul=1, pull_date='2022-08-01'):
     return poloniex_df
 
 
-def pull_data_bibox(ccy_pair, granul, pull_date='2022-08-01'):
+def pull_data_bibox(ccy_pair, granul, pull_date='2026-06-30'):
     """
 
     :param ccy_pair:
@@ -613,7 +613,7 @@ def pull_data_bibox(ccy_pair, granul, pull_date='2022-08-01'):
     return bibox_df
 
 
-def pull_data_ftxus(ccy_pair, granul, pull_date='2022-08-01'):
+def pull_data_ftxus(ccy_pair, granul, pull_date='2026-06-30'):
     """
     :param ccy_pair:
     :param granul:
@@ -653,7 +653,7 @@ def pull_data_ftxus(ccy_pair, granul, pull_date='2022-08-01'):
     return ftxus_df
 
 
-def pull_data_bitmex(ccy_pair, granul, pull_date='2022-08-01'):
+def pull_data_bitmex(ccy_pair, granul, pull_date='2026-06-30'):
     """
     :param ccy_pair:
     :param granul:
@@ -695,7 +695,7 @@ def pull_data_bitmex(ccy_pair, granul, pull_date='2022-08-01'):
     return bitmex_df
 
 
-def pull_data_bybit(ccy_pair, granul, pull_date='2022-08-01'):
+def pull_data_bybit(ccy_pair, granul, pull_date='2026-06-30'):
     """
     :param ccy_pair:
     :param granul:
@@ -736,7 +736,7 @@ def pull_data_bybit(ccy_pair, granul, pull_date='2022-08-01'):
     return bybit_df
 
 
-def pull_data_cryptocom(ccy_pair, granul, pull_date='2022-08-01'):
+def pull_data_cryptocom(ccy_pair, granul, pull_date='2026-06-30'):
     """
     :param ccy_pair:
     :param granul:
@@ -776,7 +776,7 @@ def pull_data_cryptocom(ccy_pair, granul, pull_date='2022-08-01'):
     return cryptocom_df
 
 
-def pull_data_hitbtc(ccy_pair, granul, pull_date='2022-08-01'):
+def pull_data_hitbtc(ccy_pair, granul, pull_date='2026-06-30'):
     """
     :param ccy_pair:
     :param granul:
@@ -816,7 +816,7 @@ def pull_data_hitbtc(ccy_pair, granul, pull_date='2022-08-01'):
     return hitbtc_df
 
 
-def pull_data_huobi(ccy_pair, granul, pull_date='2022-08-01'):
+def pull_data_huobi(ccy_pair, granul, pull_date='2026-06-30'):
     """
     :param ccy_pair:
     :param granul:
@@ -825,13 +825,13 @@ def pull_data_huobi(ccy_pair, granul, pull_date='2022-08-01'):
     """
     if granul == 1:
         huobi_granul = '60min'
-    elif granul == 1:
+    elif granul == 24:
         huobi_granul = '1day'
     else:
         raise KeyError('invalid granul value, must be either 1 or 24')
     huobi_ccy_pair = ccy_pair.replace(':', '').lower()
     url = (f'https://api.huobi.pro/market/history/kline'
-           f'?period={huobi_granul}&symbol={huobi_ccy_pair}&size=200')
+           f'?period={huobi_granul}&symbol={huobi_ccy_pair}&size=2000')
     print(url)
     try:
         r = requests.get(url, timeout=5)
@@ -853,47 +853,110 @@ def pull_data_huobi(ccy_pair, granul, pull_date='2022-08-01'):
     return huobi_df
 
 
-def pull_data_kucoin(ccy_pair, granul, pull_date='2022-08-01'):
+def pull_data_kucoin(ccy_pair, granul, pull_date='2026-06-30'):
     """
-    :param ccy_pair:
-    :param granul:
-    :param pull_date
-    :return:
+    Pull OHLC data directly from KuCoin REST API.
     """
+
     if granul == 1:
         kucoin_granul = '1hour'
-    elif granul == 1:
+    elif granul == 24:
         kucoin_granul = '1day'
     else:
         raise KeyError('invalid granul value, must be either 1 or 24')
+
     kucoin_ccy_pair = ccy_pair.replace(':', '-')
-    kucoin_pull_date_end = (pd.to_datetime(pull_date) + pd.Timedelta(
-        '1 day')).value // 10 ** 9
-    kucoin_pull_date_start = pd.to_datetime(pull_date).value // 10 ** 9
-    client = KcAPI(url='https://api.kucoin.com')
+
+    kucoin_pull_date_start = int(
+        pd.to_datetime(pull_date).timestamp()
+    )
+
+    kucoin_pull_date_end = int(
+        (pd.to_datetime(pull_date) + pd.Timedelta('1 day')).timestamp()
+    )
+
+    url = "https://api.kucoin.com/api/v1/market/candles"
+
+    params = {
+        "symbol": kucoin_ccy_pair,
+        "type": kucoin_granul,
+        "startAt": kucoin_pull_date_start,
+        "endAt": kucoin_pull_date_end
+    }
+
     try:
+
+        print(url)
+
+        r = requests.get(
+            url,
+            params=params,
+            timeout=10
+        )
+
+        r.raise_for_status()
+
+        data = r.json()["data"]
+
         kucoin_df = pd.DataFrame(
-            client.get_kline(kline_type=kucoin_granul, symbol=kucoin_ccy_pair,
-                             startAt=kucoin_pull_date_start,
-                             endAt=kucoin_pull_date_end),
-            columns=['time', 'open', 'close', 'high', 'low', 'volume',
-                     'basevolume'])
-        kucoin_df.drop(['basevolume'], axis=1, inplace=True)
-        kucoin_df['dtime'] = pd.to_datetime(kucoin_df['time'].astype('int64'),
-                                            unit='s')
-        kucoin_df.set_index('dtime', inplace=True)
-        kucoin_df.sort_index(ascending=True, inplace=True)
-    except (json.JSONDecodeError, ValueError, KeyError, Exception) as e:
+            data,
+            columns=[
+                'time',
+                'open',
+                'close',
+                'high',
+                'low',
+                'volume',
+                'turnover'
+                            ]
+        )
+
+        kucoin_df.drop(
+            columns=['turnover'],
+            inplace=True
+        )
+
+        kucoin_df['dtime'] = pd.to_datetime(
+            kucoin_df['time'].astype('int64'),
+            unit='s'
+        )
+
+        kucoin_df.set_index(
+            'dtime',
+            inplace=True
+        )
+
+        kucoin_df.sort_index(
+            ascending=True,
+            inplace=True
+        )
+
+    except Exception as e:
+
         print(e)
+
         kucoin_df = pd.DataFrame(
-            columns=['time', 'open', 'high', 'low', 'close', 'volume'])
+            columns=[
+                'time',
+                'open',
+                'high',
+                'low',
+                'close',
+                'volume'
+            ]
+        )
+
     finally:
-        kucoin_df.insert(0, 'Currencypair', ccy_pair)
+
+        kucoin_df.insert(
+            0,
+            'Currencypair',
+            ccy_pair
+        )
 
     return kucoin_df
 
-
-def pull_data_lbank(ccy_pair, granul, pull_date='2022-08-01'):
+def pull_data_lbank(ccy_pair, granul, pull_date='2026-06-30'):
     """
     :param ccy_pair:
     :param granul:
@@ -911,7 +974,7 @@ def pull_data_lbank(ccy_pair, granul, pull_date='2022-08-01'):
     # + pd.Timedelta('1 day')).value // 10 ** 9
     lbank_pull_date_start = pd.to_datetime(pull_date).value // 10 ** 9
     url = (f'https://api.lbkex.com/v2/kline.do'
-           f'?symbol={lbank_ccy_pair}&size=200&type={lbank_granul}'
+           f'?symbol={lbank_ccy_pair}&size=2000&type={lbank_granul}'
            f'&time={lbank_pull_date_start}')
     print(url)
     try:
@@ -931,8 +994,231 @@ def pull_data_lbank(ccy_pair, granul, pull_date='2022-08-01'):
 
     return lbank_df
 
+def pull_data_bitget(ccy_pair,
+                     granul,
+                     pull_date='2026-06-30'):
+    """
+    Pull OHLC data from Bitget.
+    """
 
-def pull_data_liquid(ccy_pair, granul, pull_date='2022-08-01'):
+    if granul == 1:
+        interval = '1h'
+
+    elif granul == 24:
+        interval = '1day'
+
+    else:
+        raise KeyError(
+            'invalid granul value, must be either 1 or 24'
+        )
+
+    bitget_symbol = ccy_pair.replace(':', '')
+
+    start_time = int(
+        pd.to_datetime(pull_date).timestamp() * 1000
+    )
+
+    end_time = int(
+        (
+            pd.to_datetime(pull_date)
+            + pd.Timedelta('1 day')
+        ).timestamp() * 1000
+    )
+
+    url = "https://api.bitget.com/api/v2/spot/market/candles"
+
+    params = {
+        "symbol": bitget_symbol,
+        "granularity": interval,
+        "startTime": start_time,
+        "endTime": end_time
+    }
+
+    try:
+
+        r = requests.get(
+            url,
+            params=params,
+            timeout=10
+        )
+
+        r.raise_for_status()
+
+        data = r.json()["data"]
+
+        bitget_df = pd.DataFrame(
+            data,
+            columns=[
+                'time',
+                'open',
+                'high',
+                'low',
+                'close',
+                'volume',
+                'quote_volume',
+                'trade_count'
+            ]
+        )
+
+        bitget_df.drop(
+            columns=[
+                'quote_volume',
+                'trade_count'
+            ],
+            inplace=True,
+            errors='ignore'
+        )
+
+        bitget_df['dtime'] = pd.to_datetime(
+            bitget_df['time'],
+            unit='ms'
+        )
+
+        bitget_df.set_index(
+            'dtime',
+            inplace=True
+        )
+
+        bitget_df.sort_index(
+            ascending=True,
+            inplace=True
+        )
+
+    except Exception as e:
+
+        print(e)
+
+        bitget_df = pd.DataFrame(
+            columns=[
+                'time',
+                'open',
+                'high',
+                'low',
+                'close',
+                'volume'
+            ]
+        )
+
+    finally:
+
+        bitget_df.insert(
+            0,
+            'Currencypair',
+            ccy_pair
+        )
+
+    return bitget_df
+
+def pull_data_hyperliquid(ccy_pair,
+                          granul,
+                          pull_date='2026-06-30'):
+    """
+    Pull OHLC data from Hyperliquid.
+    """
+
+    if granul == 1:
+        interval = "1h"
+    elif granul == 24:
+        interval = "1d"
+    else:
+        raise KeyError(
+            'invalid granul value, must be either 1 or 24'
+        )
+
+    hyper_symbol = ccy_pair.split(':')[0]
+
+    start_time = int(
+        pd.to_datetime(pull_date).timestamp() * 1000
+    )
+
+    end_time = int(
+        (pd.to_datetime(pull_date)
+         + pd.Timedelta('1 day')).timestamp() * 1000
+    )
+
+    url = "https://api.hyperliquid.xyz/info"
+
+    payload = {
+        "type": "candleSnapshot",
+        "req": {
+            "coin": hyper_symbol,
+            "interval": interval,
+            "startTime": start_time,
+            "endTime": end_time
+        }
+    }
+
+    try:
+
+        r = requests.post(
+            url,
+            json=payload,
+            timeout=10
+        )
+
+        r.raise_for_status()
+
+        data = r.json()
+        print(
+            f"{ccy_pair} -> coin sent: {hyper_symbol}"
+        )
+
+        hyper_df = pd.DataFrame(data)
+
+        hyper_df.rename(
+            columns={
+                "t": "time",
+                "o": "open",
+                "h": "high",
+                "l": "low",
+                "c": "close",
+                "v": "volume"
+            },
+            inplace=True
+        )
+
+        hyper_df['dtime'] = pd.to_datetime(
+            hyper_df['time'],
+            unit='ms'
+        )
+
+        hyper_df.set_index(
+            'dtime',
+            inplace=True
+        )
+
+        hyper_df.sort_index(
+            ascending=True,
+            inplace=True
+        )
+
+    except Exception as e:
+
+        print(e)
+
+        hyper_df = pd.DataFrame(
+            columns=[
+                'time',
+                'open',
+                'high',
+                'low',
+                'close',
+                'volume'
+            ]
+        )
+
+    finally:
+
+        hyper_df.insert(
+            0,
+            'Currencypair',
+            ccy_pair
+        )
+
+    return hyper_df
+
+
+def pull_data_liquid(ccy_pair, granul, pull_date='2026-06-30'):
     """
     :param ccy_pair:
     :param granul:
@@ -971,7 +1257,7 @@ def pull_data_liquid(ccy_pair, granul, pull_date='2022-08-01'):
     return liquid_df
 
 
-def pull_data_okex(ccy_pair, granul, pull_date='2022-08-01'):
+def pull_data_okex(ccy_pair, granul, pull_date='2026-07-31'):
     """
     :param ccy_pair:
     :param granul:
@@ -1012,7 +1298,7 @@ def pull_data_okex(ccy_pair, granul, pull_date='2022-08-01'):
     return okex_df
 
 
-def pull_data_therocktrading(ccy_pair, granul, pull_date='2022-08-01'):
+def pull_data_therocktrading(ccy_pair, granul, pull_date='2026-06-30'):
     """
     :param ccy_pair:
     :param granul:
@@ -1056,7 +1342,7 @@ def pull_data_therocktrading(ccy_pair, granul, pull_date='2022-08-01'):
     return therocktrading_df
 
 
-def pull_data_zbcom(ccy_pair, granul, pull_date='2022-08-01'):
+def pull_data_zbcom(ccy_pair, granul, pull_date='2026-06-30'):
     """
     :param ccy_pair:
     :param granul:
@@ -1095,7 +1381,7 @@ def pull_data_zbcom(ccy_pair, granul, pull_date='2022-08-01'):
     return zbcom_df
 
 
-def pull_data_bithumb(ccy_pair, granul, pull_date='2022-08-01'):
+def pull_data_bithumb(ccy_pair, granul, pull_date='2026-06-30'):
     """
     :param ccy_pair:
     :param granul:
@@ -1128,7 +1414,7 @@ def pull_data_bithumb(ccy_pair, granul, pull_date='2022-08-01'):
     return bithumb_df
 
 
-def pull_data_upbit(ccy_pair, granul, pull_date='2022-08-01'):
+def pull_data_upbit(ccy_pair, granul, pull_date='2026-06-30'):
     """
     :param ccy_pair:
     :param granul:
@@ -1171,7 +1457,7 @@ def pull_data_upbit(ccy_pair, granul, pull_date='2022-08-01'):
     return upbit_df
 
 
-def pull_data_mexc(ccy_pair, granul, pull_date='2023-03-31'):
+def pull_data_mexc(ccy_pair, granul, pull_date='2026-06-30'):
     """
     :param ccy_pair:
     :param granul:
@@ -1206,6 +1492,9 @@ def pull_data_mexc(ccy_pair, granul, pull_date='2023-03-31'):
         data_mexc.sort_index(ascending=True, inplace=True)
     except (json.JSONDecodeError, ValueError) as e:
         print(e)
+        print(input_ccy_pair)
+        print(r.text)
+
         data_mexc = pd.DataFrame(
             columns=['time', 'open', 'high', 'low', 'close', 'volume'])
     finally:
@@ -1213,7 +1502,7 @@ def pull_data_mexc(ccy_pair, granul, pull_date='2023-03-31'):
     return data_mexc
 
 
-def pull_data_bullish(ccy_pair, granul, pull_date='2023-03-31'):
+def pull_data_bullish(ccy_pair, granul, pull_date='2026-06-30'):
     bullish_ccy_pair = ccy_pair.replace(':', '')
     if granul == 1:
         bullish_granul = '1h'
@@ -1253,7 +1542,8 @@ def pull_data_bullish(ccy_pair, granul, pull_date='2023-03-31'):
     return data_bullish
 
 
-def pull_data_deribit(ccy_pair, granul, pull_date='2023-03-31'):
+
+def pull_data_deribit(ccy_pair, granul, pull_date='2026-06-30'):
     request_end_time = pd.to_datetime(pull_date) + pd.Timedelta('1 day')
     request_start_time = (request_end_time
                           - pd.Timedelta(199, unit='hours')
@@ -1356,7 +1646,7 @@ def pull_data(currencypairs, granul, exchanges, pull_date, to_csv=True,
 Constants
 """
 granularity = 1  # duration between 2 samples in hours.
-val_date = '2025-06-30'
+val_date = '2026-06-30'
 exchanges = [
     'binance', 'binance.us', 'bitbank', 'bitfinex', 'bitflyer',
     'bitstamp', 'cex.io', 'coinbase',
@@ -1364,28 +1654,28 @@ exchanges = [
     'bibox', 'bitmex', 'bybit',
     'crypto.com', 'hitbtc', 'huobi', 'kucoin', 'lbank', 'liquid',
     'okex', 'therocktrading', 'zb.com',
-    'bithumb', 'upbit', 'mexc', 'bullish', 'deribit']
+     'bithumb', 'upbit', 'mexc','bitget', 'hyperliquid', 'bullish', 'deribit']
 # exchanges_func_input = [
-#     'binance', 'binanceus', 'bitbank', 'bitfinex', 'bitstamp', 'cexio',
-#     'coinbase', 'gateio', 'gemini', 'kraken', 'poloniex', 'bibox', 'bitmex',
-#     'bybit', 'cryptocom', 'hitbtc', 'huobi', 'kucoin', 'lbank', 'liquid',
-#     'okex', 'therocktrading', 'zbcom', 'bithumb', 'upbit', 'mexc', 'bullish',
-#     'deribit']
-exchanges_func_input = ['gateio']
-ccy_pairs = [
-    'AAVE:USD', 'ADA:EUR', 'ADA:JPY', 'ADA:USDT', 'AVAX:EUR',
-    'AVAX:USD', 'AVAX:USDT', 'BAT:JPY', 'BAT:USD', 'BAT:USDT',
-    'BCH:BTC', 'BCH:EUR', 'BCH:JPY', 'BCH:USD', 'BCH:USDT', 'BNB:JPY',
-    'BTC:EUR', 'BTC:JPY', 'BTC:USD', 'BTC:USDT', 'DAI:JPY', 'DASH:USD',
-    'DOGE:EUR', 'DOGE:JPY', 'DOGE:USD', 'DOGE:USDT', 'DOT:JPY',
-    'DOT:USD', 'DOT:USDT', 'ETH:EUR', 'ETH:JPY', 'ETH:USD', 'ETH:USDT',
-    'GUSD:GBP', 'LINK:EUR', 'LINK:JPY', 'LINK:USD', 'LINK:USDC',
-    'LINK:USDT', 'LTC:EUR', 'LTC:JPY', 'LTC:USD', 'MONA:JPY',
-    'NEAR:USDT', 'PEPE:EUR', 'PEPE:USD', 'POL:JPY', 'SHIB:EUR',
-    'SHIB:USD', 'SHIB:USDT', 'SOL:EUR', 'SOL:JPY', 'SOL:USD',
-    'SOL:USDC', 'SOL:USDT', 'TRX:JPY', 'UNI:USD', 'USDC:EUR',
-    'USDT:EUR', 'USDT:USD', 'XLM:JPY', 'XLM:USDT', 'XRP:EUR',
-    'XRP:JPY', 'XRP:USD', 'XRP:USDC', 'XRP:USDT']
+#      'binance', 'binanceus', 'bitbank', 'bitfinex', 'bitstamp', 'cexio',
+#      'coinbase', 'gateio', 'gemini', 'kraken', 'poloniex', 'bibox', 'bitmex',
+#      'bybit', 'cryptocom', 'hitbtc', 'huobi', 'kucoin', 'lbank', 'liquid',
+#      'okex', 'therocktrading', 'zbcom', 'bithumb', 'upbit', 'bitget', 'hyperliquid', 'mexc', 'bullish',
+#      'deribit']
+exchanges_func_input = ['hyperliquid']
+# ccy_pairs = ['AAVE:EUR','AAVE:GBP','AAVE:USD','ADA:EUR','ADA:USDT','APT:EUR','APT:USD','ATOM:EUR','ATOM:GBP',
+#              'ATOM:USD','ATOM:USDT','AVAX:EUR','AVAX:USD','AVAX:USDT','BCH:EUR','BCH:GBP','BCH:JPY','BCH:USD',
+#              'BCH:USDT','BNB:EUR','BNB:USD','BNB:USDT','BTC:EUR','BTC:GBP','BTC:JPY','BTC:USD','BTC:USDT','CRO:EUR',
+#              'CRO:USD','CRO:USDT','DOGE:EUR','DOGE:GBP','DOGE:USD','DOGE:USDT','DOT:JPY','DOT:USD','DOT:USDT','ETC:EUR',
+#              'ETC:USD','ETH:EUR','ETH:GBP','ETH:JPY','ETH:USD','ETH:USDT','HYPE:EUR','HYPE:USD','LINK:EUR','LINK:JPY',
+#              'LINK:USD','LINK:USDT','LTC:EUR','LTC:GBP','LTC:JPY','LTC:USD','LTC:USDT','MNT:EUR','MNT:USD','PAXG:EUR',
+#              'PAXG:USD','SHIB:EUR','SHIB:USD','SHIB:USDT','SOL:EUR','SOL:GBP','SOL:USD','SOL:USDT','SUI:EUR','SUI:GBP',
+#              'SUI:USD','TRX:EUR','TRX:USD','UNI:USD','USDC:EUR','USDC:GBP','USDC:USD','USDC:USDT','USDE:USDT','USDT:EUR',
+#              'USDT:GBP','USDT:JPY','USDT:USD','VVV:EUR','VVV:USD','XLM:EUR','XLM:GBP','XLM:USD','XMR:EUR','XMR:USD',
+#              'XMR:USDT','XRP:EUR','XRP:GBP','XRP:USD','XRP:USDT','ZEC:EUR','ZEC:USD'
+#
+# ]
+ccy_pairs = ['HYPE:EUR']
+
 print(Path.cwd())
 
 """
