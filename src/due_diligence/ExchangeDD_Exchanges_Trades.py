@@ -62,9 +62,16 @@ def pull_trades_coinbase(ccy_pair, end_time='2026-07-01T00:00:00',
     :param client: CoinMetrics client, default to the globally defined one
     :return:
     """
-    input_ccy_pair = ccy_pair.replace(':', '-')
+    # input_ccy_pair = ccy_pair.replace(':', '-')   #Remove comment when price required for other symbol
     input_start_time = pd.to_datetime(end_time) - pd.Timedelta(timeframe)
-    cm_markets = 'coinbase-' + input_ccy_pair.lower() + '-spot'
+    # cm_markets = 'coinbase-' + input_ccy_pair.lower() + '-spot'       ##Remove comment when price required for other symbol
+
+    coinmetrics_mapping = {"MANTLE": "MNT"}               #Dictionary created- just for MANTLE Symbol from here till down comment
+    base, quote = ccy_pair.split(":")
+    cm_base = coinmetrics_mapping.get(base.upper(), base.upper())
+    input_ccy_pair = f"{base}-{quote}"  # Coinbase - added just for Mantle
+    cm_markets = f"coinbase-{cm_base.lower()}-{quote.lower()}-spot"  # CoinMetrics - added just for Mantle
+
     cm_trades = client.get_market_trades(
         cm_markets,
         end_time=pd.to_datetime(end_time),
@@ -542,10 +549,7 @@ exchanges_func_input = ['coinbase']
 #             'BCH:USD','LINK:USD','LTC:USD','PAXG:USD','SOL:USD','UNI:USD'
 
 #]
-ccy_pairs = ['AAVE:GBP','AAVE:USD','ADA:EUR','ADA:USDT','ATOM:USD','ATOM:USDT','AVAX:EUR','AVAX:USD',
-             'AVAX:USDT','BCH:EUR','BCH:GBP','BTC:EUR','BTC:GBP','BTC:USDT','CRO:EUR','DOGE:GBP','DOGE:USD',
-             'DOGE:USDT','DOT:USD','ETC:EUR','ETH:EUR','ETH:GBP','ETH:USDT','LINK:EUR','LTC:EUR','LTC:GBP',
-             'MNT:USD','NEAR:USDT','SHIB:EUR','SOL:EUR','SOL:GBP','USDC:GBP','VVV:USD','XLM:EUR'
+ccy_pairs = ['MANTLE:USD'
 
 ]
 pull_date = '2026-06-30'
